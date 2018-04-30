@@ -1,0 +1,58 @@
+<%= t.include("partials/_head.html") %>
+
+
+<div class="top-container">
+
+  <div class="center-logo">
+    <a href="http://www.sfchronicle.com" target="_blank">
+      <img src="http://projects.sfchronicle.com/shared/logos/sfcg_logo_color.png">
+    </a>
+  </div>
+
+  <div class="election-banner">
+    <img src="./assets/graphics/Election2018banner.png">
+  </div>
+
+  <%= t.include("partials/_social-links.html") %>
+
+  <div class="intro">Live election results: Click on the section headers above to navigate the page or scroll to see all the races.</div>
+
+</div>
+
+<div id="stick-here"></div>
+<div id="stick-me">
+  <div class="sub-title-links">
+    <div class="share-block">
+      <div class="link social email">
+        <a id="mail-icon" title="Share via email" href="mailto:?subject=<%= grunt.data.json.project.title %>&body=<%= grunt.data.json.project.description %>%0A%0Ahttp%3A%2F%2Fprojects.sfchronicle.com%2F2016%2F<%= grunt.data.json.project.slug %>">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="link social">
+        <a id="facebook-icon" title="Share on Facebook" href="#" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fprojects.sfchronicle.com%2F2016%2F<%= grunt.data.json.project.slug %>', 'facebook-share-dialog', 'width=626,height=436'); return false;">
+          <i class="fa fa-facebook"></i>
+        </a>
+      </div>
+      <div class="link social">
+        <a id="twitter-icon" title="Share on Twitter" href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fsfchronicle.com%2Felection%2F&text=<%= grunt.data.json.project.twitter_text %>&hashtags=<%= grunt.data.json.project.hashtag %>">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+    <div id="p" class="sub-title"><a href="#president">President</a></div>
+    <div id="f" class="sub-title"><a href="#federal">Nation</a></div>
+    <div id="s" class="sub-title"><a href="#state">State</a></div>
+    <div id="l" class="sub-title"><a href="#local">SF</a></div>
+    <div id="r" class="sub-title"><a href="#regional">Bay Area</a></div>
+  </div>
+</div>
+<div id="stick-ph"></div>
+
+
+
+
+
+
+
+  <script src="app.js" async></script>
+<%= t.include("partials/_footer.html") %>
