@@ -1,0 +1,75 @@
+<h2 class="propositions" id="propctrl"><i class="fa fa-caret-down" id="caret" aria-hidden="true"></i>  Propositions:</h2>
+
+<div id="propsec">
+  <div class="key">Key:
+    <span class="symbol"><i class='fa fa-check-circle-o' aria-hidden='true'></i>Approved</span> |
+    <span class="symbol"><i class='fa fa-times-circle-o' aria-hidden='true'></i>Rejected</span>
+  </div>
+
+  <input type="text" placeholder="&#xf002;  Search by proposition number or keyword" id="propositions-search" style="font-family:AntennaExtraLight, FontAwesome">
+
+  <div id="no-results-state">Search by proposition number or keyword</div>
+
+  <div class="propositions-list">
+    <% csv.StatePropositionsData.forEach(function(prop,idx){ %>
+
+      <% if (idx == 13) { %>
+        <div class='prop-group active prop<%=prop.number%> prop.<%=prop.number%> proposition<%=prop.number%> <%=prop.number%> <%=prop.title.replace(/ /g,'').replace("-","")%> pot'>
+      <% } else { %>
+        <div class='prop-group active prop<%=prop.number%> prop.<%=prop.number%> proposition<%=prop.number%> <%=prop.number%> <%=prop.title.replace(/ /g,'').replace("-","")%>'>
+      <% } %>
+        <div class='prop-icon'>
+          <img src='./assets/graphics/stateprops/prop<%=prop.number%>.png'></img>
+          <div class='prop-name'>Prop. <%=prop.number%></div>
+        </div>
+        <div class='prop-name'><%=prop.title%></div>
+        <div id="prop<%=prop.number%>" class='result'></div>
+        <div class='prop-desc'><%=prop.description%></div>
+        <% if (idx == 5) { %>
+          <div><span id="cigaretteStoryLink"></span></div>
+        <% } else if (idx == 11) { %>
+          <div><span id="deathStoryLink"></span></div>
+        <% } else if (idx == 12) { %>
+          <div><span id="gunsStoryLink"></span></div>
+        <% } else if (idx == 13) { %>
+          <div><span id="potStoryLink"></span></div>
+        <% } else if (idx == 15) { %>
+          <div><span id="deathStoryLink2"></span></div>
+        <% } else { %>
+          <div><span class="propStoryLink"></span></div>
+        <% } %>
+      </div>
+
+    <% }); %>
+  </div>
+</div>
+
+<div class="hed padded padding">How California's counties voted</div>
+<div class="chatter padding nobottompadding">See which counties are voting for and against each proposition.</div>
+
+<div class="legend-container ca-legend-props active" id="ca-prop-legend">
+  <div class="element"><div class="yes-swath"><div class="legend-text">Yes vote</div></div></div>
+  <div class="element"><div class="no-swath right"><div class="legend-text">No vote</div></div></div>
+  <div class="element"><div class="noresults-swath"><div class="legend-text">No results</div></div></div>
+</div>
+
+<div class="flex-container padding" style="min-width: 315px;">
+  <div class="button-container vertical" id="ca-map-buttons-props">
+    <% csv.StatePropositionsData.forEach(function(prop,idx){ %>
+      <% if (idx == 0) { %>
+          <div class="button camap prop camapprop active prop<%=prop.number%>" id="button<%=prop.number%>"><div class='bold-button-number'>Prop. <%=prop.number%></div><div class='button-title'><%=prop.title%></div></div>
+      <% } else { %>
+          <div class="button camap prop camapprop prop<%=prop.number%>" id="button<%=prop.number%>"><div class='bold-button-number'>Prop. <%=prop.number%></div><div class='button-title'><%=prop.title%></div></div>
+      <% } %>
+    <% }); %>
+  </div>
+  <div class="drop-down">
+    <div class="select-text">Select race from the menu:</div>
+    <select name="select" id="select-race">
+      <% csv.StatePropositionsData.forEach(function(prop,idx){ %>
+        <option value='<%=prop.number%>' class="option"><%=prop.title%> (Prop. <%=prop.number%>)</option>
+      <% }); %>
+    </select>
+  </div>
+  <div id="map-container-state-props"></div>
+</div>
