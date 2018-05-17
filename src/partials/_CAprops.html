@@ -35,18 +35,18 @@
 <div class="chatter padding nobottompadding">See which counties are voting for and against each proposition.</div>
 
 <div class="legend-container ca-legend-props active" id="ca-prop-legend">
-  <div class="element"><div class="yes-swath"><div class="legend-text">Yes vote</div></div></div>
-  <div class="element"><div class="no-swath right"><div class="legend-text">No vote</div></div></div>
-  <div class="element"><div class="noresults-swath"><div class="legend-text">No results</div></div></div>
+  <div class="element"><div class="swath yes-swath"></div><div class="legend-text">Yes vote</div></div>
+  <div class="element"><div class="swath no-swath"></div><div class="legend-text">No vote</div></div>
+  <div class="element"><div class="swath noresults-swath"></div><div class="legend-text">No results</div></div>
 </div>
 
 <div class="flex-container padding" style="min-width: 315px;">
   <div class="button-container vertical" id="ca-map-buttons-props">
     <% json.State.forEach(function(prop,idx){ %>
       <% if (idx == 0) { %>
-          <div class="button camap prop camapprop active prop<%=prop.number%>" id="button<%=prop.number%>"><div class='bold-button-number'>Prop. <%=prop.number%></div><div class='button-title'><%=prop.title%></div></div>
+          <div class="button camap prop camapprop active prop<%=prop.number%>" id="button<%=prop.number%>"><div class='bold-button-number'>Prop. <%=prop.id%></div><div class='button-title'><%=prop.title%></div></div>
       <% } else { %>
-          <div class="button camap prop camapprop prop<%=prop.number%>" id="button<%=prop.number%>"><div class='bold-button-number'>Prop. <%=prop.number%></div><div class='button-title'><%=prop.title%></div></div>
+          <div class="button camap prop camapprop prop<%=prop.number%>" id="button<%=prop.number%>"><div class='bold-button-number'>Prop. <%=prop.id%></div><div class='button-title'><%=prop.title%></div></div>
       <% } %>
     <% }); %>
   </div>

@@ -2,10 +2,39 @@
 // STATE MAP PROPOSITIONS ------------------------------------------------------
 // -----------------------------------------------------------------------------
 
+var d3 = require('d3');
+var topojson = require('topojson');
+
+var formatthousands = d3.format("0,000");
+var timer5minutes = 300000;
+var yes_map = '#61988E';
+var no_map = '#EB8F6A';
+var undecided_map = "#8C8C8C";
+
+var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+
+// function for coloring map
+function code_map_variable(tempvar,properties){
+  if (tempvar.r) {
+    if (+tempvar.r["Yes"] > +tempvar.r["No"]) {
+      return yes_map;
+    } else if (+tempvar.r["Yes"] < +tempvar.r["No"]){
+      return no_map;
+    } else {
+      return undecided_map;
+    }
+  }
+}
+
+// tooltip
+var tooltip_function = require("./tooltip.js");
+console.log(tooltip_function.tooltipGenerator);
+// tooltip_function = tooltip_lib(abbrev,races,properties);
+
 module.exports = {
 
-  CAPropsLib: function(){
-    console.log("test");
+  CAPropsMap: function(propsCAURL){
 
     d3.json(propsCAURL, function(propsCA){
 
@@ -74,7 +103,7 @@ module.exports = {
           })
           .attr("d", path)
           .on('mouseover', function(d,index) {
-            var html_str = tooltip_function(d.id,active_data,d.properties);
+            var html_str = tooltip_function.tooltipGenerator(d.id,active_data,d.properties);
             prop_tooltip.html(html_str);
             if (!iOS){
               prop_tooltip.style("visibility", "visible");

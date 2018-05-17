@@ -24,18 +24,13 @@ var formatthousands = d3.format("0,000");
 var propsCAURL = "http://extras.sfgate.com/editorial/election2016/live/props_county_ca.json";
 var localDataURL = "http://extras.sfgate.com/editorial/election2018primary/live/localresults.json";
 
-// this is a test function, pay no attention
-// var testVar = require("./test.js");
-// console.log(testVar.myFunc());
-
-// this is a more complicated thing than the boxes, also pay no attention
-// var catimer_props;
-// var ca_props_lib = require("./CAprops.js");
-// ca_props_lib.CAPropsLib;
-
 // CA propositions
 var ca_props_lib_boxes = require("./CAprops_boxes.js");
 ca_props_lib_boxes.CAPropsBoxes(propsCAURL);
+
+// CA propositions map
+var ca_props_lib_map = require("./CAprops_map.js");
+ca_props_lib_map.CAPropsMap(propsCAURL);
 
 // SF measures
 var sf_measures_lib_boxes = require("./SFmeasures_boxes.js");

@@ -238,3 +238,153 @@ body {
     }
   }
 }
+
+.tooltip {
+  font-size: 14px;
+  z-index: 50;
+  font-family: @med-graphics;
+  padding: 10px;
+  border-radius: 3px;
+  background: lighten(@light-gray,20%);
+  border: 1px @dark-gray solid;
+  min-width: 140px;
+  .fa-check-circle-o {
+    color: green;
+    margin-right: 5px;
+  }
+  .no-class {
+    padding-left: 5px;
+  }
+  .result-map {
+    font-family: @logo2;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.4;
+    // padding-top: 3px;
+  }
+  // .precincts-info {
+  //   font-style: italic;
+  // }
+  .state-name {
+    font-family: @block-graphics;
+    margin-bottom: 2px;
+    border-bottom: 1px solid @light-gray;
+  }
+  @media @tablet {
+    font-size: 12px;
+  }
+  @media @mobile {
+    line-height: 20px;
+  }
+}
+
+.close-tooltip {
+  display: none;
+  @media @mobile {
+    z-index: 100;
+    display: block;
+    float: right;
+    font-size: 16px;
+    padding: 2px;
+    margin-top: -5px;
+    padding-left: 10px;
+  }
+}
+
+.flex-container {
+  .display-flex();
+  .align-items(center);
+  @media @phone-horiz {
+    clear: both;
+    display: block;
+  }
+}
+
+#map-container-state-props {
+  .flex(0 0 45%);
+  @media @phone-horiz {
+    max-width: 300px;
+    margin: auto;
+    margin-bottom: 17%;
+  }
+  @media @mobile {
+    margin-bottom: 30%;
+  }
+}
+
+.button-container {
+  text-align: center;
+  margin: 5px auto;
+  margin-bottom: 10px;
+  &.vertical {
+    .flex(0 0 45%);
+    @media @tablet {
+      .flex(0 0 45%);
+    }
+    @media @phone-horiz {
+      display: none;
+    }
+  }
+  .button {
+    width: 200px;
+    font-family: @block-graphics;
+    font-size: 16px;
+    display: inline-block;
+    border-radius: 3px;
+    padding: 1px;
+    cursor: pointer;
+    .bold-button-number {
+      font-family: @bold-graphics;
+      font-size: 14px;
+    }
+    @media @mobile {
+      font-size: 14px;
+      width: 49%;
+    }
+  }
+  .camap {
+    // width: 49%;
+    width: 250px;
+    font-size: 14px;
+    @media @tablet-horiz {
+      font-size: 11px;
+    }
+    margin: 0;
+    padding: 2px;
+    margin: 4px auto;
+    // height: 50px;
+    vertical-align: middle;
+  }
+  .prop {
+    color: @dark-red;
+    border: 1px solid @dark-red;
+    &:hover {
+      color: white;
+      background: @dark-red;
+    }
+    &.active {
+      color: white;
+      background: @dark-red;
+    }
+  }
+}
+
+.drop-down {
+  display: none;
+  @media @phone-horiz {
+    display: block;
+    text-align: center;
+    .select-text {
+      font-family: @block-graphics;
+      font-size: 15px;
+    }
+    select {
+      font-family: @block-graphics;
+      font-size: 14px;
+      background: lighten(@light-gray,5%);
+      width: 90%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+  }
+}
