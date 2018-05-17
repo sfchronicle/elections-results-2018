@@ -1,0 +1,32 @@
+<h2 class="propositions" id="propctrl">S.F. Measures:</h2>
+
+<div id="sfmeasuresec">
+  <div class="key">Key:
+    <span class="symbol"><i class='fa fa-check-circle-o' aria-hidden='true'></i>Approved</span> |
+    <span class="symbol"><i class='fa fa-times-circle-o' aria-hidden='true'></i>Rejected</span>
+  </div>
+
+  <!-- <input type="text" placeholder="&#xf002;  Search by proposition number or keyword" id="propositions-search" style="font-family:AntennaExtraLight, FontAwesome"> -->
+
+  <!-- <div id="no-results-state">Search by proposition number or keyword</div> -->
+
+  <div class="propositions-list">
+    <% json.SF.forEach(function(prop,idx){ %>
+
+      <div class='prop-group active prop<%=prop.number%> prop.<%=prop.id%> proposition<%=prop.id%> <%=prop.number%> <%=prop.title.replace(/ /g,'').replace("-","")%>'>
+        <div class="prop-inner-flexy">
+          <div class='prop-icon'>
+            <img src='./assets/graphics/prop<%=prop.id%>.png'></img>
+          </div>
+          <div class="prop-info">
+            <div class='prop-name'>Prop. <%=prop.id%></div>
+            <div class='prop-subname'><%=prop.title%></div>
+            <div id="prop<%=prop.id%>" class='result'></div>
+            <!-- <div class='prop-desc'><%=prop.description%></div> -->
+          </div>
+        </div>
+      </div>
+
+    <% }); %>
+  </div>
+</div>

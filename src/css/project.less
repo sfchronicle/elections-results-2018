@@ -170,10 +170,16 @@ body {
 .result {
   padding: 10px 0;
   .propyes, .propno {
-    font-family: @block-graphics;
+    font-family: @logo;
   }
   .propno {
     padding-left: 10px;
+  }
+  .yesresult {
+    border-bottom: 2px solid @green2;
+  }
+  &.noresult {
+    border-bottom: 2px solid @red;
   }
   .prop-precincts {
     font-size: 12px;
@@ -202,7 +208,7 @@ body {
       .align-items(center);
     }
     .prop-icon {
-      .flex(0 0 33%);
+      .flex(0 0 30%);
       display: inline-block;
       padding: 2px;
       img {
@@ -211,11 +217,17 @@ body {
     }
     .prop-info {
       display: inline-block;
-      .flex(0 0 67%);
+      .flex(0 0 70%);
       padding-left: 10px;
       line-height: 1.2;
       .prop-name {
         font-family: @block-graphics;
+      }
+      .prop-subname {
+        font-size: 16px;
+        border-bottom: 1px solid @light-gray;
+        padding-bottom: 5px;
+        display: inline-block;
       }
       .prop-desc {
         padding-top: 5px;
