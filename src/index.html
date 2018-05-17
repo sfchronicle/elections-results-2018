@@ -1,4 +1,5 @@
 <%= t.include("partials/_head.html") %>
+<link href="//fonts.googleapis.com/css?family=Fjalla+One|Pathway+Gothic+One" rel="stylesheet"></link>
 
 
 <div class="top-container">
@@ -15,7 +16,7 @@
 
   <%= t.include("partials/_social-links.html") %>
 
-  <div class="intro">Live election results: Click on the section headers above to navigate the page or scroll to see all the races.</div>
+  <!-- <div class="intro">Live election results: Click on the section headers above to navigate the page or scroll to see all the races.</div> -->
 
 </div>
 
@@ -42,11 +43,25 @@
     <div id="stateSection" class="sub-title"><a href="#state">State</a></div>
     <div id="sfSection" class="sub-title"><a href="#sf">SF</a></div>
     <div id="bayareaSection" class="sub-title"><a href="#bayarea">Bay Area</a></div>
+
+    <div class="sub-sub-title-container">
+      <div class="sub-sub-title"><a href="#alameda">Alameda</a></div>
+      <div class="sub-sub-title"><a href="#contracosta">Contra Costa</a></div>
+      <div class="sub-sub-title"><a href="#marin">Marin</a></div>
+      <div class="sub-sub-title"><a href="#napa">Napa</a></div>
+      <div class="sub-sub-title"><a href="#sanmateo">San Mateo</a></div>
+      <div class="sub-sub-title"><a href="#santaclara">Santa Clara</a></div>
+      <div class="sub-sub-title"><a href="#solano">Solano</a></div>
+      <div class="sub-sub-title"><a href="#sonoma">Sonoma</a></div>
+    </div>
+
   </div>
 </div>
 <div id="stick-ph"></div>
 
-<%= t.include("partials/_CAprops.html") %>
+<div class="props-container">
+  <%= t.include("partials/_CAprops.html") %>
+</div>
 
 
 
