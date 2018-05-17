@@ -5,9 +5,6 @@
   margin: auto;
   text-align: center;
   margin-bottom: 10px;
-  .display-flex;
-  .flex-wrap(wrap);
-  justify-content: center;
   .swath, .legend-text {
     display: inline-block;
   }
@@ -15,35 +12,9 @@
     margin: 15px auto;
     margin-top: 0;
   }
-  &.ca-legend {
-    @media @mobile {
-      padding-left: 10px;
-      justify-content: flex-start;
-    }
-  }
-  &.ca-legend-props {
-    .element {
-      @media @mobile {
-        .flex(0 0 30%);
-        .legend-text {
-          width: 100px;
-        }
-      }
-    }
-  }
   .element {
-    // width: 16%;
-    .flex(0 0 16%);
-    @media @mobile {
-      .flex(0 0 48%);
-    }
-
-    &.long {
-      @media @mobile {
-        .flex(0 0 50%);
-      }
-    }
-    // width: 16%;
+    display: inline-block;
+    padding: 0 4px;
   }
   .rep-swath, .dem-swath, .dem2-swath, .other-swath, .tied-swath, .called-swath, .no-swath, .yes-swath, .uncalled-swath, .no-race-swath, .stein-swath, .johnson-swath, .noresults-swath  {
     height: 14px;
@@ -74,21 +45,7 @@
   .no-race-swath {background: @light-gray-map;}
   .legend-text {
     text-align: left;
-    // width: 150px;
-    // width: 150px;
     padding-left: 5px;
     vertical-align: top;
-  }
-
-  @media @mobile{
-  padding-left:0;
-  }
-}
-
-.ca-legend {
-  display: none;
-  &.active {
-    .display-flex;
-    .flex-wrap(wrap);
   }
 }

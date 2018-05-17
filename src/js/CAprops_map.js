@@ -29,8 +29,6 @@ function code_map_variable(tempvar,properties){
 
 // tooltip
 var tooltip_function = require("./tooltip.js");
-console.log(tooltip_function.tooltipGenerator);
-// tooltip_function = tooltip_lib(abbrev,races,properties);
 
 module.exports = {
 
@@ -38,11 +36,15 @@ module.exports = {
 
     d3.json(propsCAURL, function(propsCA){
 
+      console.log(propsCA);
+
       var select_race = document.getElementById("select-race");
       select_race.addEventListener("change",function(){
         d3.selectAll(".camap").classed("active",false);
         this.classList.add("active");
-        var active_data = propsCA[select_race.value];
+        // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
+        var active_data = propsCA[select_race.value-5]; // -5 is a hack!!
+        // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
         camap_function("./assets/maps/ca_county_new.json",active_data.counties);
       });
 
@@ -55,14 +57,15 @@ module.exports = {
         group.addEventListener("click", function(e) {
           d3.selectAll(".camap").classed("active",false);
           this.classList.add("active");
-          var active_data = propsCA[51+index];
+          // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
+          var active_data = propsCA[51+index-5]; // -5 is a hack
+          // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
           camap_function("./assets/maps/ca_county_new.json",active_data.counties);
           clearTimeout(catimer_props);
           catimer_props = setInterval(function() {
             camap_function("./assets/maps/ca_county_new.json",active_data.counties);
             console.log("refresh ca map");
           }, timer5minutes);
-          // camap("./assets/maps/ca_county_new.json",active_data.counties);
         });
       });
 
@@ -138,13 +141,14 @@ module.exports = {
         .style("visibility", "hidden")
       };
 
+      // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
       var active_data = propsCA[51];
+      // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
       camap_function("./assets/maps/ca_county_new.json",active_data.counties);
       catimer_props = setInterval(function() {
         camap_function("./assets/maps/ca_county_new.json",active_data.counties);
         console.log("refresh ca map");
       }, timer5minutes);
-      // camap("./assets/maps/ca_county_new.json",active_data.counties);
 
     });
 
