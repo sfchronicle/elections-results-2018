@@ -43,6 +43,33 @@ var regional_lib = require("./bayarea.js");
 regional_lib.regionalSection(localDataURL);
 
 
+
+// -----------------------------------------------------------------------------
+// filling in regional RR Prop
+// -----------------------------------------------------------------------------
+d3.json(localDataURL, function(localData){
+  var RRPropData = localData["Special Districts"]["Measures"][0];
+  var RRPropYes = localData["Special Districts"]["Measures"][0]['Yes'];
+  var RRPropNo = localData["Special Districts"]["Measures"][0]['No'];
+
+  var propID = document.getElementById('regionalpropR3');
+  var total = +RRPropYes + +RRPropNo;
+  var propResult = RRPropData;
+
+  if (total == 0) { total = 0.1;}
+  if (propResult.d == "Yes") {
+    var htmlresult = "<span class='propyes small'><i class='fa fa-check-circle-o' aria-hidden='true'></i>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
+  } else if (propResult.d == "No") {
+    var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'><i class='fa fa-check-circle-o' aria-hidden='true'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</i></span>"
+  } else {
+    var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
+  }
+  var htmlresult = htmlresult+ "<div class='prop-precincts'>"+formatthousands(propResult.p)+" / "+formatthousands(propResult.pt)+" precincts reporting</div>"
+  propID.innerHTML = htmlresult;
+});
+
+
+
 // sticky nav
 window.onscroll = function() {activate()};
 var s = document.getElementById('s'),

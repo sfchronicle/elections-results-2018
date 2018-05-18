@@ -17,7 +17,7 @@ module.exports = {
     } else {
       var html_str ="<div class='measure-group'><div class='result'>Yes: "+Math.round(+measurevar["Yes"]/total*1000)/10+"%<span class='no-class'>No: "+Math.round(+measurevar["No"]/total*1000)/10+"%</span></div>";
     }
-    html_str = html_str+"<div>"+formatthousands(measurevar.p)+"/"+formatthousands(measurevar.pt)+" precincts reporting</div>";
+    html_str = html_str+"<div class='precincts-nums'>"+formatthousands(measurevar.p)+"/"+formatthousands(measurevar.pt)+" precincts reporting</div>";
     if (measurevar.a && measurevar.a != "50% + 1") {
       if (measurevar.a == "Advisory") {
         html_str = html_str + "<div class='votes-req'>Advisory vote</div>"

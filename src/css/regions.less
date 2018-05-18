@@ -1,7 +1,8 @@
 // .bayarea-section {
 .measure-group {
-  font-family: @med-graphics;
+  font-family: @graphics;
   font-size: 16px;
+  letter-spacing: 0;
   @media @mobile {
     font-size: 14px;
   }
@@ -9,6 +10,7 @@
     font-family: @logo2;
     font-size: 18px;
     padding: 0;
+    padding-bottom: 3px;
     font-weight: 600;
     letter-spacing: 1px;
     color: #333;
@@ -25,21 +27,47 @@
       i {color: green;}
     }
     &.no {
-      i {color: red;}
+      i {color: red; padding-left: 10px; padding-right: 0;}
+      .no-class {
+        padding-left: 3px;
+      }
     }
 
   }
 }
 
 .bayarea-section {
+  .key {
+    padding: 0 20px;
+    margin-top: -5px !important;
+    &.desktop {
+      @media @mobile {
+        display: none;
+      }
+    }
+    &.mobile {
+      // padding: 5px;
+      padding-bottom: 10px;
+      display: none;
+      @media @mobile {
+        display: block;
+        .symbol {
+          display: inline-block;
+          // float: left;
+        }
+      }
+    }
+  }
   h2 {
-    font-size: 20px;
-    color: @dark-gray;
-    font-family: @block-graphics;
+    font-size: 22px;
+    // color: @dark-gray;
+    font-family: @logo2;
+    font-weight: 400;
     border-bottom: 5px @light-gray solid;
     padding-top: 40px;
     margin-bottom: 30px;
-    font-weight: normal;
+    letter-spacing: 1px;
+    // font-weight: normal;
     @media @mobile {
       padding-top: 20px;
       margin-bottom: 0;
@@ -59,7 +87,9 @@
     font-size: 18px;
     margin: 0;
     padding: 0;
-    font-family: @block-graphics;
+    font-family: Lora;
+    font-weight: 400;
+    letter-spacing: 0;
     @media @mobile {
       font-size: 16px;
     }
@@ -67,14 +97,15 @@
 
   h4 {
     font-size: 20px;
-    font-weight: normal;
-    line-height: 1.4;
-    font-family: @block-graphics;
+    font-weight: 600;
+    line-height: 1.2;
+    font-family: Lora;
     border-bottom: 1px @light-gray solid;
     margin-bottom: 5px;
     margin-top: 10px;
+    letter-spacing: 0;
     &.race {
-      padding-bottom: 3px;
+      padding-bottom: 5px;
     }
     &.president {
       margin-bottom: 15px;
@@ -89,7 +120,9 @@
     background: lighten(@light-gray,10%);
     padding: 10px 0;
     padding-left: 10px;
-    font-family: @banner;
+    font-family: Lora;
+    font-weight: normal;
+    letter-spacing: 0;
     margin: 5px 0;
     cursor: pointer;
     .fa {
@@ -111,10 +144,11 @@
   }
   .desc {
     font-size: 16px;
-    font-family: @med-graphics;
+    font-family: Lora;
     font-style: italic;
-    display: inline-block;
+    display: inline;
     padding-left: 10px;
+    font-weight: normal;
     @media @mobile {
       font-size: 14px;
     }
@@ -133,7 +167,7 @@
   }
   .candidate-precincts {
     font-size: 14px;
-    font-family: @med-graphics;
+    font-family: @graphics;
     font-style: italic;
     padding-bottom: 5px;
     max-width: 500px;
@@ -142,7 +176,8 @@
   .entry {
     width: 100%;
     display: inline-block;
-    font-family: @block-graphics;
+    font-family: @graphics;
+    font-weight: 600;
     font-size: 18px;
     .name, .bar, .bar-label {
       display: inline;
@@ -150,6 +185,9 @@
     }
     .name {
       width: 250px;
+      .fa {
+        padding-right: 5px;
+      }
       @media @mobile {
         width: 180px;
       }
@@ -177,30 +215,65 @@
       }
     }
   }
+  .regionhedname {
+    font-size: 25px;
+    color: @highlight;
+    border-bottom: 2px solid @red;
+    // font-weight: 600;
+  }
+  .precincts-nums, .votes-req {
+    line-height: 1.4;
+    color: @dark-gray;
+    font-style: italic;
+    font-size: 14px;
+  }
 
 }
 
-.regional-callouts {
-  justify-content: center;
-  .reg-prop-name {
-    font-size: 16px;
-  }
-  .result {
-    // height: 40px;
-    margin-top: -10px;
-  }
-  .reg-prop-group {
+.regional-callout {
+  padding: 50px 30px 30px 30px;
+  max-width: 800px;
+  margin: auto;
+  @media @mobile {
+    border: 1px solid @light-gray;
     padding: 10px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid @light-gray;
-    text-align: left;
-    .sf-prop-icon {
-      height: 110px;
-      img {
-        height: 100px;
-      }
-      float:left;
-      padding-right: 10px;
+    margin: 30px 10px;
+    // margin-bottom: 30px;
+  }
+  .prop-icon {
+    max-width: 100%;
+    // padding: 10px;
+    .flex(0 0 20%);
+    @media @mobile {
+      padding-bottom: 0;
+      max-width: 130px;
+      .flex(0 0 100%);
+      .justify-content(center);
+      margin: auto;
+    }
+  }
+  .prop-info {
+    .flex(0 0 75%);
+    @media @mobile {
+      .flex(0 0 100%);
+    }
+  }
+  .prop-name {
+    padding-bottom: 5px;
+    @media @mobile {
+      text-align: center;
+      padding-bottom: 10px;
     }
   }
 }
+
+// .section-div {
+//   &.measures {
+//     .display-flex();
+//     .flex-wrap(wrap);
+//     .block {
+//       padding: 10px;
+//       .flex(0 0 50%);
+//     }
+//   }
+// }
