@@ -69,6 +69,8 @@
   <div class="sub-title sub-sub-title"><a href="#regionSonoma">Sonoma</a></div>
 </div>
 
+<%= t.include("partials/_highlights.html") %>
+
 <div class="page-hed">California</div>
 <div id="state">
   <div class="props-container">
@@ -85,6 +87,18 @@
 
 <div class="page-hed">Bay Area</div>
 <div id="bayarea" class="bayarea-section">
+  <div class="regional-callouts">
+    <div class="reg-prop-group">
+      <div class="float-left">
+        <div class='sf-prop-icon'>
+          <img src='./assets/graphics/regional.png'></img>
+        </div>
+        <div class='reg-prop-name'>Measure RR <span id="bartStoryLink"></span></div>
+        <div id="regionalpropRR" class='result'></div>
+      </div>
+      <div class="reg-prop-desc">Authorizes $3.5 billion in bonds for BART rehabilitation and modernization. Requires cumulative two-thirds vote in San Francisco, Alameda and Contra Costa counties for passage.</div>
+    </div>
+  </div>
   <div id="regional-results"></div>
 </div>
 
