@@ -16,7 +16,7 @@
 
   <%= t.include("partials/_social-links.html") %>
 
-  <!-- <div class="intro">Live election results: Click on the section headers above to navigate the page or scroll to see all the races.</div> -->
+  <div class="intro">Live election results: Click on the section headers above to navigate the page or scroll to see all the races.</div>
 
 </div>
 
@@ -80,6 +80,16 @@
 
 <div class="page-hed">S.F.</div>
 <div id="sf">
+  <div class="races-hed">
+    <h2 class="sfraces">S.F. Races:</h2>
+    <div class="key">Key:
+      <span class="symbol"><i class='fa fa-check-circle-o' aria-hidden='true'></i>Winner</span> |
+      <span class="symbol"><i class='fa fa-star' aria-hidden='true'></i>Incumbent</span>
+    </div>
+  </div>
+  <div class="races-container">
+    <div id="sf-section"></div>
+  </div>
   <div class="props-container">
     <%= t.include("partials/_SFprops.html") %>
   </div>

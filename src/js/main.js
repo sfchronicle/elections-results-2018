@@ -34,6 +34,10 @@ ca_props_lib_boxes.CAPropsBoxes(propsCAURL);
 var ca_props_lib_map = require("./CAprops_map.js");
 ca_props_lib_map.CAPropsMap(propsCAURL);
 
+// SF mayor and races
+var sf_lib = require("./sf.js");
+sf_lib.SFRaces(localDataURL);
+
 // SF measures
 var sf_measures_lib_boxes = require("./SFmeasures_boxes.js");
 sf_measures_lib_boxes.SFmeasuresBoxes(localDataURL);

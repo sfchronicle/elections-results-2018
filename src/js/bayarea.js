@@ -17,7 +17,7 @@ module.exports = {
 
       localareas.forEach(function(locality,lidx){
 
-        if (locality != "Special Districts"){
+        if ((locality != "Special Districts") && (locality != "San Francisco")){
 
           var this_name = locality;
           var regionkey = locality.replace(/ /g,'');
