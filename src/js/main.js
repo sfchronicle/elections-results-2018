@@ -24,6 +24,8 @@ var formatthousands = d3.format("0,000");
 var propsCAURL = "http://extras.sfgate.com/editorial/election2016/live/props_county_ca.json";
 var localDataURL = "http://extras.sfgate.com/editorial/election2018primary/live/localresults.json";
 
+
+
 // CA propositions
 var ca_props_lib_boxes = require("./CAprops_boxes.js");
 ca_props_lib_boxes.CAPropsBoxes(propsCAURL);
@@ -35,6 +37,11 @@ ca_props_lib_map.CAPropsMap(propsCAURL);
 // SF measures
 var sf_measures_lib_boxes = require("./SFmeasures_boxes.js");
 sf_measures_lib_boxes.SFmeasuresBoxes(localDataURL);
+
+// Regional section
+var regional_lib = require("./bayarea.js");
+regional_lib.regionalSection(localDataURL);
+
 
 // sticky nav
 window.onscroll = function() {activate()};
@@ -51,12 +58,8 @@ function activate() {
 
   if (window_top > div_top) {
       sticker.classList.add('fixed');
-      // document.getElementsByClassName("fixed")[0].classList.add("displayclass");
-      // sticker.style.opacity = 1;
       sticker_ph.style.display = 'block'; // puts in a placeholder for where sticky used to be for smooth scrolling
   } else {
-      // sticker.style.opacity = 0;
-      // document.getElementsByClassName("fixed")[0].classList.remove("displayclass");
       sticker.classList.remove('fixed');
       sticker_ph.style.display = 'none'; // removes placeholder
   }
@@ -86,6 +89,7 @@ function activate() {
   }
 }
 
+// make sticky nav do smooth scrolling
 $(document).on('click', 'a[href^="#"]', function(e) {
     // target element id
     var id = $(this).attr('href');

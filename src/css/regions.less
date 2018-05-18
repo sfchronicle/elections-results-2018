@@ -1,0 +1,127 @@
+h2 {
+  font-size: 20px;
+  color: @dark-gray;
+  font-family: @block-graphics;
+  border-bottom: 5px @light-gray solid;
+  padding-top: 40px;
+  margin-bottom: 30px;
+  font-weight: normal;
+  @media @mobile {
+    padding-top: 20px;
+  }
+  &.regionalhed {
+    padding: 0 20px;
+    border: 0;
+  }
+  .fa {
+    font-size: 25px;
+    padding-right: 3px;
+    color: @red-map;
+  }
+}
+
+h3 {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  font-family: @block-graphics;
+  @media @mobile {
+    font-size: 16px;
+  }
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 1.4;
+  font-family: @block-graphics;
+  border-bottom: 1px @light-gray solid;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  &.race {
+    padding-bottom: 3px;
+  }
+  &.president {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  @media @mobile {
+    font-size: 16px;
+  }
+}
+
+h5 {
+  background: lighten(@light-gray,10%);
+  padding: 10px 0;
+  padding-left: 10px;
+  font-family: @banner;
+  margin: 5px 0;
+  cursor: pointer;
+  .fa {
+    font-size: 20px;
+    padding-right: 10px;
+  }
+  margin-top: 10px !important;
+  margin-bottom: 0 !important;
+}
+
+
+.measure-group {
+  font-family: @med-graphics;
+  font-size: 16px;
+  @media @mobile {
+    font-size: 14px;
+  }
+  .result {
+    font-family: @logo2;
+    font-size: 20px;
+    padding: 0;
+    font-weight: 600;
+    word-spacing: 1px;
+    .no-class {
+      padding-left: 5px;
+    }
+    @media @mobile {
+      font-size: 16px;
+    }
+    .fa {
+      font-size: 16px;
+    }
+    &.yes {
+      i {color: green;}
+    }
+    &.no {
+      i {color: red;}
+    }
+
+  }
+}
+
+.bayarea-section {
+  .name {
+    font-size: 16px;
+    @media @mobile {
+      font-size: 14px;
+    }
+    .fa-check-circle-o {
+      font-size: 18px;
+      vertical-align: middle;
+    }
+  }
+  .desc {
+    font-size: 16px;
+    font-family: @med-graphics;
+    font-style: italic;
+    display: inline-block;
+    padding-left: 10px;
+    @media @mobile {
+      font-size: 14px;
+    }
+  }
+  .section-div {
+    padding: 10px 0;
+  }
+  .block {
+    padding-bottom: 10px;
+  }
+}
