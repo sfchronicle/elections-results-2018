@@ -8,6 +8,7 @@ h2 {
   font-weight: normal;
   @media @mobile {
     padding-top: 20px;
+    margin-bottom: 0;
   }
   &.regionalhed {
     padding: 0 20px;
@@ -97,6 +98,45 @@ h5 {
   }
 }
 
+.entry {
+  width: 100%;
+  display: inline-block;
+  font-family: @block-graphics;
+  font-size: 18px;
+  .name, .bar, .bar-label {
+    display: inline;
+    float: left;
+  }
+  .name {
+    width: 250px;
+    @media @mobile {
+      width: 180px;
+    }
+  }
+  .bar-label {
+    &.long {
+      float: right;
+    }
+    padding-left: 10px;
+    font-size: 14px;
+    margin-top: 4px;
+    @media @mobile {
+      margin-top: 0;
+    }
+  }
+  .bar {
+    margin-top: 5px;
+    background: darken(#C6D8D3,10%);//#C6D8D3;
+    background-position: 0;
+    height: 20px;
+    width: 500px;
+    vertical-align: text-top;
+    @media @mobile {
+      margin-top: 2px;
+    }
+  }
+}
+
 .bayarea-section {
   .name {
     font-size: 16px;
@@ -123,5 +163,19 @@ h5 {
   }
   .block {
     padding-bottom: 10px;
+  }
+  .fa-star {
+    padding-left: 2px;
+    font-size: 12px;
+    color: @dark-gray;
+    vertical-align: super;
+  }
+  .candidate-precincts {
+    font-size: 14px;
+    font-family: @med-graphics;
+    font-style: italic;
+    padding-bottom: 5px;
+    max-width: 500px;
+    width:100%;
   }
 }

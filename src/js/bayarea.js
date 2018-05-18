@@ -17,8 +17,6 @@ module.exports = {
 
       localareas.forEach(function(locality,lidx){
 
-        console.log(locality);
-
         var this_name = locality;
         var regionkey = locality.replace(/ /g,'');
 
