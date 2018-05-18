@@ -35,3 +35,69 @@ ca_props_lib_map.CAPropsMap(propsCAURL);
 // SF measures
 var sf_measures_lib_boxes = require("./SFmeasures_boxes.js");
 sf_measures_lib_boxes.SFmeasuresBoxes(localDataURL);
+
+// sticky nav
+window.onscroll = function() {activate()};
+var s = document.getElementById('s'),
+  l = document.getElementById('l'),
+  r = document.getElementById('r');
+var scroll = [s, l, r]
+
+function activate() {
+  var sticker = document.getElementById('stick-me');
+  var sticker_ph = document.getElementById('stick-ph');
+  var window_top = document.body.scrollTop;
+  var div_top = document.getElementById('stick-here').getBoundingClientRect().top + window_top;
+
+  if (window_top > div_top) {
+      sticker.classList.add('fixed');
+      // document.getElementsByClassName("fixed")[0].classList.add("displayclass");
+      // sticker.style.opacity = 1;
+      sticker_ph.style.display = 'block'; // puts in a placeholder for where sticky used to be for smooth scrolling
+  } else {
+      // sticker.style.opacity = 0;
+      // document.getElementsByClassName("fixed")[0].classList.remove("displayclass");
+      sticker.classList.remove('fixed');
+      sticker_ph.style.display = 'none'; // removes placeholder
+  }
+
+  var ssec = document.getElementById('state');
+  var lsec = document.getElementById('sf');
+  var rsec = document.getElementById('bayarea');
+
+  var s_top = ssec.getBoundingClientRect().top + window_top - 40;
+  var l_top = lsec.getBoundingClientRect().top + window_top - 40;
+  var r_top = rsec.getBoundingClientRect().top + window_top - 40;
+
+  var s_btm = ssec.getBoundingClientRect().bottom + window_top - 40;
+  var l_btm = lsec.getBoundingClientRect().bottom + window_top - 40;
+  var r_btm = rsec.getBoundingClientRect().bottom + window_top - 40;
+
+  var top = [s_top, l_top, r_top];
+  var btm = [s_btm, l_btm, r_btm];
+
+  for (var i = 0; i < top.length; i++) {
+    if ((top[i] < window_top) && (btm[i] > window_top)) {
+      scroll[i].classList.add('activelink');
+    }
+    else {
+      scroll[i].classList.remove('activelink');
+    }
+  }
+}
+
+$(document).on('click', 'a[href^="#"]', function(e) {
+    // target element id
+    var id = $(this).attr('href');
+    // target element
+    var $id = $(id);
+    if ($id.length === 0) {
+        return;
+    }
+    // prevent standard hash navigation (avoid blinking in IE)
+    e.preventDefault();
+    // top position relative to the document
+    var pos = $(id).offset().top-30;
+    // animated top scrolling
+    $('body, html').animate({scrollTop: pos});
+});

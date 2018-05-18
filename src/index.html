@@ -22,49 +22,69 @@
 
 <div id="stick-here"></div>
 <div id="stick-me">
-  <div class="sub-title-links">
-    <div class="share-block">
-      <div class="link social email">
-        <a id="mail-icon" title="Share via email" href="mailto:?subject=<%= grunt.data.json.project.title %>&body=<%= grunt.data.json.project.description %>%0A%0Ahttp%3A%2F%2Fprojects.sfchronicle.com%2F2016%2F<%= grunt.data.json.project.slug %>">
-          <i class="fa fa-envelope" aria-hidden="true"></i>
-        </a>
-      </div>
-      <div class="link social">
-        <a id="facebook-icon" title="Share on Facebook" href="#" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fprojects.sfchronicle.com%2F2016%2F<%= grunt.data.json.project.slug %>', 'facebook-share-dialog', 'width=626,height=436'); return false;">
-          <i class="fa fa-facebook"></i>
-        </a>
-      </div>
-      <div class="link social">
-        <a id="twitter-icon" title="Share on Twitter" href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fsfchronicle.com%2Felection%2F&text=<%= grunt.data.json.project.twitter_text %>&hashtags=<%= grunt.data.json.project.hashtag %>">
-          <i class="fa fa-twitter"></i>
-        </a>
-      </div>
-    </div>
-    <div id="stateSection" class="sub-title"><a href="#state">State</a></div>
-    <div id="sfSection" class="sub-title"><a href="#sf">SF</a></div>
-    <div id="bayareaSection" class="sub-title"><a href="#bayarea">Bay Area</a></div>
 
-    <div class="sub-sub-title-container">
-      <div class="sub-sub-title"><a href="#alameda">Alameda</a></div>
-      <div class="sub-sub-title"><a href="#contracosta">Contra Costa</a></div>
-      <div class="sub-sub-title"><a href="#marin">Marin</a></div>
-      <div class="sub-sub-title"><a href="#napa">Napa</a></div>
-      <div class="sub-sub-title"><a href="#sanmateo">San Mateo</a></div>
-      <div class="sub-sub-title"><a href="#santaclara">Santa Clara</a></div>
-      <div class="sub-sub-title"><a href="#solano">Solano</a></div>
-      <div class="sub-sub-title"><a href="#sonoma">Sonoma</a></div>
-    </div>
-
+  <div class="logo-link">
+    <a href="//www.sfchronicle.com" target="_blank">
+      <img class="desk-logo" src="//projects.sfchronicle.com/shared/logos/sfc_logo_black.png"></img>
+      <img class="mobile-logo" src="//projects.sfchronicle.com/shared/logos/sfletter_c_black.png"></img>
+    </a>
   </div>
+
+  <div class="sub-title-links">
+    <div id="s" class="sub-title"><a href="#state">California</a></div>
+    <div id="l" class="sub-title"><a href="#sf">SF</a></div>
+    <div id="r" class="sub-title"><a href="#bayarea">Bay Area</a></div>
+  </div>
+
+  <div class="share-block">
+    <div class="link social email">
+      <a id="mail-icon" title="Share via email" href="mailto:?subject=<%= grunt.data.json.project.title %>&body=<%= grunt.data.json.project.description %>%0A%0Ahttp%3A%2F%2Fprojects.sfchronicle.com%2F2016%2F<%= grunt.data.json.project.slug %>">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="link social">
+      <a id="facebook-icon" title="Share on Facebook" href="#" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fprojects.sfchronicle.com%2F2016%2F<%= grunt.data.json.project.slug %>', 'facebook-share-dialog', 'width=626,height=436'); return false;">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </div>
+    <div class="link social">
+      <a id="twitter-icon" title="Share on Twitter" href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fsfchronicle.com%2Felection%2F&text=<%= grunt.data.json.project.twitter_text %>&hashtags=<%= grunt.data.json.project.hashtag %>">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </div>
+  </div>
+
 </div>
+
 <div id="stick-ph"></div>
 
-<div class="props-container">
-  <%= t.include("partials/_CAprops.html") %>
+<div class="sub-title-links">
+  <div class="sub-title sub-sub-title"><a href="#alameda">Alameda</a></div>
+  <div class="sub-title sub-sub-title"><a href="#contracosta">Contra Costa</a></div>
+  <div class="sub-title sub-sub-title"><a href="#marin">Marin</a></div>
+  <div class="sub-title sub-sub-title"><a href="#napa">Napa</a></div>
+  <div class="sub-title sub-sub-title"><a href="#sanmateo">San Mateo</a></div>
+  <div class="sub-title sub-sub-title"><a href="#santaclara">Santa Clara</a></div>
+  <div class="sub-title sub-sub-title"><a href="#solano">Solano</a></div>
+  <div class="sub-title sub-sub-title"><a href="#sonoma">Sonoma</a></div>
 </div>
 
-<div class="props-container">
-  <%= t.include("partials/_SFprops.html") %>
+<div class="page-hed">California</div>
+<div id="state">
+  <div class="props-container">
+    <%= t.include("partials/_CAprops.html") %>
+  </div>
+</div>
+
+<div class="page-hed">S.F.</div>
+<div id="sf">
+  <div class="props-container">
+    <%= t.include("partials/_SFprops.html") %>
+  </div>
+</div>
+
+<div class="page-hed">Bay Area</div>
+<div id="bayarea">
 </div>
 
 

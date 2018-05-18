@@ -36,8 +36,6 @@ module.exports = {
 
     d3.json(propsCAURL, function(propsCA){
 
-      console.log(propsCA);
-
       var select_race = document.getElementById("select-race");
       select_race.addEventListener("change",function(){
         d3.selectAll(".camap").classed("active",false);
