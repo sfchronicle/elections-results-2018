@@ -21,8 +21,8 @@ var lightest_gray = "#D8D8D8";
 var formatthousands = d3.format("0,000");
 
 // loading data sources
-var propsCAURL = "http://extras.sfgate.com/editorial/election2016/live/props_county_ca.json";
-var localDataURL = "http://extras.sfgate.com/editorial/election2018primary/live/localresults.json";
+var propsCAURL = "https://extras.sfgate.com/editorial/election2016/live/props_county_ca.json";
+var localDataURL = "https://extras.sfgate.com/editorial/election2018primary/live/localresults.json";
 
 
 

@@ -56,7 +56,7 @@ module.exports = {
           d3.selectAll(".camap").classed("active",false);
           this.classList.add("active");
           // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
-          var active_data = propsCA[51+index-5]; // -5 is a hack
+          var active_data = propsCA[51+index];
           // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
           camap_function("./assets/maps/ca_county_new.json",active_data.counties);
           clearTimeout(catimer_props);
@@ -142,9 +142,9 @@ module.exports = {
       // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
       var active_data = propsCA[51];
       // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
-      camap_function("./assets/maps/ca_county_new.json",active_data.counties);
+      camap_function("../assets/maps/ca_county_new.json",active_data.counties);
       catimer_props = setInterval(function() {
-        camap_function("./assets/maps/ca_county_new.json",active_data.counties);
+        camap_function("../assets/maps/ca_county_new.json",active_data.counties);
         console.log("refresh ca map");
       }, timer5minutes);
 
