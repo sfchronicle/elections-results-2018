@@ -1,72 +1,4 @@
-h2 {
-  font-size: 20px;
-  color: @dark-gray;
-  font-family: @block-graphics;
-  border-bottom: 5px @light-gray solid;
-  padding-top: 40px;
-  margin-bottom: 30px;
-  font-weight: normal;
-  @media @mobile {
-    padding-top: 20px;
-    margin-bottom: 0;
-  }
-  &.regionalhed {
-    padding: 0 20px;
-    border: 0;
-  }
-  .fa {
-    font-size: 25px;
-    padding-right: 3px;
-    color: @red-map;
-  }
-}
-
-h3 {
-  font-size: 18px;
-  margin: 0;
-  padding: 0;
-  font-family: @block-graphics;
-  @media @mobile {
-    font-size: 16px;
-  }
-}
-
-h4 {
-  font-size: 20px;
-  font-weight: normal;
-  line-height: 1.4;
-  font-family: @block-graphics;
-  border-bottom: 1px @light-gray solid;
-  margin-bottom: 5px;
-  margin-top: 10px;
-  &.race {
-    padding-bottom: 3px;
-  }
-  &.president {
-    margin-bottom: 15px;
-    text-align: center;
-  }
-  @media @mobile {
-    font-size: 16px;
-  }
-}
-
-h5 {
-  background: lighten(@light-gray,10%);
-  padding: 10px 0;
-  padding-left: 10px;
-  font-family: @banner;
-  margin: 5px 0;
-  cursor: pointer;
-  .fa {
-    font-size: 20px;
-    padding-right: 10px;
-  }
-  margin-top: 10px !important;
-  margin-bottom: 0 !important;
-}
-
-
+// .bayarea-section {
 .measure-group {
   font-family: @med-graphics;
   font-size: 16px;
@@ -98,46 +30,74 @@ h5 {
   }
 }
 
-.entry {
-  width: 100%;
-  display: inline-block;
-  font-family: @block-graphics;
-  font-size: 18px;
-  .name, .bar, .bar-label {
-    display: inline;
-    float: left;
-  }
-  .name {
-    width: 250px;
-    @media @mobile {
-      width: 180px;
-    }
-  }
-  .bar-label {
-    &.long {
-      float: right;
-    }
-    padding-left: 10px;
-    font-size: 14px;
-    margin-top: 4px;
-    @media @mobile {
-      margin-top: 0;
-    }
-  }
-  .bar {
-    margin-top: 5px;
-    background: darken(#C6D8D3,10%);//#C6D8D3;
-    background-position: 0;
-    height: 20px;
-    width: 500px;
-    vertical-align: text-top;
-    @media @mobile {
-      margin-top: 2px;
-    }
-  }
-}
-
 .bayarea-section {
+  h2 {
+    font-size: 20px;
+    color: @dark-gray;
+    font-family: @block-graphics;
+    border-bottom: 5px @light-gray solid;
+    padding-top: 40px;
+    margin-bottom: 30px;
+    font-weight: normal;
+    @media @mobile {
+      padding-top: 20px;
+      margin-bottom: 0;
+    }
+    &.regionalhed {
+      padding: 0 20px;
+      border: 0;
+    }
+    .fa-caret-right, .fa-caret-down {
+      font-size: 25px;
+      padding-right: 3px;
+      color: @red-map;
+    }
+  }
+
+  h3 {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    font-family: @block-graphics;
+    @media @mobile {
+      font-size: 16px;
+    }
+  }
+
+  h4 {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1.4;
+    font-family: @block-graphics;
+    border-bottom: 1px @light-gray solid;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    &.race {
+      padding-bottom: 3px;
+    }
+    &.president {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    @media @mobile {
+      font-size: 16px;
+    }
+  }
+
+  h5 {
+    background: lighten(@light-gray,10%);
+    padding: 10px 0;
+    padding-left: 10px;
+    font-family: @banner;
+    margin: 5px 0;
+    cursor: pointer;
+    .fa {
+      font-size: 20px;
+      padding-right: 10px;
+    }
+    margin-top: 10px !important;
+    margin-bottom: 0 !important;
+  }
   .name {
     font-size: 16px;
     @media @mobile {
@@ -178,4 +138,44 @@ h5 {
     max-width: 500px;
     width:100%;
   }
+  .entry {
+    width: 100%;
+    display: inline-block;
+    font-family: @block-graphics;
+    font-size: 18px;
+    .name, .bar, .bar-label {
+      display: inline;
+      float: left;
+    }
+    .name {
+      width: 250px;
+      @media @mobile {
+        width: 180px;
+      }
+    }
+    .bar-label {
+      &.long {
+        float: right;
+      }
+      padding-left: 10px;
+      font-size: 14px;
+      margin-top: 4px;
+      @media @mobile {
+        margin-top: 0;
+      }
+    }
+    .bar {
+      margin-top: 5px;
+      background: darken(#C6D8D3,10%);//#C6D8D3;
+      background-position: 0;
+      height: 20px;
+      width: 500px;
+      vertical-align: text-top;
+      @media @mobile {
+        margin-top: 2px;
+      }
+    }
+  }
+
 }
+// }

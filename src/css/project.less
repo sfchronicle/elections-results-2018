@@ -8,6 +8,64 @@
   }
 }
 
+.divider {
+  border-bottom: 1px @light-gray solid;
+  max-width: 900px;
+  margin: auto;
+}
+
+.party-abbrev-container {
+  .display-flex;
+  .flex-wrap(wrap);
+  .abbrev {
+    font-size: 14px;
+    .flex(0 0 33%);
+    padding: 2px 0;
+    font-family: @med-graphics;
+    @media @mobile {
+      font-size: 12px;
+      .flex(0 0 50%);
+      text-align: left;
+      padding: 4px;
+    }
+  }
+  .abbrev-symbol {
+    font-family: @block-graphics;
+  }
+  padding-bottom: 50px;
+  @media @mobile {
+    padding-bottom: 40px;
+  }
+}
+
+.email-us {
+  font-size: 16px;
+  // font-style: italic;
+  font-family: @block-graphics;
+  padding: 20px 0;
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+  @media @mobile {
+    padding: 0 10px;
+    font-size: 14px;
+    padding-bottom: 10px;
+  }
+}
+
+.br {
+  height: 30px;
+  margin: auto;
+  @media @mobile {
+    height: 10px;
+  }
+}
+
+.symbol-container, .party-abbrev-container {
+  font-family: @block-graphics;
+  text-align: center;
+}
+
 body {
   font-family: @med-graphics;
 }
