@@ -54,15 +54,18 @@ regional_lib.regionalSection(localDataURL);
 // CA house
 var house_lib = require("./CAhouse.js");
 house_lib.CAHouse(houseCAURL,"house-CA-map");
+var house_info = require("./populate_house.js");
+house_info.CAmapList(houseCAURL,"scrolly-house-map");
 
 // CA assembly
 var assembly_lib = require("./CAassembly.js");
 assembly_lib.CAAssembly(assemblyCAURL,"assembly-CA-map");
+house_info.CAmapList(assemblyCAURL,"scrolly-assembly-map");
 
 // CA senate
 var senate_lib = require("./CAsenate.js");
 senate_lib.CASenate(senateCAURL,"senate-CA-map");
-
+house_info.CAmapList(senateCAURL,"scrolly-statesenate-map");
 
 // -----------------------------------------------------------------------------
 // filling in regional RR Prop

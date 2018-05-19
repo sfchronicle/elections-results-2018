@@ -75,21 +75,7 @@
 <div id="state">
   <div class="races-container">
   </div>
-  <h2 class="house-hed">U.S. House of Representatives:</h2>
-  <div class="ca-house-container big-map-container">
-    <div id="house-CA-map" class="big-map"></div>
-    <div class="map-info-scrolly"></div>
-  </div>
-  <h2 class="assembly-hed">C.A. State Assembly:</h2>
-  <div class="ca-state-assembly-container big-map-container">
-    <div id="assembly-CA-map" class="big-map"></div>
-    <div class="map-info-scrolly"></div>
-  </div>
-  <h2 class="statesenate-hed">C.A. State Senate:</h2>
-  <div class="ca-state-senate-container big-map-container">
-    <div id="senate-CA-map" class="big-map"></div>
-    <div class="map-info-scrolly"></div>
-  </div>
+  <%= t.include("partials/_state_maps.html") %>
   <div class="props-container">
     <%= t.include("partials/_CAprops.html") %>
   </div>
