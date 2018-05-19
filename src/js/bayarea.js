@@ -55,7 +55,6 @@ module.exports = {
             });
             localData[this_name][d2].forEach(function(d4,idx3){
               var key = d4.name.toLowerCase().replace(/ /g,'').replace(".","").replace("'","");
-              console.log(racekey);
               if(d4["n"]) {
                 var h4_html = "<div class='block'><h4 class='race sup'>"+d4.name+" ("+d4["n"]+" seats)</h4><div id='key"+regionkey+racekey+ key + "'</div>";
               } else {

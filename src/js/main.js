@@ -24,6 +24,11 @@ var formatthousands = d3.format("0,000");
 var propsCAURL = "https://extras.sfgate.com/editorial/election2016/live/props_county_ca.json";
 var localDataURL = "https://extras.sfgate.com/editorial/election2018primary/live/localresults.json";
 
+// more data sources
+var houseCAURL = "http://extras.sfgate.com/editorial/election2016/live/emma_house_district_ca.json";
+var assemblyCAURL = "http://extras.sfgate.com/editorial/election2016/live/emma_assembly_district_id.json";
+var senateCAURL = "http://extras.sfgate.com/editorial/election2016/live/emma_statesenate_district_ca.json";
+
 
 
 // CA propositions
@@ -46,6 +51,17 @@ sf_measures_lib_boxes.SFmeasuresBoxes(localDataURL);
 var regional_lib = require("./bayarea.js");
 regional_lib.regionalSection(localDataURL);
 
+// CA house
+var house_lib = require("./CAhouse.js");
+house_lib.CAHouse(houseCAURL,"house-CA-map");
+
+// CA assembly
+var assembly_lib = require("./CAassembly.js");
+assembly_lib.CAAssembly(assemblyCAURL,"assembly-CA-map");
+
+// CA senate
+var senate_lib = require("./CAsenate.js");
+senate_lib.CASenate(senateCAURL,"senate-CA-map");
 
 
 // -----------------------------------------------------------------------------
