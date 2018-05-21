@@ -4,9 +4,15 @@
   stroke: white;
   stroke-linejoin: round;
   stroke-width: 0.3px;
+  opacity: 0.9;
   &:hover {
-    opacity: 0.7;
+    opacity: 1;
     // cursor: pointer;
+  }
+  &.active {
+    opacity: 1;
+    stroke: black;
+    stroke-width: 4px;
   }
 }
 .state-paths {
@@ -22,16 +28,20 @@
 
 .big-map-container {
   .display-flex();
-  .flex-wrap(wrap);
+  // .flex-wrap(wrap);
+  // align-items: flex-start;
   padding: 0 20px;
   .big-map {
     .flex(0 0 50%);
+    // align-self: flex-start;
   }
   .map-info-scrolly {
     .flex(0 0 45%);
-    margin: 10px;
-    padding: 10px;
+    // flex-basis: inherit;
+    // flex: 2;
     height: 400px;
+    margin: 10px;
+    // padding: 10px;
     overflow-y: scroll;
     border: 1px solid @light-gray;
   }
@@ -44,4 +54,35 @@
   margin-top: 30px;
   margin-bottom: 20px;
 
+}
+
+.map-info-scrolly {
+  font-weight: 400;
+  font-size: 14px;
+  .state-name {
+    font-weight: 600;
+    border-bottom: 1px solid @light-gray;
+    margin-bottom: 2px;
+  }
+  .fa {
+    padding-right: 5px;
+  }
+  .precincts-info {
+    font-style: italic;
+    color: @dark-gray;
+  }
+  .map-entry {
+    padding: 10px;
+    &:first-child {
+
+    }
+    &:hover {
+      cursor: pointer;
+      background: lighten(@light-gray,15%);
+    }
+    &.active {
+      background: lighten(@light-gray,10%);
+    }
+    // margin-bottom: 5px;
+  }
 }

@@ -16,7 +16,7 @@
 
   <%= t.include("partials/_social-links.html") %>
 
-  <div class="intro">Live election results: Click on the section headers above to navigate the page or scroll to see all the races.</div>
+  <div class="intro">Live results: Use links or scroll to find every race.</div>
 
 </div>
 
@@ -108,5 +108,11 @@
 <%= t.include("partials/_about_the_data.html") %>
 
 <%= t.include("partials/_footer.html") %>
+
+<script>
+  // map look-up tables
+  var stateCodes = <%= JSON.stringify(csv.stateCodes) %>;
+  var countyCodes = <%= JSON.stringify(json.countyCodesLookup) %>;
+</script>
 
 <script src="app.js?2" async></script>

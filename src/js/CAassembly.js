@@ -49,12 +49,8 @@ module.exports = {
               //class to make it responsive
               .classed("svg-content-responsive", true);
 
-            console.log(svgCACounties);
-
             d3.json(active_map, function(error, us) {
               if (error) throw error;
-
-              console.log(us);
 
               var features = topojson.feature(us,us.objects.features).features;
               svgCACounties.selectAll(".states")
@@ -85,44 +81,44 @@ module.exports = {
                   return lightest_gray;//fill(path.area(d));
                 }
               })
-              .attr("d", path)
-              .on('mouseover', function(d,index) {
-                if (d.id != 0) {
-                  var html_str = tooltip_function.tooltipGenerator(d.id,active_data,d.properties);
-                  state_tooltip.html(html_str);
-                  if (!iOS){
-                    state_tooltip.style("visibility", "visible");
-                  }
-                }
-              })
-              .on("mousemove", function() {
-                if (screen.width <= 480) {
-                  return state_tooltip
-                    .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
-                    .style("left",((d3.event.pageX)/3+40)+"px");
-                } else if (screen.width <= 670) {
-                  return state_tooltip
-                    .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
-                    .style("left",((d3.event.pageX)/2+50)+"px");
-                } else {
-                  return state_tooltip
-                    .style("top", (d3.event.pageY+20)+"px")
-                    .style("left",(d3.event.pageX-80)+"px");
-                }
-              })
-              .on("mouseout", function(){
-                return state_tooltip.style("visibility", "hidden");
-              });
+              .attr("d", path);
+              // .on('mouseover', function(d,index) {
+              //   if (d.id != 0) {
+              //     var html_str = tooltip_function.tooltipGenerator(d.id,active_data,d.properties);
+              //     state_tooltip.html(html_str);
+              //     if (!iOS){
+              //       state_tooltip.style("visibility", "visible");
+              //     }
+              //   }
+              // })
+              // .on("mousemove", function() {
+              //   if (screen.width <= 480) {
+              //     return state_tooltip
+              //       .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
+              //       .style("left",((d3.event.pageX)/3+40)+"px");
+              //   } else if (screen.width <= 670) {
+              //     return state_tooltip
+              //       .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
+              //       .style("left",((d3.event.pageX)/2+50)+"px");
+              //   } else {
+              //     return state_tooltip
+              //       .style("top", (d3.event.pageY+20)+"px")
+              //       .style("left",(d3.event.pageX-80)+"px");
+              //   }
+              // })
+              // .on("mouseout", function(){
+              //   return state_tooltip.style("visibility", "hidden");
+              // });
 
             });
 
             // show tooltip
-            var state_tooltip = d3.select("#"+assemblyID)
-              .append("div")
-              .attr("class","tooltip")
-              .style("position", "absolute")
-              .style("z-index", "10")
-              .style("visibility", "hidden");
+            // var state_tooltip = d3.select("#"+assemblyID)
+            //   .append("div")
+            //   .attr("class","tooltip")
+            //   .style("position", "absolute")
+            //   .style("z-index", "10")
+            //   .style("visibility", "hidden");
 
           };
 
