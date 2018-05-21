@@ -40,7 +40,7 @@ module.exports = {
             var svgCACounties = d3.select("#"+houseID)
               .append("div")
               .classed("svg-container", true) //container class to make it responsive
-              .attr("id",houseID)
+              .attr("house-id",houseID)
               .append("svg")
               //responsive SVG needs these 2 attributes and no width and height attr
               .attr("preserveAspectRatio", "xMinYMin slice")
@@ -58,7 +58,7 @@ module.exports = {
               .attr("class", "states")
               .attr("d",path)
               .attr("id",function(d) {
-                return "id"+d.id;
+                return "house_id"+d.id;
               })
               .style("fill", function(d) {
                 var location = d.id;
@@ -85,7 +85,7 @@ module.exports = {
                 $(".states").removeClass("active");
                 $(".map-entry").removeClass("active");
                 this.classList.add("active");
-                var sidebarinfo = "scrolly"+this.id.split("id")[1];
+                var sidebarinfo = "scrollyhouse"+this.id.split("id")[1];
                 document.getElementById(sidebarinfo).classList.add("active");
                 document.getElementById("scrolly-house-map").scrollTop = document.getElementById(sidebarinfo).offsetTop-document.getElementById("scrolly-house-map").offsetTop;//$("#"+sidebarinfo).scrollHeight;
               })

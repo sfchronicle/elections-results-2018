@@ -54,7 +54,7 @@ module.exports = {
             sum += +tempvar["o"];
           }
           if (sum == 0) { sum = 0.1; } // this is a hack for when there are no reported results yet
-          var count = 1; var html_str = "<div class='map-entry map-entry-"+scrollKey+"' id='scrolly"+key+"'><div class='state-name'>"+properties.name+"<span class='close-tooltip'><i class='fa fa-times' aria-hidden='true'></i></span></div>";
+          var count = 1; var html_str = "<div class='map-entry map-entry-"+scrollKey+"' id='scrolly"+scrollKey+key+"'><div class='state-name'>"+properties.name+"<span class='close-tooltip'><i class='fa fa-times' aria-hidden='true'></i></span></div>";
           while (tempvar["c"+count]) {
             var party = tempvar["c"+count+"_party"];
             var key = tempvar["c"+count+"_name"].toLowerCase().replace(/ /g,'').replace("'","");
@@ -81,6 +81,7 @@ module.exports = {
     setTimeout(function(){
       var cname = "map-entry-"+scrollKey;
       var mapEntries = document.getElementsByClassName(cname);
+      console.log(mapEntries.length);
       for (var idx=0; idx<mapEntries.length; idx++){
         var tempEntry = mapEntries[idx];
         // console.log(tempEntry);
@@ -89,10 +90,11 @@ module.exports = {
           this.classList.add("active");
           $(".states").removeClass("active");
           $(".states").addClass("faded");
-          document.getElementById("id"+this.id.split("scrolly")[1]).classList.add("active");
+          console.log(this.id.split(scrollKey));
+          document.getElementById(scrollKey+"_id"+this.id.split(scrollKey)[1]).classList.add("active");
         })
       }
-    }, 200);
+    }, 400);
 
   }
 }
