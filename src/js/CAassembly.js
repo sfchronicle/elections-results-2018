@@ -87,7 +87,7 @@ module.exports = {
               })
               .attr("d", path)
               .on("click",function(d,index){
-                this.classList.toggle("unzoomed");
+                // this.classList.toggle("unzoomed");
                 var k,x,y;
                 if (zoom == 1) {
                   k = 1, x = width / 2, y = height / 2, zoom = 0;
@@ -104,7 +104,13 @@ module.exports = {
                 var sidebarinfo = "scrollyassembly"+this.id.split("id")[1];
                 document.getElementById(sidebarinfo).classList.add("active");
                 document.getElementById("scrolly-assembly-map").scrollTop = document.getElementById(sidebarinfo).offsetTop-document.getElementById("scrolly-assembly-map").offsetTop;
-                svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
+                if (!is_safari) {
+                  svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
+                } else {
+                  var str = "translate(" + width / 2 + "px, " + height / 2 + "px) scale(" + k + ") translate(" + -x + "px, " + -y + "px)";
+                  document.getElementById("svgID").classList.add("easing-class");
+                  document.getElementById("svgID").style.webkitTransform = str;
+                }
               })
 
             });

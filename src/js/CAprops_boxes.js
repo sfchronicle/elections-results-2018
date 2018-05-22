@@ -10,7 +10,6 @@ module.exports = {
   CAPropsBoxes: function(propsCAURL){
 
     d3.json(propsCAURL, function(propsCA){
-      console.log(propsCA);
       for (var propidx=68; propidx<73; propidx++) {
         var propID = document.getElementById("prop"+propidx);
         var propResult = propsCA[propidx]["state"];
