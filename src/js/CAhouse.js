@@ -88,6 +88,11 @@ module.exports = {
                 var sidebarinfo = "scrollyhouse"+this.id.split("id")[1];
                 document.getElementById(sidebarinfo).classList.add("active");
                 document.getElementById("scrolly-house-map").scrollTop = document.getElementById(sidebarinfo).offsetTop-document.getElementById("scrolly-house-map").offsetTop;//$("#"+sidebarinfo).scrollHeight;
+                // var b = path.bounds(d);
+                // svgCACounties.transition().duration(750).attr("transform",
+                //    "translate(" + projection.translate() + ")"
+                //    + "scale(" + .95 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h) + ")"
+                //    + "translate(" + -(b[1][0] + b[0][0]) / 2 + "," + -(b[1][1] + b[0][1]) / 2 + ")");
               })
 
             });

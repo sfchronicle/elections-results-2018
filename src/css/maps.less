@@ -3,7 +3,7 @@
   z-index: -1;
   stroke: white;
   stroke-linejoin: round;
-  stroke-width: 0.3px;
+  stroke-width: 1px;
   opacity: 0.9;
   &:hover {
     opacity: 1;
@@ -20,40 +20,64 @@
   stroke-width:2;
   fill: none;
 }
-#map-container-state, #map-container-federal, #presidentMap_States-container {
+#house-CA-map, #assembly-CA-map, #senate-CA-map {
   .states {
-    stroke-width: 1px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
 .big-map-container {
   .display-flex();
-  // .flex-wrap(wrap);
-  // align-items: flex-start;
+  .flex-wrap(wrap);
   padding: 0 20px;
+  max-width: 1200px;
+  margin: auto;
+  align-items: center;
   .big-map {
     .flex(0 0 50%);
-    // align-self: flex-start;
+    @media @mobile {
+      .flex(0 0 100%);
+    }
   }
   .map-info-scrolly {
     .flex(0 0 45%);
-    // flex-basis: inherit;
-    // flex: 2;
     height: 400px;
     margin: 10px;
-    // padding: 10px;
     overflow-y: scroll;
     border: 1px solid @light-gray;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 1px 4px 9px -6px @dark-gray, inset 1px -4px 9px -6px @dark-gray;
+    -moz-box-shadow: inset 1px 4px 9px -6px @dark-gray, inset 1px -4px 9px -6px @dark-gray;
+    box-shadow: inset 1px 4px 9px -6px @dark-gray, inset 1px -4px 9px -6px @dark-gray;
+    background: #f8f8f8;
+    @media @mobile {
+      .flex(0 0 100%);
+      margin: 0;
+      margin-top: 10px;
+      height: 300px;
+    }
   }
 }
 
-.house-hed, .assembly-hed, .statesenate-hed {
+.map-header {
   max-width: 1200px;
   width: 90%;
   margin: auto;
   margin-top: 30px;
-  margin-bottom: 20px;
+}
 
+.house-hed, .assembly-hed, .statesenate-hed {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.instructions {
+  font-size: 14px;
+  padding-left: 10px;
+  .fa {
+    padding-right: 5px;
+  }
 }
 
 .map-info-scrolly {
@@ -63,6 +87,7 @@
     font-weight: 600;
     border-bottom: 1px solid @light-gray;
     margin-bottom: 2px;
+    font-size: 16px;
   }
   .fa {
     padding-right: 5px;
@@ -73,15 +98,14 @@
   }
   .map-entry {
     padding: 10px;
-    &:first-child {
-
-    }
     &:hover {
       cursor: pointer;
       background: lighten(@light-gray,15%);
     }
     &.active {
       background: lighten(@light-gray,10%);
+      border-bottom: 1px solid #333;
+      border-top: 1px solid #333;
     }
     // margin-bottom: 5px;
   }

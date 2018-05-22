@@ -95,9 +95,9 @@ module.exports = {
 
           };
 
-          camap_insets_function("./assets/maps/ca_assembly_insets.json",assemblyCA,0);
+          camap_insets_function("./assets/maps/ca_assembly.json",assemblyCA,0);
           catimer_races = setInterval(function() {
-            camap_insets_function("./assets/maps/ca_assembly_insets.json",assemblyCA,0);
+            camap_insets_function("./assets/maps/ca_assembly.json",assemblyCA,0);
             console.log("refresh ca insets map");
           }, timer5minutes);
 
