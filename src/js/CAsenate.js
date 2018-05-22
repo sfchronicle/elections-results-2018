@@ -46,6 +46,7 @@ module.exports = {
               .classed("svg-container", true) //container class to make it responsive
               .attr("id",senateID)
               .append("svg")
+                .attr("id","svgIDss")
               //responsive SVG needs these 2 attributes and no width and height attr
               .attr("preserveAspectRatio", "xMinYMin slice")
               .attr("viewBox", "50 0 860 530")
@@ -88,7 +89,6 @@ module.exports = {
               .on("click",function(d,index){
                 var sidebarinfo = "scrollystatesenate"+this.id.split("id")[1];
                 if (document.getElementById(sidebarinfo) !== null){
-                  // this.classList.toggle("unzoomed");
                   var k,x,y;
                   if (zoom == 1) {
                     k = 1, x = width / 2, y = height / 2, zoom = 0;
@@ -108,8 +108,8 @@ module.exports = {
                     svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
                   } else {
                     var str = "translate(" + width / 2 + "px, " + height / 2 + "px) scale(" + k + ") translate(" + -x + "px, " + -y + "px)";
-                    document.getElementById("svgID").classList.add("easing-class");
-                    document.getElementById("svgID").style.webkitTransform = str;
+                    document.getElementById("svgIDss").classList.add("easing-class");
+                    document.getElementById("svgIDss").style.webkitTransform = str;
                   }
                 }
               })

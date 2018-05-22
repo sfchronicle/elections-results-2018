@@ -48,7 +48,7 @@ module.exports = {
               .classed("svg-container", true) //container class to make it responsive
               .attr("house-id",houseID)
               .append("svg")
-                .attr("id","svgID")
+                .attr("id","svgIDhouse")
               //responsive SVG needs these 2 attributes and no width and height attr
               .attr("preserveAspectRatio", "xMinYMin slice")
               .attr("viewBox", "50 0 860 530")
@@ -109,8 +109,8 @@ module.exports = {
                     svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
                   } else {
                     var str = "translate(" + width / 2 + "px, " + height / 2 + "px) scale(" + k + ") translate(" + -x + "px, " + -y + "px)";
-                    document.getElementById("svgID").classList.add("easing-class");
-                    document.getElementById("svgID").style.webkitTransform = str;
+                    document.getElementById("svgIDhouse").classList.add("easing-class");
+                    document.getElementById("svgIDhouse").style.webkitTransform = str;
                   }
                 })
 
