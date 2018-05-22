@@ -25,9 +25,9 @@ var propsCAURL = "https://extras.sfgate.com/editorial/election2016/live/props_co
 var localDataURL = "https://extras.sfgate.com/editorial/election2018primary/live/localresults.json";
 
 // more data sources
-var houseCAURL = "http://extras.sfgate.com/editorial/election2016/live/emma_house_district_ca.json";
-var assemblyCAURL = "http://extras.sfgate.com/editorial/election2016/live/emma_assembly_district_id.json";
-var senateCAURL = "http://extras.sfgate.com/editorial/election2016/live/emma_statesenate_district_ca.json";
+var houseCAURL = "https://extras.sfgate.com/editorial/election2016/live/emma_house_district_ca.json";
+var assemblyCAURL = "https://extras.sfgate.com/editorial/election2016/live/emma_assembly_district_id.json";
+var senateCAURL = "https://extras.sfgate.com/editorial/election2016/live/emma_statesenate_district_ca.json";
 
 
 

@@ -78,23 +78,23 @@ module.exports = {
 
     });
 
+    // THIS NEEDS TO BE WRITTEN BETTER, TIMEOUT IS NOT NECESSARILY THE WAY TO GO ==============
     setTimeout(function(){
       var cname = "map-entry-"+scrollKey;
       var mapEntries = document.getElementsByClassName(cname);
       console.log(mapEntries.length);
       for (var idx=0; idx<mapEntries.length; idx++){
         var tempEntry = mapEntries[idx];
-        // console.log(tempEntry);
         mapEntries[idx].addEventListener("click",function(d){
           $(".map-entry").removeClass("active");
           this.classList.add("active");
           $(".states").removeClass("active");
           $(".states").addClass("faded");
-          console.log(this.id.split(scrollKey));
           document.getElementById(scrollKey+"_id"+this.id.split(scrollKey)[1]).classList.add("active");
         })
       }
     }, 400);
+    // FIX ==================================================================================
 
   }
 }

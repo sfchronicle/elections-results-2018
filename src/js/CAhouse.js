@@ -90,14 +90,16 @@ module.exports = {
                 var height = document.getElementById(houseID).getBoundingClientRect().height;
                 this.classList.toggle("unzoomed");
                 var k,x,y;
-                if (zoom == 1) {
+                if (zoom === 1) {
                   k = 1, x = width / 2, y = height / 2, zoom = 0;
                 } else {
                   k = 2;
+                  // THIS NEEDS TO BE FIXED ==> VARIABLES ARE FUDGY==================
                   var centroid = path.centroid(d);
-                  x = centroid[0]/k;
-                  y = centroid[1]/k;
+                  x = centroid[0]/k-120;
+                  y = centroid[1]/k-80;
                   zoom = 1;
+                  // THIS NEEDS TO BE FIXED ==> VARIABLES ARE FUDGY==================
                 }
                 $(".states").removeClass("active");
                 $(".map-entry").removeClass("active");

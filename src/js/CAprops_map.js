@@ -111,18 +111,20 @@ module.exports = {
             }
           })
           .on("mousemove", function() {
-            if (screen.width <= 480) {
+            // this is me being very clever
+            // "offsetLeft" is the position of the mouse relative to the container div, aka "map-container-state"
+            // "containerSize" is the size of the container div
+            // the division is supposed to tell you if the mouse is on the right half or the left so you can flip the tooltip if needed
+            var offsetLeft = d3.event.pageX - (document.getElementById("map-container-state-props").getBoundingClientRect().left + document.body.scrollLeft);
+            var containerSize = document.getElementById("map-container-state-props").offsetWidth
+            if (offsetLeft/containerSize > 0.5){
               return prop_tooltip
                 .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
-                .style("left",((d3.event.pageX)/3+40)+"px");
-            } else if (screen.width <= 670) {
-              return prop_tooltip
-                .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
-                .style("left",((d3.event.pageX)/2+50)+"px");
+                .style("left",((d3.event.pageX)-120)+"px");
             } else {
               return prop_tooltip
-                .style("top", (d3.event.pageY+20)+"px")
-                .style("left",(d3.event.pageX-80)+"px");
+                .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
+                .style("left",((d3.event.pageX)+10)+"px");
             }
           })
           .on("mouseout", function(){
