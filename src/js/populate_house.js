@@ -55,8 +55,6 @@ module.exports = {
               sum += +tempvar["o"];
             }
             if (sum == 0) { sum = 0.1; } // this is a hack for when there are no reported results yet
-            console.log(key);
-            console.log(properties);
             var count = 1; var html_str = "<div class='map-entry map-entry-"+scrollKey+"' id='scrolly"+scrollKey+key+"'><div class='state-name'>"+properties.name+"</div><div class='cand-container'>";
             while (tempvar["c"+count]) {
               var party = tempvar["c"+count+"_party"];

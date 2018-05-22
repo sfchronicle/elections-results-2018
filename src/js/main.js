@@ -29,6 +29,7 @@ var houseCAURL = "https://extras.sfgate.com/editorial/election2018primary/live/e
 var assemblyCAURL = "https://extras.sfgate.com/editorial/election2018primary/live/emma_assembly_district_id.json";
 var senateCAURL = "https://extras.sfgate.com/editorial/election2018primary/live/emma_statesenate_district_ca.json";
 
+var senateURL = "https://extras.sfgate.com/editorial/election2018primary/live/emma_senate_county_ca.json";
 
 // CA propositions
 var ca_props_lib_boxes = require("./CAprops_boxes.js");
