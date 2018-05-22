@@ -34,10 +34,6 @@
   transition: all 500ms linear;
 }
 
-.zoomClass {
-  -webkit-transform: scale(3);
-}
-
 .big-map-container {
   .display-flex();
   .flex-wrap(wrap);
@@ -87,6 +83,9 @@
   padding-left: 10px;
   .fa {
     padding-right: 5px;
+  }
+  @media @mobile {
+    padding-bottom: 15px;
   }
 }
 
