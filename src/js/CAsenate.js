@@ -14,6 +14,8 @@ var lightest_gray = "#D8D8D8";
 var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
 
+var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
 // tooltip
 var tooltip_function = require("./tooltip.js");
 
