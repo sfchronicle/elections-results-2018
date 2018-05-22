@@ -31,6 +31,7 @@
   </div>
 
   <div class="sub-title-links">
+    <div id="f" class="sub-title"><a href="#federal">Federal</a></div>
     <div id="s" class="sub-title"><a href="#state">California</a></div>
     <div id="l" class="sub-title"><a href="#sf">SF</a></div>
     <div id="r" class="sub-title"><a href="#bayarea">Bay Area</a></div>
@@ -71,8 +72,28 @@
 
 <%= t.include("partials/_highlights.html") %>
 
+<div class="page-hed">Federal</div>
+<div id="federal">
+  <div class="map-header">
+    <h2 class="house-hed">U.S. House of Representatives:</h2>
+    <%=t.include("partials/_maplegend.html") %>
+    <div class="instructions"><i class="fa fa-hand-o-right"></i>Click on the map or the list to explore results.</div>
+  </div>
+  <div class="ca-house-container big-map-container">
+    <div id="house-CA-map" class="big-map"></div>
+    <div class="map-info-scrolly" id="scrolly-house-map"></div>
+  </div>
+</div>
+
 <div class="page-hed">California</div>
 <div id="state">
+  <div class="races-hed">
+    <h2 class="caraces">C.A. Races:</h2>
+    <div class="key">Key:
+      <span class="symbol"><i class='fa fa-check-circle-o' aria-hidden='true'></i>Winner</span> |
+      <span class="symbol"><i class='fa fa-star' aria-hidden='true'></i>Incumbent</span>
+    </div>
+  </div>
   <div class="races-container">
   </div>
   <%= t.include("partials/_state_maps.html") %>

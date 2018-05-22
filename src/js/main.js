@@ -96,10 +96,11 @@ d3.json(localDataURL, function(localData){
 
 // sticky nav
 window.onscroll = function() {activate()};
-var s = document.getElementById('s'),
+var f = document.getElementById('f'),
+  s = document.getElementById('s'),
   l = document.getElementById('l'),
   r = document.getElementById('r');
-var scroll = [s, l, r]
+var scroll = [f, s, l, r]
 
 function activate() {
   var sticker = document.getElementById('stick-me');
@@ -115,20 +116,23 @@ function activate() {
       sticker_ph.style.display = 'none'; // removes placeholder
   }
 
+  var fsec = document.getElementById('federal');
   var ssec = document.getElementById('state');
   var lsec = document.getElementById('sf');
   var rsec = document.getElementById('bayarea');
 
+  var f_top = fsec.getBoundingClientRect().top + window_top - 40;
   var s_top = ssec.getBoundingClientRect().top + window_top - 40;
   var l_top = lsec.getBoundingClientRect().top + window_top - 40;
   var r_top = rsec.getBoundingClientRect().top + window_top - 40;
 
+  var f_btm = fsec.getBoundingClientRect().bottom + window_top - 40;
   var s_btm = ssec.getBoundingClientRect().bottom + window_top - 40;
   var l_btm = lsec.getBoundingClientRect().bottom + window_top - 40;
   var r_btm = rsec.getBoundingClientRect().bottom + window_top - 40;
 
-  var top = [s_top, l_top, r_top];
-  var btm = [s_btm, l_btm, r_btm];
+  var top = [f_top, s_top, l_top, r_top];
+  var btm = [f_btm, s_btm, l_btm, r_btm];
 
   for (var i = 0; i < top.length; i++) {
     if ((top[i] < window_top) && (btm[i] > window_top)) {
