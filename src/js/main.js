@@ -21,14 +21,13 @@ var lightest_gray = "#D8D8D8";
 var formatthousands = d3.format("0,000");
 
 // loading data sources
-var propsCAURL = "https://extras.sfgate.com/editorial/election2016/live/props_county_ca.json";
+var propsCAURL = "https://extras.sfgate.com/editorial/election2018primary/live/props_county_ca.json";
 var localDataURL = "https://extras.sfgate.com/editorial/election2018primary/live/localresults.json";
 
 // more data sources
-var houseCAURL = "https://extras.sfgate.com/editorial/election2016/live/emma_house_district_ca.json";
-var assemblyCAURL = "https://extras.sfgate.com/editorial/election2016/live/emma_assembly_district_id.json";
-var senateCAURL = "https://extras.sfgate.com/editorial/election2016/live/emma_statesenate_district_ca.json";
-
+var houseCAURL = "https://extras.sfgate.com/editorial/election2018primary/live/emma_house_district_ca.json";
+var assemblyCAURL = "https://extras.sfgate.com/editorial/election2018primary/live/emma_assembly_district_id.json";
+var senateCAURL = "https://extras.sfgate.com/editorial/election2018primary/live/emma_statesenate_district_ca.json";
 
 
 // CA propositions

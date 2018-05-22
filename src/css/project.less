@@ -551,3 +551,12 @@ body {
 .party {background-color: lighten(@yellow-map,10%);}
 .Demparty { background-color: lighten(@blue-map,10%);}
 .GOPparty {background-color: lighten(@red-map,10%);}
+
+.cand-container {
+  .display-flex();
+  padding: 10px 0;
+  .flex-wrap(wrap);
+  .cand-line {
+    .flex(0 0 50%);
+  }
+}

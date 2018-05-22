@@ -40,9 +40,7 @@ module.exports = {
       select_race.addEventListener("change",function(){
         d3.selectAll(".camap").classed("active",false);
         this.classList.add("active");
-        // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
-        var active_data = propsCA[select_race.value-5]; // -5 is a hack!!
-        // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
+        var active_data = propsCA[select_race.value];
         camap_function("./assets/maps/ca_county_new.json",active_data.counties);
       });
 
@@ -55,9 +53,7 @@ module.exports = {
         group.addEventListener("click", function(e) {
           d3.selectAll(".camap").classed("active",false);
           this.classList.add("active");
-          // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
-          var active_data = propsCA[51+index];
-          // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
+          var active_data = propsCA[68+index];
           camap_function("./assets/maps/ca_county_new.json",active_data.counties);
           clearTimeout(catimer_props);
           catimer_props = setInterval(function() {
@@ -142,7 +138,7 @@ module.exports = {
       };
 
       // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
-      var active_data = propsCA[51];
+      var active_data = propsCA[68];
       // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
       camap_function("./assets/maps/ca_county_new.json",active_data.counties);
       catimer_props = setInterval(function() {

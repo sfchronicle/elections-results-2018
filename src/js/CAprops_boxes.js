@@ -10,11 +10,10 @@ module.exports = {
   CAPropsBoxes: function(propsCAURL){
 
     d3.json(propsCAURL, function(propsCA){
+      console.log(propsCA);
       for (var propidx=68; propidx<73; propidx++) {
         var propID = document.getElementById("prop"+propidx);
-        // FIX THIS WHEN WE HAVE REAL DATA NOT FAKE DATA!-----------------------------------------------
-        var propResult = propsCA[propidx-5]["state"];
-        // FIX THIS WHEN WE HAVE REAL DATA NOT FAKE DATA!-----------------------------------------------
+        var propResult = propsCA[propidx]["state"];
         var total = +propResult.r["Yes"]+ +propResult.r["No"];
         if (total == 0) { total = 0.1;}
         if (propResult.d == "Yes") {
