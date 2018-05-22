@@ -5,7 +5,7 @@ var formatthousands = d3.format("0,000");
 
 // size of text for bar charts
 if (screen.width < 480){
-  var text_len = 100;
+  var text_len = 185;
 } else {
   var text_len = 321;
 }
@@ -70,7 +70,7 @@ module.exports = {
       if (sum == 0.1) {
         document.getElementById(String(namekey)).style.width = "0px";
       } else {
-        var width = document.getElementById("bayarea").getBoundingClientRect().width-40;
+        var width = document.getElementById("bayarea").getBoundingClientRect().width-80;
         var percent = Math.round(racevar["c"+count]/sum*100);
         var pixels = (width-text_len)*(percent/100);
         document.getElementById(String(namekey)).style.width = String(pixels)+"px";
