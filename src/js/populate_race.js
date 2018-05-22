@@ -5,7 +5,7 @@ var formatthousands = d3.format("0,000");
 
 // size of text for bar charts
 if (screen.width < 480){
-  var text_len = 180;
+  var text_len = 100;
 } else {
   var text_len = 321;
 }
