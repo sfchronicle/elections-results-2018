@@ -34,6 +34,10 @@ module.exports = {
             d3.select("#"+senateID).select("svg").remove();
             d3.select("#"+senateID).select(".svg-container").remove();
 
+            var zoom = 0;
+            var width = 860;
+            var height = 530;
+
             // CA map by county
             var svgCACounties = d3.select("#"+senateID)
               .append("div")
@@ -80,14 +84,26 @@ module.exports = {
               })
               .attr("d", path)
               .on("click",function(d,index){
-                $(".states").removeClass("active");
-                $(".map-entry").removeClass("active");
-                this.classList.add("active");
-                var sidebarinfo = "scrollystatesenate"+this.id.split("id")[1];
-                // if (document.getElementByID(sidebarinfo) != undefined){
+                if (d.properties.precincts !== null){
+                  this.classList.toggle("unzoomed");
+                  var k,x,y;
+                  if (zoom == 1) {
+                    k = 1, x = width / 2, y = height / 2, zoom = 0;
+                  } else {
+                    k = 2;
+                    var centroid = path.centroid(d);
+                    x = centroid[0]/k;
+                    y = centroid[1]/k;
+                    zoom = 1;
+                  }
+                  $(".states").removeClass("active");
+                  $(".map-entry").removeClass("active");
+                  this.classList.add("active");
+                  var sidebarinfo = "scrollystatesenate"+this.id.split("id")[1];
                   document.getElementById(sidebarinfo).classList.add("active");
-                  document.getElementById("scrolly-statesenate-map").scrollTop = document.getElementById(sidebarinfo).offsetTop-document.getElementById("scrolly-statesenate-map").offsetTop;//$("#"+sidebarinfo).scrollHeight;
-                // }
+                  document.getElementById("scrolly-statesenate-map").scrollTop = document.getElementById(sidebarinfo).offsetTop-document.getElementById("scrolly-statesenate-map").offsetTop;
+                  svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
+                }
               })
 
             });

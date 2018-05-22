@@ -36,6 +36,10 @@ module.exports = {
             d3.select("#"+houseID).select("svg").remove();
             d3.select("#"+houseID).select(".svg-container").remove();
 
+            var zoom = 0;
+            var width = 860;
+            var height = 530;
+
             // CA map by county
             var svgCACounties = d3.select("#"+houseID)
               .append("div")
@@ -55,7 +59,7 @@ module.exports = {
               svgCACounties.selectAll(".states")
               .data(topojson.feature(us, us.objects.features).features).enter()
               .append("path")
-              .attr("class", "states")
+              .attr("class", "states unzoomed")
               .attr("d",path)
               .attr("id",function(d) {
                 return "house_id"+d.id;
@@ -82,17 +86,26 @@ module.exports = {
               })
               .attr("d", path)
               .on("click",function(d,index){
+                var width = document.getElementById(houseID).getBoundingClientRect().width;
+                var height = document.getElementById(houseID).getBoundingClientRect().height;
+                this.classList.toggle("unzoomed");
+                var k,x,y;
+                if (zoom == 1) {
+                  k = 1, x = width / 2, y = height / 2, zoom = 0;
+                } else {
+                  k = 2;
+                  var centroid = path.centroid(d);
+                  x = centroid[0]/k;
+                  y = centroid[1]/k;
+                  zoom = 1;
+                }
                 $(".states").removeClass("active");
                 $(".map-entry").removeClass("active");
                 this.classList.add("active");
                 var sidebarinfo = "scrollyhouse"+this.id.split("id")[1];
                 document.getElementById(sidebarinfo).classList.add("active");
-                document.getElementById("scrolly-house-map").scrollTop = document.getElementById(sidebarinfo).offsetTop-document.getElementById("scrolly-house-map").offsetTop;//$("#"+sidebarinfo).scrollHeight;
-                // var b = path.bounds(d);
-                // svgCACounties.transition().duration(750).attr("transform",
-                //    "translate(" + projection.translate() + ")"
-                //    + "scale(" + .95 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h) + ")"
-                //    + "translate(" + -(b[1][0] + b[0][0]) / 2 + "," + -(b[1][1] + b[0][1]) / 2 + ")");
+                document.getElementById("scrolly-house-map").scrollTop = document.getElementById(sidebarinfo).offsetTop-document.getElementById("scrolly-house-map").offsetTop;
+                svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
               })
 
             });

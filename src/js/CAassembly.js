@@ -37,6 +37,10 @@ module.exports = {
             d3.select("#"+assemblyID).select("svg").remove();
             d3.select("#"+assemblyID).select(".svg-container").remove();
 
+            var zoom = 0;
+            var width = 860;
+            var height = 530;
+
             // CA map by county
             var svgCACounties = d3.select("#"+assemblyID)
               .append("div")
@@ -83,15 +87,33 @@ module.exports = {
               })
               .attr("d", path)
               .on("click",function(d,index){
+                this.classList.toggle("unzoomed");
+                var k,x,y;
+                if (zoom == 1) {
+                  k = 1, x = width / 2, y = height / 2, zoom = 0;
+                } else {
+                  k = 2;
+                  var centroid = path.centroid(d);
+                  x = centroid[0]/k;
+                  y = centroid[1]/k;
+                  zoom = 1;
+                }
                 $(".states").removeClass("active");
                 $(".map-entry").removeClass("active");
                 this.classList.add("active");
                 var sidebarinfo = "scrollyassembly"+this.id.split("id")[1];
                 document.getElementById(sidebarinfo).classList.add("active");
                 document.getElementById("scrolly-assembly-map").scrollTop = document.getElementById(sidebarinfo).offsetTop-document.getElementById("scrolly-assembly-map").offsetTop;
+                svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
               })
 
             });
+
+            // document.getElementById("assembly-CA-map").addEventListener("click",function(){
+            //   if (zoom == 1){
+            //     svgCACounties.transition().duration(750).attr("transform","translate(" + width/2 + "," + height/2 + ")scale(1)translate(" + -width/2 + "," + -height/2+ ")");
+            //   }
+            // });
 
           };
 
