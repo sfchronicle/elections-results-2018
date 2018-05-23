@@ -39,6 +39,7 @@ module.exports = {
             d3.select("#"+houseID).select(".svg-container").remove();
 
             var zoom = 0;
+            var dont_unzoom = 0;
             var width = 860;
             var height = 530;
 
@@ -89,20 +90,16 @@ module.exports = {
                 })
                 .attr("d", path)
                 .on("click",function(d,index){
+                  var sidebarinfo = "scrollyhouse"+this.id.split("id")[1];
+                  dontzoom = 0;
                   var k,x,y;
-                  if (zoom === 1) {
-                    k = 1, x = width / 2, y = height / 2, zoom = 0;
-                  } else {
-                    k = 2;
-                    var centroid = path.centroid(d);
-                    x = centroid[0]/k;
-                    y = centroid[1]/k;
-                    zoom = 1;
-                  }
+                  k = 2;
+                  var centroid = path.centroid(d);
+                  x = centroid[0]/k;
+                  y = centroid[1]/k;
                   $(".states").removeClass("active");
                   $(".map-entry").removeClass("active");
                   this.classList.add("active");
-                  var sidebarinfo = "scrollyhouse"+this.id.split("id")[1];
                   document.getElementById(sidebarinfo).classList.add("active");
                   document.getElementById("scrolly-house-map").scrollTop = document.getElementById(sidebarinfo).offsetTop-document.getElementById("scrolly-house-map").offsetTop;
                   if (!is_safari) {
@@ -112,8 +109,25 @@ module.exports = {
                     document.getElementById("svgIDhouse").classList.add("easing-class");
                     document.getElementById("svgIDhouse").style.webkitTransform = str;
                   }
+                  zoom = 1;
+                  dont_unzoom = 1;
                 })
 
+            });
+
+            document.getElementById("svgIDhouse").addEventListener("click",function(){
+              k = 1, x = width / 2, y = height / 2;
+              if (zoom === 1 && dont_unzoom === 0){
+                if (!is_safari) {
+                  svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
+                } else {
+                  var str = "translate(" + width / 2 + "px, " + height / 2 + "px) scale(" + k + ") translate(" + -x + "px, " + -y + "px)";
+                  document.getElementById("svgIDhouse").classList.add("easing-class");
+                  document.getElementById("svgIDhouse").style.webkitTransform = str;
+                }
+                zoom = 0;
+              }
+              dont_unzoom = 0;
             });
 
           };

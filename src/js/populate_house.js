@@ -8,16 +8,21 @@ var formatthousands = d3.format("0,000");
 // populate race information
 var populate_race_function = require("./populate_race.js");
 
+var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
 module.exports = {
 
   CAmapList: function(DataURL,sectionID){
 
     if (sectionID.includes("house")){
       var scrollKey = "house";
+      var shortKey = "house";
     } else if (sectionID.includes("assembly")) {
       var scrollKey = "assembly";
+      var shortKey = "assembly";
     } else if (sectionID.includes("senate")) {
       var scrollKey = "statesenate";
+      var shortKey = "ss";
     }
 
     d3.json(DataURL, function(Data){
@@ -92,7 +97,23 @@ module.exports = {
           this.classList.add("active");
           $(".states").removeClass("active");
           $(".states").addClass("faded");
-          document.getElementById(scrollKey+"_id"+this.id.split(scrollKey)[1]).classList.add("active");
+          mapID = document.getElementById(scrollKey+"_id"+this.id.split(scrollKey)[1]);
+          mapID.classList.add("active");
+          var k,x,y;
+          k = 2;
+          var centroid = mapID.getBBox();
+          x = centroid.x/k;
+          y = centroid.y/k;
+          var width = 860;
+          var height = 530;
+          var svgCACounties = d3.select("#svgID"+shortKey);
+          if (!is_safari) {
+            svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
+          } else {
+            var str = "translate(" + width / 2 + "px, " + height / 2 + "px) scale(" + k + ") translate(" + -x + "px, " + -y + "px)";
+            document.getElementById("svgIDss").classList.add("easing-class");
+            document.getElementById("svgIDss").style.webkitTransform = str;
+          }
         })
       }
     }, 400);

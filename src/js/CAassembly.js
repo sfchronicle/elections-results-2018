@@ -40,6 +40,7 @@ module.exports = {
             d3.select("#"+assemblyID).select(".svg-container").remove();
 
             var zoom = 0;
+            var dont_unzoom = 0;
             var width = 860;
             var height = 530;
 
@@ -91,15 +92,10 @@ module.exports = {
               .attr("d", path)
               .on("click",function(d,index){
                 var k,x,y;
-                if (zoom == 1) {
-                  k = 1, x = width / 2, y = height / 2, zoom = 0;
-                } else {
-                  k = 2;
-                  var centroid = path.centroid(d);
-                  x = centroid[0]/k;
-                  y = centroid[1]/k;
-                  zoom = 1;
-                }
+                k = 2;
+                var centroid = path.centroid(d);
+                x = centroid[0]/k;
+                y = centroid[1]/k;
                 $(".states").removeClass("active");
                 $(".map-entry").removeClass("active");
                 this.classList.add("active");
@@ -113,15 +109,26 @@ module.exports = {
                   document.getElementById("svgIDassembly").classList.add("easing-class");
                   document.getElementById("svgIDassembly").style.webkitTransform = str;
                 }
+                zoom = 1;
+                dont_unzoom = 1;
               })
 
             });
 
-            // document.getElementById("assembly-CA-map").addEventListener("click",function(){
-            //   if (zoom == 1){
-            //     svgCACounties.transition().duration(750).attr("transform","translate(" + width/2 + "," + height/2 + ")scale(1)translate(" + -width/2 + "," + -height/2+ ")");
-            //   }
-            // });
+            document.getElementById("svgIDassembly").addEventListener("click",function(){
+              k = 1, x = width / 2, y = height / 2;
+              if (zoom === 1 && dont_unzoom === 0){
+                if (!is_safari) {
+                  svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
+                } else {
+                  var str = "translate(" + width / 2 + "px, " + height / 2 + "px) scale(" + k + ") translate(" + -x + "px, " + -y + "px)";
+                  document.getElementById("svgIDassembly").classList.add("easing-class");
+                  document.getElementById("svgIDassembly").style.webkitTransform = str;
+                }
+                zoom = 0;
+              }
+              dont_unzoom = 0;
+            });
 
           };
 

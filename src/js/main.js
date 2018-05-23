@@ -179,3 +179,7 @@ $(document).on('click', 'a[href^="#"]', function(e) {
     // animated top scrolling
     $('body, html').animate({scrollTop: pos});
 });
+
+if (screen.width <= 480){
+  document.getElementById("slink").innerHTML = "CA";
+}
