@@ -30,9 +30,10 @@ var assemblyCAURL = "https://extras.sfgate.com/editorial/election2018primary/liv
 var senateCAURL = "https://extras.sfgate.com/editorial/election2018primary/live/emma_statesenate_district_ca.json";
 
 // still needs integration
-var senateURL = "https://extras.sfgate.com/editorial/election2018primary/live/emma_senate_county_ca.json";
+var senatecountiesURL = "https://extras.sfgate.com/editorial/election2018primary/live/emma_senate_county_ca.json";
 var govURL = "https://extras.sfgate.com/editorial/election2018primary/live/governor_county_ca.json";
 var caURL = "https://extras.sfgate.com/editorial/election2018primary/live/ca_summary.json";
+var senateURL = "https://extras.sfgate.com/editorial/election2018primary/live/emma_statesenate_district_ca.json";
 
 // state races
 var state_lib = require("./staterace.js");
@@ -48,6 +49,7 @@ state_lib.StateRaces(caURL,"board-1-race","bofe1","Board of equalization, distri
 state_lib.StateRaces(caURL,"board-2-race","bofe2","Board of equalization, district 2");
 state_lib.StateRaces(caURL,"board-3-race","bofe3","Board of equalization, district 3");
 state_lib.StateRaces(caURL,"board-4-race","bofe4","Board of equalization, district 4");
+state_lib.StateRaces(caURL,"senate-race","bofe4","U.S. Senate");
 
 // CA propositions
 var ca_props_lib_boxes = require("./CAprops_boxes.js");

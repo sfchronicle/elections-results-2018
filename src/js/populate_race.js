@@ -58,8 +58,15 @@ module.exports = {
         }
       }
       count ++;
+      if (count === 4 && racevar["c4"]){
+        html = html+"<div class='expand-button' id='expandbutton"+raceID.id+"'>See more</div><div class='expanded-races' id='expandsection"+raceID.id+"'>";
+      }
     }
-    var closeDiv = html + "</div>";
+    if (count > 4){
+      var closeDiv = html + "</div></div>";
+    } else {
+      var closeDiv = html + "</div>";
+    }
     raceID.innerHTML = closeDiv;
     count = 1;
     while (racevar["c"+count]) {
@@ -74,5 +81,20 @@ module.exports = {
       }
       count++;
     }
+    if (count > 4){
+      // add event listener to expand collapsed sections
+      document.getElementById("expandbutton"+raceID.id).addEventListener("click",function(){
+        console.log("click");
+        document.getElementById("expandsection"+raceID.id).classList.toggle("displayraces");
+        if (document.getElementById("expandsection"+raceID.id).classList.contains("displayraces")){
+          this.innerHTML = "See Less";
+        } else {
+          this.innerHTML = "See More";
+        }
+
+      });
+    }
+
+
   }
 }
