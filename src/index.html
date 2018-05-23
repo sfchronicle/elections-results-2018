@@ -74,6 +74,9 @@
 
 <div class="page-hed">Federal</div>
 <div id="federal">
+  <div class="races-container">
+    <div id="senate-race"></div>
+  </div>
   <div class="map-header">
     <h2 class="house-hed">U.S. House of Representatives:</h2>
     <%=t.include("partials/_maplegend.html") %>
@@ -95,6 +98,18 @@
     </div>
   </div>
   <div class="races-container">
+    <div id="governor-race"></div>
+    <div id="lt-governor-race"></div>
+    <div id="sec-state-race"></div>
+    <div id="controller-race"></div>
+    <div id="treasurer-race"></div>
+    <div id="attorney-general-race"></div>
+    <div id="insurance-commissioner-race"></div>
+    <div id="superintendent-race"></div>
+    <div id="board-1-race"></div>
+    <div id="board-2-race"></div>
+    <div id="board-3-race"></div>
+    <div id="board-4-race"></div>
   </div>
   <%= t.include("partials/_state_maps.html") %>
   <div class="props-container">
@@ -139,4 +154,4 @@
   var statesenateCodes = <%= JSON.stringify(csv.state_senate) %>;
 </script>
 
-<script src="app.js?8" async></script>
+<script src="app.js?9" async></script>
