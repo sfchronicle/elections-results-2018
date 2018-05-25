@@ -42,9 +42,6 @@ module.exports = {
             var dont_unzoom = 0;
             var width = 860;
             var height = 530;
-            var kprev = 1;
-            var scale2 = 0.48;
-            // var translate, translate_origin = [0,0];
 
             // CA map by county
             var svgCACounties = d3.select("#"+houseID)
@@ -58,6 +55,9 @@ module.exports = {
               .attr("viewBox", "50 0 860 530")
               //class to make it responsive
               .classed("svg-content-responsive", true);
+
+            var containerwidth = document.getElementById("svgIDhouse").getBoundingClientRect().width;
+            var scale2 = containerwidth/width;
 
             d3.json(active_map, function(error, us) {
               if (error) throw error;
@@ -94,84 +94,37 @@ module.exports = {
                 .attr("d", path)
                 .on("click",function(d,index){
 
-                  // svgCACounties.transition()
-                  //    .duration(750)
-                  //    .attr("transform","translate(0,0)scale(1)");
-
                   var sidebarinfo = "scrollyhouse"+this.id.split("id")[1];
                   dontzoom = 0;
-                  var k,x,y,segheight,segwidth;
-                  var svgboxbounds = document.getElementById("svgIDhouse").getBoundingClientRect();
-                  var containerwidth = svgboxbounds.width;
-                  var containerheight = svgboxbounds.height;
-                  console.log(containerwidth/width);
 
                   var bounds = path.bounds(d),
                        dx = bounds[1][0] - bounds[0][0],
                        dy = bounds[1][1] - bounds[0][1],
-                       scale = .6 / Math.max(dx / width, dy / height),
-                       // scale2 = containerwidth/width,
+                       scale = Math.min(.6 / Math.max(dx / width, dy / height),6),
                        centroid = path.centroid(d),
                        x = centroid[0],
                        y = centroid[1];
-                scale = Math.min(scale,5);
-                 var translate = [scale2*(width / 2 - x + dx/2)*scale, scale2*(height / 2 - y)*scale];
-                 console.log(translate);
 
-                 svgCACounties.transition()
-                   .duration(0)
-                   .attr("transform","scale(1)translate(0,0)")
-                   .transition()
-                   .duration(750)
-                   .attr("transform","translate("+translate+")scale("+scale+")");
+                  var translate = [scale2*(width / 2 - x + dx/2)*scale, scale2*(height / 2 - y)*scale];
 
-                  // translate_origin = [-scale2*(width / 2 - x), -scale2*(height / 2 - y)];
+                  if (!is_safari){
+                      svgCACounties.transition()
+                       .duration(0)
+                       .attr("transform","scale(1)translate(0,0)")
+                       .transition()
+                       .duration(750)
+                       .attr("transform","translate("+translate+")scale("+scale+")");
+                   } else {
+                      document.getElementById("svgIDhouse").classList.add("easing-class");
+                      document.getElementById("svgIDhouse").style.webkitTransform = "scale(1) translate(0px,0px) translate("+translate[0]+"px,"+translate[1]+"px) scale("+scale+")";
+                   }
 
-                  // var bounds = path.bounds(d),
-                  //       dx = bounds[1][0] - bounds[0][0],
-                  //       dy = bounds[1][1] - bounds[0][1],
-                  //       x = (bounds[0][0] + bounds[1][0]) / 2,
-                  //       y = (bounds[0][1] + bounds[1][1]) / 2,
-                  //       scale = Math.max(1, Math.min(8, 0.9 / Math.max(dx / width, dy / height))),
-                  //       translate = [width / 2 - scale * x, height / 2 - scale * y];
-                  // svgCACounties.transition()
-                  //      .duration(750)
-                  //      .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
-
-                  // segheight = this.getBBox().height;
-                  // segwidth = this.getBBox().width;
-                  // var containerboxbounds = document.getElementById("svgIDhouse").getBoundingClientRect();
-                  // var cutoff = 0.10;
-                  // if (kprev === 1){
-                  //   if (segheight / containerboxbounds.height > cutoff || segwidth / containerboxbounds.height > cutoff ) {
-                  //     k = 2;
-                  //   } else {
-                  //     k = 6;
-                  //   }
-                  // } else {
-                  //   if (segheight / containerboxbounds.height > cutoff || segwidth / containerboxbounds.height > cutoff ) {
-                  //     k = 2/kprev;
-                  //   } else {
-                  //     k = 6/kprev;
-                  //   }
-                  // }
-                  // kprev = k;
-                  // console.log(k);
-                  // var centroid = path.centroid(d);
-                  // x = centroid[0]/k;
-                  // y = centroid[1]/k;
                   $(".states").removeClass("active");
                   $(".map-entry").removeClass("active");
                   this.classList.add("active");
                   document.getElementById(sidebarinfo).classList.add("active");
                   document.getElementById("scrolly-house-map").scrollTop = document.getElementById(sidebarinfo).offsetTop-document.getElementById("scrolly-house-map").offsetTop;
-                  // if (!is_safari) {
-                  //   svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
-                  // } else {
-                  //   var str = "translate(" + width / 2 + "px, " + height / 2 + "px) scale(" + k + ") translate(" + -x + "px, " + -y + "px)";
-                  //   document.getElementById("svgIDhouse").classList.add("easing-class");
-                  //   document.getElementById("svgIDhouse").style.webkitTransform = str;
-                  // }
+
                   zoom = 1;
                   dont_unzoom = 1;
                 })

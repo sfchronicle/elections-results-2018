@@ -54,6 +54,9 @@ module.exports = {
               //class to make it responsive
               .classed("svg-content-responsive", true);
 
+            var containerwidth = document.getElementById("svgIDss").getBoundingClientRect().width;
+            var scale2 = containerwidth/width;
+
             d3.json(active_map, function(error, us) {
               if (error) throw error;
 
@@ -91,23 +94,34 @@ module.exports = {
                 var sidebarinfo = "scrollystatesenate"+this.id.split("id")[1];
                 dont_unzoom = 0;
                 if (document.getElementById(sidebarinfo) !== null){
-                  var k,x,y;
-                  k = 2;
-                  var centroid = path.centroid(d);
-                  x = centroid[0]/k;
-                  y = centroid[1]/k;
+
+                  var bounds = path.bounds(d),
+                       dx = bounds[1][0] - bounds[0][0],
+                       dy = bounds[1][1] - bounds[0][1],
+                       scale = Math.min(.6 / Math.max(dx / width, dy / height),6),
+                       centroid = path.centroid(d),
+                       x = centroid[0],
+                       y = centroid[1];
+
+                  var translate = [scale2*(width / 2 - x + dx/2)*scale, scale2*(height / 2 - y)*scale];
+
+                  if (!is_safari){
+                      svgCACounties.transition()
+                       .duration(0)
+                       .attr("transform","scale(1)translate(0,0)")
+                       .transition()
+                       .duration(750)
+                       .attr("transform","translate("+translate+")scale("+scale+")");
+                   } else {
+                      document.getElementById("svgIDss").classList.add("easing-class");
+                      document.getElementById("svgIDss").style.webkitTransform = "scale(1) translate(0px,0px) translate("+translate[0]+"px,"+translate[1]+"px) scale("+scale+")";
+                   }
+
                   $(".states").removeClass("active");
                   $(".map-entry").removeClass("active");
                   this.classList.add("active");
                   document.getElementById(sidebarinfo).classList.add("active");
                   document.getElementById("scrolly-statesenate-map").scrollTop = document.getElementById(sidebarinfo).offsetTop-document.getElementById("scrolly-statesenate-map").offsetTop;
-                  if (!is_safari) {
-                    svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
-                  } else {
-                    var str = "translate(" + width / 2 + "px, " + height / 2 + "px) scale(" + k + ") translate(" + -x + "px, " + -y + "px)";
-                    document.getElementById("svgIDss").classList.add("easing-class");
-                    document.getElementById("svgIDss").style.webkitTransform = str;
-                  }
                   zoom = 1;
                   dont_unzoom = 1;
                 }
