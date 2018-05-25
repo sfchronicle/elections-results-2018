@@ -60,6 +60,7 @@
 <div id="stick-ph"></div>
 
 <div class="sub-title-links">
+  <div class="sub-title sub-sub-title bayarea"><a href="#bayarea">Bay Area:</a></div>
   <div class="sub-title sub-sub-title"><a href="#regionAlameda">Alameda</a></div>
   <div class="sub-title sub-sub-title"><a href="#regionContraCosta">Contra Costa</a></div>
   <div class="sub-title sub-sub-title"><a href="#regionMarin">Marin</a></div>
@@ -78,7 +79,7 @@
     <div id="senate-race"></div>
   </div>
   <div class="map-header">
-    <h2 class="house-hed">U.S. House of Representatives:</h2>
+    <h2 class="house-hed">U.S. House of Representatives</h2>
     <%=t.include("partials/_maplegend.html") %>
     <div class="instructions"><i class="fa fa-hand-o-right"></i>Click on the map or the list to explore results.</div>
   </div>
@@ -154,4 +155,4 @@
   var statesenateCodes = <%= JSON.stringify(csv.state_senate) %>;
 </script>
 
-<script src="app.js?11" async></script>
+<script src="app.js?12" async></script>

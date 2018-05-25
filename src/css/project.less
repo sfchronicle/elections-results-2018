@@ -158,9 +158,6 @@ body {
         height: 27px;
       }
     }
-    // &:nth-child(1){
-    // margin-left:0;
-    // }
 
     &:hover{
       border-bottom-color: darken(@red,10%);
@@ -178,6 +175,9 @@ body {
       font-size: 16px;
 
       cursor: pointer;
+      &.bayarea {
+        font-size: 20px;
+      }
 
       // &:nth-child(1){
       // margin-left:0;
@@ -190,6 +190,12 @@ body {
       @media @mobile{
         font-size:15px;
       }
+    }
+  }
+  #r {
+    display: none;
+    &.showme {
+      display: inline-block;
     }
   }
 }

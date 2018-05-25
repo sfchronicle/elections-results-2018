@@ -10,6 +10,8 @@ if (screen.width < 480){
   var text_len = 321;
 }
 
+
+
 module.exports = {
 
   populateRace: function(raceID,racevar,p) {
@@ -58,11 +60,11 @@ module.exports = {
         }
       }
       count ++;
-      if (count === 4 && racevar["c4"]){
-        html = html+"<div class='expand-button' id='expandbutton"+raceID.id+"'>See more</div><div class='expanded-races' id='expandsection"+raceID.id+"'>";
+      if (count === 6 && racevar["c4"]){
+        html = html+"<div class='expand-button' id='expandbutton"+raceID.id+"'>Additional candidates</div><div class='expanded-races' id='expandsection"+raceID.id+"'>";
       }
     }
-    if (count > 4){
+    if (count > 6){
       var closeDiv = html + "</div></div>";
     } else {
       var closeDiv = html + "</div>";
@@ -81,15 +83,14 @@ module.exports = {
       }
       count++;
     }
-    if (count > 4){
+    if (count > 6){
       // add event listener to expand collapsed sections
       document.getElementById("expandbutton"+raceID.id).addEventListener("click",function(){
-        console.log("click");
         document.getElementById("expandsection"+raceID.id).classList.toggle("displayraces");
         if (document.getElementById("expandsection"+raceID.id).classList.contains("displayraces")){
-          this.innerHTML = "See Less";
+          this.innerHTML = "Fewer candidates";
         } else {
-          this.innerHTML = "See More";
+          this.innerHTML = "Additional candidates";
         }
 
       });
