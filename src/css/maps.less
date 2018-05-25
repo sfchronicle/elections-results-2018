@@ -66,7 +66,10 @@
       font-family: Lora;
       letter-spacing: 0;
       background: white;
-      z-index: 100;
+      z-index: 50;
+      &:hover {
+        background: lighten(@light-gray,15%);
+      }
     }
   }
   .map-info-scrolly {
@@ -103,6 +106,13 @@
 .instructions {
   font-size: 14px;
   padding-left: 10px;
+  &.top {
+    margin-top: -10px;
+    padding-left: 0;
+  }
+  &.left {
+    padding-left: 0;
+  }
   .fa {
     padding-right: 5px;
   }

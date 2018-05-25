@@ -80,6 +80,7 @@
   </div>
   <div class="map-header">
     <h2 class="house-hed">U.S. House of Representatives</h2>
+    <div class="instructions top">Top two candidates advance to general election in November.</div>
     <%=t.include("partials/_maplegend.html") %>
     <div class="instructions"><i class="fa fa-hand-o-right"></i>Click on the map or the list to explore results.</div>
   </div>
@@ -150,9 +151,9 @@
   // map look-up tables
   var stateCodes = <%= JSON.stringify(csv.stateCodes) %>;
   var countyCodes = <%= JSON.stringify(json.countyCodesLookup) %>;
-  var houseCodes = <%= JSON.stringify(csv.house) %>;
+  var houseCodes = <%= JSON.stringify(csv.house2) %>;
   var assemblyCodes = <%= JSON.stringify(csv.assembly) %>;
   var statesenateCodes = <%= JSON.stringify(csv.state_senate) %>;
 </script>
 
-<script src="app.js?15" async></script>
+<script src="app.js?16" async></script>

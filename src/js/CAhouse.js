@@ -76,21 +76,12 @@ module.exports = {
                   if (d.id == 0) {
                     return "#fff";
                   } else if (active_data[String(location)]) {
+                    if (location == "0604" || location == "0610" || location == "0621" || location == "0625" || location == "0639" || location == "0645" || location == "0648" || location == "0649" || location == "0650"){
+                      return "#BC1826";
+                    } else if (location == "0607"){
+                      return "#265B9B";
+                    }
                     return "#93A5A0";
-                    var tempvar = active_data[String(location)];
-                    var percentvote = Math.min(Math.max(tempvar.p/d.properties.precincts,0.7),0.9);
-                    var new_color = colors_function.ShadeColor("#518268",percentvote);//93A5A0
-                    return new_color;
-                    // if (tempvar.r || tempvar.d) {
-                    //   var new_color = colors_function.codeMap(tempvar,d.properties);
-                    //   return new_color;
-                    // } else if (flag == 1) {
-                    //   var new_color = colors_function.codeCounty(tempvar,d.properties);
-                    //   return new_color;
-                    // } else {
-                    //   var new_color = colors_function.colorPartialResults(tempvar,d.properties);
-                    //   return new_color;
-                    // }
                   } else {
                     return lightest_gray;//fill(path.area(d));
                   }
@@ -113,14 +104,11 @@ module.exports = {
 
                   if (!is_safari){
                       svgCACounties.transition()
-                       .duration(0)
-                       .attr("transform","scale(1)translate(0,0)")
-                       .transition()
                        .duration(750)
                        .attr("transform","translate("+translate+")scale("+scale+")");
                    } else {
                       document.getElementById("svgIDhouse").classList.add("easing-class");
-                      document.getElementById("svgIDhouse").style.webkitTransform = "scale(1) translate(0px,0px) translate("+translate[0]+"px,"+translate[1]+"px) scale("+scale+")";
+                      document.getElementById("svgIDhouse").style.webkitTransform = "translate("+translate[0]+"px,"+translate[1]+"px) scale("+scale+")";
                    }
 
                   $(".states").removeClass("active");
@@ -138,10 +126,14 @@ module.exports = {
             function unZoomMap(){
               k = 1, x = width / 2, y = height / 2;
               if (zoom === 1 && dont_unzoom === 0){
+                $(".states").removeClass("active");
+                $(".map-entry").removeClass("active");
                 if (!is_safari) {
-                  svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
+                  svgCACounties.transition()
+                   .duration(750)
+                   .attr("transform","scale(1)translate(0,0)")
                 } else {
-                  var str = "translate(" + width / 2 + "px, " + height / 2 + "px) scale(" + k + ") translate(" + -x + "px, " + -y + "px)";
+                  var str = "translate(0px,0px) scale(1)";
                   document.getElementById("svgIDhouse").classList.add("easing-class");
                   document.getElementById("svgIDhouse").style.webkitTransform = str;
                 }
@@ -154,6 +146,8 @@ module.exports = {
               unZoomMap();
             });
             document.getElementById("resethousemap").addEventListener("click",function(){
+              zoom = 1;
+              dont_unzoom = 0;
               unZoomMap();
             });
 

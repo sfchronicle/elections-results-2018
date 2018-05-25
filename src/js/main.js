@@ -44,7 +44,7 @@ state_lib.StateRaces(caURL,"controller-race","controller","Controller");
 state_lib.StateRaces(caURL,"treasurer-race","treasurer","Treasurer");
 state_lib.StateRaces(caURL,"attorney-general-race","attygeneral","Attorney General");
 state_lib.StateRaces(caURL,"insurance-commissioner-race","inscommisioner","Insurance Commissioner");
-state_lib.StateRaces(caURL,"superintendent-race","superintendent","State superintendent of public schools");
+state_lib.StateRaces(caURL,"superintendent-race","superintendent","State superintendent of public instruction");
 state_lib.StateRaces(caURL,"board-1-race","bofe1","Board of equalization, district 1");
 state_lib.StateRaces(caURL,"board-2-race","bofe2","Board of equalization, district 2");
 state_lib.StateRaces(caURL,"board-3-race","bofe3","Board of equalization, district 3");

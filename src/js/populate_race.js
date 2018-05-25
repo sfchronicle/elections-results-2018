@@ -60,7 +60,7 @@ module.exports = {
         }
       }
       count ++;
-      if (count === 6 && racevar["c4"]){
+      if (count === 6 && racevar["c7"]){
         html = html+"<div class='expand-button' id='expandbutton"+raceID.id+"'>Additional candidates</div><div class='expanded-races' id='expandsection"+raceID.id+"'>";
       }
     }

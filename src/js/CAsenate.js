@@ -75,24 +75,12 @@ module.exports = {
                   return "#fff";
                 } else if (active_data[String(location)]) {
                   var tempvar = active_data[String(location)];
-                  return "#93A5A0";
-                  // var percentvote = Math.min(Math.max(tempvar.p/d.properties.precincts*2,1),1);
-                  // if (!percentvote) {
-                  //   percentvote = 0.7;
-                  // }
-                  console.log(percentvote);
-                  var new_color = colors_function.ShadeColor("#31544C",percentvote);//93A5A0//518268
-                  return new_color;
-                  // if (tempvar.r || tempvar.d) {
-                  //   var new_color = colors_function.codeMap(tempvar,d.properties);
-                  //   return new_color;
-                  // } else if (flag == 1) {
-                  //   var new_color = code_county(tempvar,d.properties);
-                  //   return new_color;
-                  // } else {
-                  //   var new_color = colors_function.colorPartialResults(tempvar,d.properties);
-                  //   return new_color;
-                  // }
+                  console.log(location);
+                  if (location == "06029"){
+                    return "#FFCC32";
+                  } else {
+                    return "#93A5A0";
+                  }
                 } else {
                   return lightest_gray;//fill(path.area(d));
                 }
@@ -115,9 +103,9 @@ module.exports = {
 
                   if (!is_safari){
                       svgCACounties.transition()
-                       .duration(0)
-                       .attr("transform","scale(1)translate(0,0)")
-                       .transition()
+                       // .duration(0)
+                       // .attr("transform","scale(1)translate(0,0)")
+                       // .transition()
                        .duration(750)
                        .attr("transform","translate("+translate+")scale("+scale+")");
                    } else {

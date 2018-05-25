@@ -27,6 +27,8 @@ module.exports = {
 
     d3.json(DataURL, function(Data){
 
+      console.log(Data);
+
       var section = document.getElementById(sectionID);
 
       Object.keys(Data).forEach(function(key) {
@@ -85,11 +87,18 @@ module.exports = {
 
     });
 
+
     // THIS NEEDS TO BE WRITTEN BETTER, TIMEOUT IS NOT NECESSARILY THE WAY TO GO ==============
     setTimeout(function(){
       var cname = "map-entry-"+scrollKey;
       var mapEntries = document.getElementsByClassName(cname);
       console.log(mapEntries.length);
+
+      var width = 860;
+      var height = 530;
+      var containerwidth = document.getElementById("svgID"+shortKey).getBoundingClientRect().width;
+      var scale2 = containerwidth/width;
+
       for (var idx=0; idx<mapEntries.length; idx++){
         var tempEntry = mapEntries[idx];
         mapEntries[idx].addEventListener("click",function(d){
@@ -99,21 +108,29 @@ module.exports = {
           $(".states").addClass("faded");
           mapID = document.getElementById(scrollKey+"_id"+this.id.split(scrollKey)[1]);
           mapID.classList.add("active");
-          var k,x,y;
-          k = 2;
-          var centroid = mapID.getBBox();
-          x = centroid.x/k;
-          y = centroid.y/k;
-          var width = 860;
-          var height = 530;
+
+          var bounds = mapID.getBBox();
+            dx = bounds.width,
+            dy = bounds.height,
+            scale = Math.min(.6 / Math.max(dx / width, dy / height),6);
+            x = bounds.x+bounds.width/2,
+            y = bounds.y+bounds.height/2;
+
+          var translate = [scale2*(width / 2 - x + dx/2)*scale, scale2*(height / 2 - y)*scale];
+
           var svgCACounties = d3.select("#svgID"+shortKey);
-          if (!is_safari) {
-            svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
-          } else {
-            var str = "translate(" + width / 2 + "px, " + height / 2 + "px) scale(" + k + ") translate(" + -x + "px, " + -y + "px)";
-            document.getElementById("svgIDss").classList.add("easing-class");
-            document.getElementById("svgIDss").style.webkitTransform = str;
-          }
+          if (!is_safari){
+              svgCACounties.transition()
+               // .duration(0)
+               // .attr("transform","translate(0,0)scale(1)")
+               // .transition()
+               .duration(750)
+               .attr("transform","translate("+translate+")scale("+scale+")");
+           } else {
+              document.getElementById("svgID"+shortKey).classList.add("easing-class");
+              document.getElementById("svgID"+shortKey).style.webkitTransform = "translate("+translate[0]+"px,"+translate[1]+"px) scale("+scale+")";
+           }
+           zoom = 1;
         })
       }
     }, 400);

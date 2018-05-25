@@ -78,20 +78,6 @@ module.exports = {
                   return "#fff";
                 } else if (active_data[String(location)]) {
                   return "#93A5A0";
-                  var tempvar = active_data[String(location)];
-                  var percentvote = Math.min(Math.max(tempvar.p/d.properties.precincts,0.7),0.9);
-                  var new_color = colors_function.ShadeColor("#518268",percentvote);//93A5A0
-                  return new_color;
-                  // if (tempvar.r || tempvar.d) {
-                  //   var new_color = colors_function.codeMap(tempvar,d.properties);
-                  //   return new_color;
-                  // } else if (flag == 1) {
-                  //   var new_color = colors_function.codeCounty(tempvar,d.properties);
-                  //   return new_color;
-                  // } else {
-                  //   var new_color = colors_function.colorPartialResults(tempvar,d.properties);
-                  //   return new_color;
-                  // }
                 } else {
                   return lightest_gray;//fill(path.area(d));
                 }
@@ -112,14 +98,14 @@ module.exports = {
 
                 if (!is_safari){
                     svgCACounties.transition()
-                     .duration(0)
-                     .attr("transform","scale(1)translate(0,0)")
-                     .transition()
+                     // .duration(0)
+                     // .attr("transform","scale(1)translate(0,0)")
+                     // .transition()
                      .duration(750)
                      .attr("transform","translate("+translate+")scale("+scale+")");
                  } else {
                     document.getElementById("svgIDassembly").classList.add("easing-class");
-                    document.getElementById("svgIDassembly").style.webkitTransform = "scale(1) translate(0px,0px) translate("+translate[0]+"px,"+translate[1]+"px) scale("+scale+")";
+                    document.getElementById("svgIDassembly").style.webkitTransform = "translate("+translate[0]+"px,"+translate[1]+"px) scale("+scale+")";
                  }
 
                 $(".states").removeClass("active");
