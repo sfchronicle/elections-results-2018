@@ -45,6 +45,9 @@
   max-width: 1400px;
   margin: auto;
   align-items: center;
+  @media @mobile {
+    margin-bottom: 40px;
+  }
   .big-map {
     position: relative;
     .flex(0 0 49%);
@@ -86,7 +89,7 @@
     @media @mobile {
       .flex(0 0 100%);
       margin: 0;
-      margin-top: 10px;
+      margin-top: 15px;
       height: 300px;
     }
   }
@@ -97,6 +100,10 @@
   width: 80%;
   margin: auto;
   margin-top: 30px;
+  @media @mobile {
+    padding: 0 20px;
+    width: auto;
+  }
 }
 
 .house-hed, .assembly-hed, .statesenate-hed {

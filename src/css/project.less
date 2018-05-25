@@ -180,6 +180,9 @@ body {
       &.bayarea {
         font-size: 20px;
       }
+      @media @mobile {
+        display: none;
+      }
 
       // &:nth-child(1){
       // margin-left:0;
@@ -189,14 +192,14 @@ body {
         border-bottom-color: darken(@red,10%);
       }
 
-      @media @mobile{
-        font-size:15px;
-      }
     }
   }
   #r {
     display: none;
     &.showme {
+      display: inline-block;
+    }
+    @media @mobile {
       display: inline-block;
     }
   }
@@ -566,6 +569,9 @@ body {
 .race-block {
   padding-top: 30px;
   font-size: 18px;
+  @media @mobile {
+    padding-top: 20px;
+  }
 }
 
 .Demparty, .GOPparty, .party {
