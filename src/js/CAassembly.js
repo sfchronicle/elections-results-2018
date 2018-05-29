@@ -111,7 +111,7 @@ module.exports = {
                 $(".states").removeClass("active");
                 $(".map-entry").removeClass("active");
                 this.classList.add("active");
-                var sidebarinfo = "scrollyassembly"+this.id.split("id")[1];
+                var sidebarinfo = "scrollyassembly"+this.id.split("id0")[1];
                 document.getElementById(sidebarinfo).classList.add("active");
                 document.getElementById("scrolly-assembly-map").scrollTop = document.getElementById(sidebarinfo).offsetTop-document.getElementById("scrolly-assembly-map").offsetTop;
                 zoom = 1;
@@ -121,14 +121,17 @@ module.exports = {
             });
 
             function unZoomMap(){
-              k = 1, x = width / 2, y = height / 2;
               if (zoom === 1 && dont_unzoom === 0){
+                $(".states").removeClass("active");
+                $(".map-entry").removeClass("active");
                 if (!is_safari) {
-                  svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
+                  svgCACounties.transition()
+                   .duration(750)
+                   .attr("transform","scale(1)translate(0,0)")
                 } else {
-                  var str = "translate(" + width / 2 + "px, " + height / 2 + "px) scale(" + k + ") translate(" + -x + "px, " + -y + "px)";
-                  document.getElementById("svgIDassembly").classList.add("easing-class");
-                  document.getElementById("svgIDassembly").style.webkitTransform = str;
+                  var str = "translate(0px,0px) scale(1)";
+                  document.getElementById("svgIDhouse").classList.add("easing-class");
+                  document.getElementById("svgIDhouse").style.webkitTransform = str;
                 }
                 zoom = 0;
               }
@@ -140,6 +143,8 @@ module.exports = {
             });
 
             document.getElementById("resetassemblymap").addEventListener("click",function(){
+              zoom = 1;
+              dont_unzoom = 0;
               unZoomMap();
             });
 

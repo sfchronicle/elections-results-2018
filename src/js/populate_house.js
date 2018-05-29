@@ -27,19 +27,32 @@ module.exports = {
 
     d3.json(DataURL, function(Data){
 
-      console.log(Data);
-
       var section = document.getElementById(sectionID);
 
-      Object.keys(Data).forEach(function(key) {
-        var tempvar = Data[key];
-        if (sectionID.includes("house")){
-          var properties = houseCodes[+key];
-        } else if (sectionID.includes("assembly")) {
-          var properties = assemblyCodes[+key];
-        } else if (sectionID.includes("senate")) {
-          var properties = statesenateCodes[+key];
-        }
+      // console.log(houseCodes);
+
+      if (sectionID.includes("house")){
+        var codeData = houseCodes;
+      } else if (sectionID.includes("assembly")) {
+        var codeData = assemblyCodes;
+      } else if (sectionID.includes("senate")) {
+        var codeData = statesenateCodes;
+      }
+
+      Object.keys(codeData).forEach(function(key){
+        // console.log(key);
+        // console.log(Data);
+      // Object.keys(Data).forEach(function(key) {
+        var tempvar = Data["0"+key];
+        // console.log(tempvar);
+        // if (sectionID.includes("house")){
+        //   var properties = houseCodes[+key];
+        // } else if (sectionID.includes("assembly")) {
+        //   var properties = assemblyCodes[+key];
+        // } else if (sectionID.includes("senate")) {
+        //   var properties = statesenateCodes[+key];
+        // }
+        var properties = codeData[key];
         if (properties){
           if (tempvar.r) {
             var total = +tempvar.r["Yes"] + +tempvar.r["No"];
@@ -106,7 +119,7 @@ module.exports = {
           this.classList.add("active");
           $(".states").removeClass("active");
           $(".states").addClass("faded");
-          mapID = document.getElementById(scrollKey+"_id"+this.id.split(scrollKey)[1]);
+          mapID = document.getElementById(scrollKey+"_id0"+this.id.split(scrollKey)[1]);
           mapID.classList.add("active");
 
           var bounds = mapID.getBBox();

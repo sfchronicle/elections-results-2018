@@ -14,7 +14,7 @@ if (screen.width < 480){
 
 module.exports = {
 
-  populateRace: function(raceID,racevar,p) {
+  populateRace: function(raceID,racevar,p,expandflag) {
 
     var count = 1; var sum = 0;
     while (racevar["c"+count]) {
@@ -83,7 +83,7 @@ module.exports = {
       }
       count++;
     }
-    if (count > 6){
+    if ((count > 6) && (expandflag === 1)){
       // add event listener to expand collapsed sections
       document.getElementById("expandbutton"+raceID.id).addEventListener("click",function(){
         document.getElementById("expandsection"+raceID.id).classList.toggle("displayraces");

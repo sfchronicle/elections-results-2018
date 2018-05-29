@@ -89,7 +89,7 @@ module.exports = {
                 .attr("d", path)
                 .on("click",function(d,index){
 
-                  var sidebarinfo = "scrollyhouse"+this.id.split("id")[1];
+                  var sidebarinfo = "scrollyhouse"+this.id.split("id0")[1];
                   dontzoom = 0;
 
                   var bounds = path.bounds(d),

@@ -75,7 +75,6 @@ module.exports = {
                   return "#fff";
                 } else if (active_data[String(location)]) {
                   var tempvar = active_data[String(location)];
-                  console.log(location);
                   if (location == "06029"){
                     return "#FFCC32";
                   } else {
@@ -87,7 +86,7 @@ module.exports = {
               })
               .attr("d", path)
               .on("click",function(d,index){
-                var sidebarinfo = "scrollystatesenate"+this.id.split("id")[1];
+                var sidebarinfo = "scrollystatesenate"+this.id.split("id0")[1];
                 dont_unzoom = 0;
                 if (document.getElementById(sidebarinfo) !== null){
 
@@ -126,14 +125,17 @@ module.exports = {
             });
 
             function unZoomMap(){
-              k = 1, x = width / 2, y = height / 2;
               if (zoom === 1 && dont_unzoom === 0){
+                $(".states").removeClass("active");
+                $(".map-entry").removeClass("active");
                 if (!is_safari) {
-                  svgCACounties.transition().duration(750).attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
+                  svgCACounties.transition()
+                   .duration(750)
+                   .attr("transform","scale(1)translate(0,0)")
                 } else {
-                  var str = "translate(" + width / 2 + "px, " + height / 2 + "px) scale(" + k + ") translate(" + -x + "px, " + -y + "px)";
-                  document.getElementById("svgIDss").classList.add("easing-class");
-                  document.getElementById("svgIDss").style.webkitTransform = str;
+                  var str = "translate(0px,0px) scale(1)";
+                  document.getElementById("svgIDhouse").classList.add("easing-class");
+                  document.getElementById("svgIDhouse").style.webkitTransform = str;
                 }
                 zoom = 0;
               }
@@ -145,6 +147,8 @@ module.exports = {
             });
 
             document.getElementById("resetssmap").addEventListener("click",function(){
+              zoom = 1;
+              dont_unzoom = 0;
               unZoomMap();
             });
 
