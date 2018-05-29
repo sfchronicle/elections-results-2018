@@ -124,7 +124,6 @@ module.exports = {
             });
 
             function unZoomMap(){
-              k = 1, x = width / 2, y = height / 2;
               if (zoom === 1 && dont_unzoom === 0){
                 $(".states").removeClass("active");
                 $(".map-entry").removeClass("active");

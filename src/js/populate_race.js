@@ -59,31 +59,31 @@ module.exports = {
           html = html+"<div class='entry'><h3 class='name'>"+racevar["c"+count+"_name"]+ "</span></h3><div class='bar' id='"+namekey+"'></div><div class='bar-label' id='barlabel-"+namekey+"'>"+Math.round(racevar["c"+count]/sum*100)+"%</div></div>";
         }
       }
-      count ++;
-      if (count === 6 && racevar["c7"]){
+      if ((count === 5) && (racevar["c6"] !== undefined) && (expandflag == 1)){
         html = html+"<div class='expand-button' id='expandbutton"+raceID.id+"'>Additional candidates</div><div class='expanded-races' id='expandsection"+raceID.id+"'>";
       }
+      count ++;
     }
-    if (count > 6){
+    if ((count > 5) && (expandflag == 1)){
       var closeDiv = html + "</div></div>";
     } else {
       var closeDiv = html + "</div>";
     }
     raceID.innerHTML = closeDiv;
-    count = 1;
-    while (racevar["c"+count]) {
-      var namekey = racevar["c"+count+"_name"].toLowerCase().replace(/ /g,'').replace(/\./g,"").replace("'","");
+    count2 = 1;
+    while (racevar["c"+count2]) {
+      var namekey = racevar["c"+count2+"_name"].toLowerCase().replace(/ /g,'').replace(/\./g,"").replace("'","");
       if (sum == 0.1) {
         document.getElementById(String(namekey)).style.width = "0px";
       } else {
         var width = document.getElementById("bayarea").getBoundingClientRect().width-80;
-        var percent = Math.round(racevar["c"+count]/sum*100);
+        var percent = Math.round(racevar["c"+count2]/sum*100);
         var pixels = (width-text_len)*(percent/100);
         document.getElementById(String(namekey)).style.width = String(pixels)+"px";
       }
-      count++;
+      count2++;
     }
-    if ((count > 6) && (expandflag === 1)){
+    if ((count > 6) && (expandflag == 1)){
       // add event listener to expand collapsed sections
       document.getElementById("expandbutton"+raceID.id).addEventListener("click",function(){
         document.getElementById("expandsection"+raceID.id).classList.toggle("displayraces");

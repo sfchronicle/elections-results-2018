@@ -70,7 +70,7 @@ module.exports = {
               if (racekey == "measures") {
                 populate_measure_function.populateMeasure(finalID,d4);
               } else {
-                populate_race_function.populateRace(finalID,d4,0);
+                populate_race_function.populateRace(finalID,d4,0,1);
               }
             });
           });

@@ -29,7 +29,7 @@ module.exports = {
               sectionID.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+d.name+"</h4><div id='district"+districtNum+"'></div>")
               var supeID = document.getElementById("district"+districtNum);
               var racevar = d;
-              populate_race_function.populateRace(supeID,racevar,0);
+              populate_race_function.populateRace(supeID,racevar,0,1);
             });
 
           }
