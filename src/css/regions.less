@@ -39,6 +39,9 @@
 .bayarea-section {
   .expand-button {
     margin-top: 5px;
+    @media @mobile {
+      padding-top: 5px;
+    }
   }
 }
 
@@ -103,7 +106,7 @@
   }
 
   h4 {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 600;
     line-height: 1.2;
     font-family: Lora;
@@ -255,11 +258,14 @@
   &.bottom {
     padding-top: 0;
     padding-bottom: 50px;
+    @media @mobile {
+      padding-bottom: 30px;
+    }
   }
   @media @mobile {
-    border: 1px solid @light-gray;
-    padding: 10px;
-    margin: 30px 10px;
+    // border: 1px solid @light-gray;
+    padding: 20px;
+    // margin: 30px 10px;
     // margin-bottom: 30px;
   }
   .prop-icon {
@@ -278,6 +284,7 @@
     .flex(0 0 75%);
     @media @mobile {
       .flex(0 0 100%);
+      padding-left: 0;
     }
   }
   .prop-name {

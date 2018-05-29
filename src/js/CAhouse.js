@@ -106,9 +106,9 @@ module.exports = {
 
                   if (!is_safari){
                       svgCACounties.transition()
-                      .duration(0)
-                      .attr("transform","scale(1)translate(0,0)")
-                      .transition()
+                      // .duration(0)
+                      // .attr("transform","scale(1)translate(0,0)")
+                      // .transition()
                       .duration(750)
                       .attr("transform","translate("+translate+")scale("+scale+")");
                    } else {
@@ -129,6 +129,9 @@ module.exports = {
             });
 
             function unZoomMap(){
+              console.log("unzoom function");
+              console.log(zoom);
+              console.log(dont_unzoom);
               if (zoom === 1 && dont_unzoom === 0){
                 $(".states").removeClass("active");
                 $(".map-entry").removeClass("active");

@@ -104,9 +104,9 @@ module.exports = {
 
                   if (!is_safari){
                       svgCACounties.transition()
-                       .duration(0)
-                       .attr("transform","scale(1)translate(0,0)")
-                       .transition()
+                       // .duration(0)
+                       // .attr("transform","scale(1)translate(0,0)")
+                       // .transition()
                        .duration(750)
                        .attr("transform","translate("+translate+")scale("+scale+")");
                    } else {
@@ -127,6 +127,9 @@ module.exports = {
             });
 
             function unZoomMap(){
+              console.log("unzoom function");
+              console.log(zoom);
+              console.log(dont_unzoom);
               if (zoom === 1 && dont_unzoom === 0){
                 $(".states").removeClass("active");
                 $(".map-entry").removeClass("active");
@@ -136,8 +139,8 @@ module.exports = {
                    .attr("transform","scale(1)translate(0,0)")
                 } else {
                   var str = "translate(0px,0px) scale(1)";
-                  document.getElementById("svgIDhouse").classList.add("easing-class");
-                  document.getElementById("svgIDhouse").style.webkitTransform = str;
+                  document.getElementById("svgIDss").classList.add("easing-class");
+                  document.getElementById("svgIDss").style.webkitTransform = str;
                 }
                 zoom = 0;
               }
