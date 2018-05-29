@@ -129,7 +129,7 @@ module.exports = {
             x = bounds.x+bounds.width/2,
             y = bounds.y+bounds.height/2;
 
-          var translate = [scale2*(width / 2 - x + dx/2)*scale, scale2*(height / 2 - y)*scale];
+          var translate = [scale2*(width / 2 - x + 50)*scale, scale2*(height / 2 - y)*scale];
 
           var svgCACounties = d3.select("#svgID"+shortKey);
           if (!is_safari){

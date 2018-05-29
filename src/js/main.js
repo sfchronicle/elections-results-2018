@@ -111,9 +111,36 @@ d3.json(localDataURL, function(localData){
   propID.innerHTML = htmlresult;
 });
 
+// -----------------------------------------------------------------------------
+// filling in Persky Recall
+// -----------------------------------------------------------------------------
+
+d3.json(localDataURL, function(localData){
+  var PerskyRecallData = localData["Santa Clara"]["County"][5];
+  var PerskyRecallYes = localData["Santa Clara"]["County"][5]["Yes"];
+  var PerskyRecallNo = localData["Santa Clara"]["County"][5]["No"];
+
+  var propID = document.getElementById('perskyrecall');
+  var total = +PerskyRecallYes + +PerskyRecallNo;
+  var propResult = PerskyRecallData;
+
+  if (total == 0) { total = 0.1;}
+  if (propResult.d == "Yes") {
+    var htmlresult = "<span class='propyes small'><i class='fa fa-check-circle-o' aria-hidden='true'></i>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
+  } else if (propResult.d == "No") {
+    var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'><i class='fa fa-check-circle-o' aria-hidden='true'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</i></span>"
+  } else {
+    var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
+  }
+  var htmlresult = htmlresult+ "<div class='prop-precincts'>"+formatthousands(propResult.p)+" / "+formatthousands(propResult.pt)+" precincts reporting</div>"
+  propID.innerHTML = htmlresult;
+});
 
 
+// -----------------------------------------------------------------------------
 // sticky nav
+// -----------------------------------------------------------------------------
+
 window.onscroll = function() {activate()};
 var f = document.getElementById('f'),
   s = document.getElementById('s'),

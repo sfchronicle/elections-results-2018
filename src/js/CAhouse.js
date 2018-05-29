@@ -6,6 +6,8 @@
 var d3 = require('d3');
 var topojson = require('topojson');
 
+var maxZoom = 7;
+
 var formatthousands = d3.format("0,000");
 var timer5minutes = 300000;
 
@@ -95,17 +97,20 @@ module.exports = {
                   var bounds = path.bounds(d),
                        dx = bounds[1][0] - bounds[0][0],
                        dy = bounds[1][1] - bounds[0][1],
-                       scale = Math.min(.6 / Math.max(dx / width, dy / height),6),
+                       scale = Math.min(.6 / Math.max(dx / width, dy / height),maxZoom),
                        centroid = path.centroid(d),
                        x = centroid[0],
                        y = centroid[1];
 
-                  var translate = [scale2*(width / 2 - x + dx/2)*scale, scale2*(height / 2 - y)*scale];
+                  var translate = [scale2*(width/2 - x + 50)*scale, scale2*(height/2 - y)*scale];
 
                   if (!is_safari){
                       svgCACounties.transition()
-                       .duration(750)
-                       .attr("transform","translate("+translate+")scale("+scale+")");
+                      .duration(0)
+                      .attr("transform","scale(1)translate(0,0)")
+                      .transition()
+                      .duration(750)
+                      .attr("transform","translate("+translate+")scale("+scale+")");
                    } else {
                       document.getElementById("svgIDhouse").classList.add("easing-class");
                       document.getElementById("svgIDhouse").style.webkitTransform = "translate("+translate[0]+"px,"+translate[1]+"px) scale("+scale+")";
@@ -129,8 +134,8 @@ module.exports = {
                 $(".map-entry").removeClass("active");
                 if (!is_safari) {
                   svgCACounties.transition()
-                   .duration(750)
-                   .attr("transform","scale(1)translate(0,0)")
+                  .duration(750)
+                  .attr("transform","scale(1)translate(0,0)")
                 } else {
                   var str = "translate(0px,0px) scale(1)";
                   document.getElementById("svgIDhouse").classList.add("easing-class");
