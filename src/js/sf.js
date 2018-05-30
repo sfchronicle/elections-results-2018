@@ -38,5 +38,20 @@ module.exports = {
 
     });
 
+  },
+
+  // this is for filling in the mayor race
+  SFMayorRace: function(localDataURL,sectionID,raceKey,raceName,secondaryflag){
+
+    d3.json(localDataURL, function(localData){
+      var sectionIDelem = document.getElementById(sectionID);
+      var cat = localData["San Francisco"]["Cities"][0];
+      console.log(sectionID);
+      sectionIDelem.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+raceName+"</h4><div class='instructions left'>Top two candidates advance to general election in November.</div><div id='"+sectionID+"0'></div>")
+      var supeID = document.getElementById(sectionID+"0");
+      populate_race_function.populateRace(supeID,cat,0,1,1);
+
+    });
+
   }
 }

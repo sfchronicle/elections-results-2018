@@ -1,3 +1,42 @@
+.regional-county-info {
+  font-size: 18px;
+  // font-style: italic;
+  padding-left: 5px;
+  font-family: @logo2;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+.top-flex-container, .regional-callout-flexy {
+  .display-flex();
+  .flex-wrap(wrap);
+  max-width: 1400px !important;
+  margin: auto;
+  width: 90% !important;
+  .justify-content(center);
+  .inner-flex {
+    .flex(0 0 46%);
+    margin: 0 1%;
+  }
+  .name {
+    width: 170px !important;
+    // color: red;
+  }
+  .regional-callout {
+    .flex(0 0 46%);
+    margin: 0 2%;
+    padding: 0;
+    padding-top: 50px;
+    .prop-icon {
+      display: none;
+    }
+    .prop-info {
+      margin-left: 0;
+      .flex(0 0 100%);
+    }
+  }
+}
+
 // .bayarea-section {
 .measure-group {
   font-family: @graphics;

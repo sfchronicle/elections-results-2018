@@ -16,7 +16,7 @@
 
   <%= t.include("partials/_social-links.html") %>
 
-  <div class="intro">Live results: Use links or scroll to find every race.</div>
+  <div class="intro">Follow the June 5 primary election live with up-to-the-minute results for local, San Francisco, Bay Area and California races.</div>
 
 </div>
 
@@ -73,6 +73,11 @@
 
 <%= t.include("partials/_highlights.html") %>
 
+<div class="page-hed">Top Races</div>
+<div id="topraces" class="topraces-section">
+  <%= t.include("partials/_topraces.html") %>
+</div>
+
 <div class="page-hed">National</div>
 <div id="federal">
   <div class="races-container">
@@ -93,7 +98,6 @@
 <div class="page-hed">California</div>
 <div id="state">
   <div class="races-hed">
-    <h2 class="caraces">C.A. Races:</h2>
     <div class="key">Key:
       <span class="symbol"><i class='fa fa-check-circle-o' aria-hidden='true'></i>Winner</span> |
       <span class="symbol"><i class='fa fa-star' aria-hidden='true'></i>Incumbent</span>
@@ -120,7 +124,6 @@
 <div class="page-hed">S.F.</div>
 <div id="sf">
   <div class="races-hed">
-    <h2 class="sfraces">S.F. Races:</h2>
     <div class="key">Key:
       <span class="symbol"><i class='fa fa-check-circle-o' aria-hidden='true'></i>Winner</span> |
       <span class="symbol"><i class='fa fa-star' aria-hidden='true'></i>Incumbent</span>
@@ -154,4 +157,4 @@
   var statesenateCodes = <%= JSON.stringify(csv.state_senate) %>;
 </script>
 
-<script src="app.js?25" async></script>
+<script src="app.js?27" async></script>

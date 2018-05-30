@@ -86,6 +86,11 @@ house_info.CAmapList(houseCAURL,"scrolly-house-map");
 house_info.CAmapList(senateCAURL,"scrolly-statesenate-map");
 house_info.CAmapList(assemblyCAURL,"scrolly-assembly-map");
 
+// filling out top races sections
+state_lib.StateRaces(caURL,"governor-race-topraces","governor","CA Governor",1);
+// state_lib.StateRaces(caURL,"senate-race-topraces","senate","US Senate",1);
+sf_lib.SFMayorRace(localDataURL,"sfmayor-race-topraces","Cities","SF Mayor");
+
 // -----------------------------------------------------------------------------
 // filling in regional RR Prop
 // -----------------------------------------------------------------------------
@@ -95,6 +100,7 @@ d3.json(localDataURL, function(localData){
   var RRPropNo = localData["Special Districts"]["Measures"][0]['No'];
 
   var propID = document.getElementById('regionalpropR3');
+  var propID2 = document.getElementById('regionalpropR3-topraces');
   var total = +RRPropYes + +RRPropNo;
   var propResult = RRPropData;
 
@@ -108,6 +114,7 @@ d3.json(localDataURL, function(localData){
   }
   var htmlresult = htmlresult+ "<div class='prop-precincts'>"+formatthousands(propResult.p)+" / "+formatthousands(propResult.pt)+" precincts reporting</div>"
   propID.innerHTML = htmlresult;
+  propID2.innerHTML = htmlresult;
 });
 
 // -----------------------------------------------------------------------------
@@ -120,6 +127,7 @@ d3.json(localDataURL, function(localData){
   var PerskyRecallNo = localData["Santa Clara"]["County"][5]["No"];
 
   var propID = document.getElementById('perskyrecall');
+  var propID2 = document.getElementById('perskyrecall-topraces');
   var total = +PerskyRecallYes + +PerskyRecallNo;
   var propResult = PerskyRecallData;
 
@@ -133,6 +141,7 @@ d3.json(localDataURL, function(localData){
   }
   var htmlresult = htmlresult+ "<div class='prop-precincts'>"+formatthousands(propResult.p)+" / "+formatthousands(propResult.pt)+" precincts reporting</div>"
   propID.innerHTML = htmlresult;
+  propID2.innerHTML = htmlresult;
 });
 
 
@@ -213,7 +222,7 @@ $(document).on('click', 'a[href^="#"]', function(e) {
     // top position relative to the document
     var pos = $(id).offset().top-scrolloffsetvar;
     // animated top scrolling
-    $('body, html').animate({scrollTop: pos});
+    $('body, html').animate({scrollTop: pos},1000);
 });
 
 if (screen.width <= 480){

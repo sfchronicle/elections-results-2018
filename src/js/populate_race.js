@@ -14,7 +14,7 @@ if (screen.width < 480){
 
 module.exports = {
 
-  populateRace: function(raceID,racevar,p,expandflag) {
+  populateRace: function(raceID,racevar,p,expandflag,secondaryflag) {
 
     var count = 1; var sum = 0;
     while (racevar["c"+count]) {
@@ -31,7 +31,12 @@ module.exports = {
       var html = "<div class='candidate-precincts'>"+formatthousands(racevar.p)+" / "+formatthousands(p)+" precincts reporting</div>";
     }
     while (racevar["c"+count]) {
-      var namekey = racevar["c"+count+"_name"].toLowerCase().replace(/ /g,'').replace(/\./g,"").replace("'","");
+      if (secondaryflag){
+        var namekey = racevar["c"+count+"_name"].toLowerCase().replace(/ /g,'').replace(/\./g,"").replace("'","");
+        namekey = namekey+"second";
+      } else {
+        var namekey = racevar["c"+count+"_name"].toLowerCase().replace(/ /g,'').replace(/\./g,"").replace("'","");
+      }
       if (racevar["c"+count+"_party"]){
         if (racevar["d"]) {
           if ((racevar["c"+count+"_name"] == racevar["d"]) && (racevar["c"+count+"_i"] == 1)) {
@@ -72,11 +77,23 @@ module.exports = {
     raceID.innerHTML = closeDiv;
     count2 = 1;
     while (racevar["c"+count2]) {
-      var namekey = racevar["c"+count2+"_name"].toLowerCase().replace(/ /g,'').replace(/\./g,"").replace("'","");
+      if (secondaryflag){
+        var namekey = racevar["c"+count2+"_name"].toLowerCase().replace(/ /g,'').replace(/\./g,"").replace("'","");
+        namekey = namekey+"second";
+      } else {
+        var namekey = racevar["c"+count2+"_name"].toLowerCase().replace(/ /g,'').replace(/\./g,"").replace("'","");
+      }
+      // var namekey = racevar["c"+count2+"_name"].toLowerCase().replace(/ /g,'').replace(/\./g,"").replace("'","");
       if (sum == 0.1) {
         document.getElementById(String(namekey)).style.width = "0px";
       } else {
-        var width = document.getElementById("bayarea").getBoundingClientRect().width-80;
+        if (secondaryflag){
+          var width = document.getElementById("top-races-container").getBoundingClientRect().width-80;
+          width = width/2;
+          text_len = 170;
+        } else {
+          var width = document.getElementById("bayarea").getBoundingClientRect().width-80;
+        }
         var percent = Math.round(racevar["c"+count2]/sum*100);
         var pixels = (width-text_len)*(percent/100);
         document.getElementById(String(namekey)).style.width = String(pixels)+"px";

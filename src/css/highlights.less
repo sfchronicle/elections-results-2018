@@ -3,7 +3,8 @@
   .flex-wrap(wrap);
   max-width: 1000px;
   margin: 30px auto;
-  // font-family: @logo2;
+  font-family: @logo2;
+  text-transform: uppercase;
   .justify-content(center);
   .highlight {
     .flex(0 0 25%);
@@ -20,16 +21,18 @@
       }
     }
     .highlight-deck {
-      font-size: 14px;
+      text-transform: none;
+      font-family: @graphics;
+      font-size: 16px;
       line-height: 1.2;
-      font-weight: 600;
+      font-weight: 500;
     }
     .highlight-hed {
       font-weight: 800;
       font-size: 18px;
       .fa {
         padding-right: 10px;
-        // display: none;
+        display: none;
       }
     }
     &:hover {
