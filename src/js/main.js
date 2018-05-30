@@ -45,10 +45,7 @@ state_lib.StateRaces(caURL,"treasurer-race","treasurer","Treasurer");
 state_lib.StateRaces(caURL,"attorney-general-race","attygeneral","Attorney General");
 state_lib.StateRaces(caURL,"insurance-commissioner-race","inscommisioner","Insurance Commissioner");
 state_lib.StateRaces(caURL,"superintendent-race","superintendent","State superintendent of public instruction");
-// state_lib.StateRaces(caURL,"board-1-race","bofe1","Board of Equalization, District 1");
 state_lib.StateRaces(caURL,"board-2-race","bofe2","Board of Equalization, District 2");
-// state_lib.StateRaces(caURL,"board-3-race","bofe3","Board of Equalization, District 3");
-// state_lib.StateRaces(caURL,"board-4-race","bofe4","Board of Equalization, District 4");
 state_lib.StateRaces(caURL,"senate-race","senate","U.S. Senate");
 
 // CA propositions

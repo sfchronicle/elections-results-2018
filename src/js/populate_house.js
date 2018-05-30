@@ -25,84 +25,80 @@ module.exports = {
       var shortKey = "ss";
     }
 
-    d3.json(DataURL, function(Data){
+    var loadSidebar = function(){
 
-      var section = document.getElementById(sectionID);
+      return new Promise(function(ok, fail) {
 
-      // console.log(houseCodes);
+        d3.json(DataURL, function(Data){
 
-      if (sectionID.includes("house")){
-        var codeData = houseCodes;
-      } else if (sectionID.includes("assembly")) {
-        var codeData = assemblyCodes;
-      } else if (sectionID.includes("senate")) {
-        var codeData = statesenateCodes;
-      }
+          var section = document.getElementById(sectionID);
 
-      Object.keys(codeData).forEach(function(key){
-        // console.log(key);
-        // console.log(Data);
-      // Object.keys(Data).forEach(function(key) {
-        var tempvar = Data["0"+key];
-        // console.log(tempvar);
-        // if (sectionID.includes("house")){
-        //   var properties = houseCodes[+key];
-        // } else if (sectionID.includes("assembly")) {
-        //   var properties = assemblyCodes[+key];
-        // } else if (sectionID.includes("senate")) {
-        //   var properties = statesenateCodes[+key];
-        // }
-        var properties = codeData[key];
-        if (properties){
-          if (tempvar.r) {
-            var total = +tempvar.r["Yes"] + +tempvar.r["No"];
-            if (total > 0) {
-              var html_str = "<div class='map-entry'><div class='state-name'>"+properties.name+"</div>";
-              html_str = html_str+"<div class='result-map'>Yes: "+Math.round(+tempvar.r["Yes"]/total*1000)/10+"%<span class='no-class'>No: "+Math.round(+tempvar.r["No"]/total*1000)/10+"%</span></div>";
-              html_str = html_str+"<div class='precincts-info'>"+formatthousands(tempvar.p)+"/"+formatthousands(properties.precincts)+" precincts reporting</div>";
-            } else {
-              var html_str = "<div class='state-name'>"+properties.name+"</div>";
-              html_str = html_str+"<div class='precincts-info'>"+formatthousands(tempvar.p)+"/"+formatthousands(properties.precincts)+" precincts reporting</div>";
-            }
-          } else {
-            var count = 1; var sum = 0;
-            while (tempvar["c"+count]) {
-              var element = +tempvar["c"+count];
-              sum += element;
-              count++;
-            }
-            if (tempvar["o"]) {
-              sum += +tempvar["o"];
-            }
-            if (sum == 0) { sum = 0.1; } // this is a hack for when there are no reported results yet
-            var count = 1; var html_str = "<div class='map-entry map-entry-"+scrollKey+"' id='scrolly"+scrollKey+key+"'><div class='state-name'>"+properties.name+"</div><div class='cand-container'>";
-            while (tempvar["c"+count]) {
-              var party = tempvar["c"+count+"_party"];
-              var key = tempvar["c"+count+"_name"].toLowerCase().replace(/ /g,'').replace("'","");
-              if (tempvar["c"+count+"_name"] == tempvar.d) {
-                html_str = html_str + "<div class='cand-line'><i class='fa fa-check-circle-o' aria-hidden='true'></i>"+tempvar["c"+count+"_name"]+" <span class='party "+key+" "+party+"party'>"+tempvar["c"+count+"_party"]+"</span> "+Math.round(tempvar["c"+count]/sum*1000)/10+"%</div>";
-              } else {
-                html_str = html_str + "<div class='cand-line'>"+tempvar["c"+count+"_name"]+" <span class='party "+key+" "+party+"party'>"+tempvar["c"+count+"_party"]+"</span> "+Math.round(tempvar["c"+count]/sum*1000)/10+"%</div>";
-              }
-              count ++;
-            }
-            if (tempvar["o"]) {
-              html_str = html_str + "<div>Other: "+Math.round(tempvar["o"]/sum*1000)/10+"%</div>";
-            }
-            html_str = html_str+"</div><div class='precincts-info'>"+formatthousands(tempvar.p)+"/"+formatthousands(properties.precincts)+" precincts reporting</div>";
+          if (sectionID.includes("house")){
+            var codeData = houseCodes;
+          } else if (sectionID.includes("assembly")) {
+            var codeData = assemblyCodes;
+          } else if (sectionID.includes("senate")) {
+            var codeData = statesenateCodes;
           }
-          html_str = html_str +"</div>";
-          // console.log(html_str);
-          section.insertAdjacentHTML("beforeend",html_str);
-        }
+
+          Object.keys(codeData).forEach(function(key){
+            var tempvar = Data["0"+key];
+            var properties = codeData[key];
+            if (properties){
+              if (tempvar.r) {
+                var total = +tempvar.r["Yes"] + +tempvar.r["No"];
+                if (total > 0) {
+                  var html_str = "<div class='map-entry'><div class='state-name'>"+properties.name+"</div>";
+                  html_str = html_str+"<div class='result-map'>Yes: "+Math.round(+tempvar.r["Yes"]/total*1000)/10+"%<span class='no-class'>No: "+Math.round(+tempvar.r["No"]/total*1000)/10+"%</span></div>";
+                  html_str = html_str+"<div class='precincts-info'>"+formatthousands(tempvar.p)+"/"+formatthousands(properties.precincts)+" precincts reporting</div>";
+                } else {
+                  var html_str = "<div class='state-name'>"+properties.name+"</div>";
+                  html_str = html_str+"<div class='precincts-info'>"+formatthousands(tempvar.p)+"/"+formatthousands(properties.precincts)+" precincts reporting</div>";
+                }
+              } else {
+                var count = 1; var sum = 0;
+                while (tempvar["c"+count]) {
+                  var element = +tempvar["c"+count];
+                  sum += element;
+                  count++;
+                }
+                if (tempvar["o"]) {
+                  sum += +tempvar["o"];
+                }
+                if (sum == 0) { sum = 0.1; } // this is a hack for when there are no reported results yet
+                var count = 1; var html_str = "<div class='map-entry map-entry-"+scrollKey+"' id='scrolly"+scrollKey+key+"'><div class='state-name'>"+properties.name+"</div><div class='cand-container'>";
+                while (tempvar["c"+count]) {
+                  var party = tempvar["c"+count+"_party"];
+                  var key = tempvar["c"+count+"_name"].toLowerCase().replace(/ /g,'').replace("'","");
+                  if (tempvar["c"+count+"_name"] == tempvar.d) {
+                    html_str = html_str + "<div class='cand-line'><i class='fa fa-check-circle-o' aria-hidden='true'></i>"+tempvar["c"+count+"_name"]+" <span class='party "+key+" "+party+"party'>"+tempvar["c"+count+"_party"]+"</span> "+Math.round(tempvar["c"+count]/sum*1000)/10+"%</div>";
+                  } else {
+                    html_str = html_str + "<div class='cand-line'>"+tempvar["c"+count+"_name"]+" <span class='party "+key+" "+party+"party'>"+tempvar["c"+count+"_party"]+"</span> "+Math.round(tempvar["c"+count]/sum*1000)/10+"%</div>";
+                  }
+                  count ++;
+                }
+                if (tempvar["o"]) {
+                  html_str = html_str + "<div>Other: "+Math.round(tempvar["o"]/sum*1000)/10+"%</div>";
+                }
+                html_str = html_str+"</div><div class='precincts-info'>"+formatthousands(tempvar.p)+"/"+formatthousands(properties.precincts)+" precincts reporting</div>";
+              }
+              html_str = html_str +"</div>";
+              // console.log(html_str);
+              section.insertAdjacentHTML("beforeend",html_str);
+            }
+
+          });
+          ok();
+
+        });
 
       });
 
-    });
-
+    }
 
     // THIS NEEDS TO BE WRITTEN BETTER, TIMEOUT IS NOT NECESSARILY THE WAY TO GO ==============
-    setTimeout(function(){
+    // setTimeout(function(){
+    var sidebarEvents = function(){
       var cname = "map-entry-"+scrollKey;
       var mapEntries = document.getElementsByClassName(cname);
       console.log(mapEntries.length);
@@ -146,7 +142,9 @@ module.exports = {
            zoom = 1;
         })
       }
-    }, 400);
+    }
+    loadSidebar().then(()=>sidebarEvents());
+    // }, 400);
     // FIX ==================================================================================
 
   }

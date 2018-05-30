@@ -26,7 +26,7 @@ module.exports = {
             localData["San Francisco"][SFCatList[idx]].forEach(function(d,idx) {
               var name = d.name;
               var districtNum = name.substr(name.indexOf("District ") + 9);
-              sectionID.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+d.name+"</h4><div id='district"+districtNum+"'></div>")
+              sectionID.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+d.name+"</h4><div class='instructions left'>The candidate who gets a majority of votes wins.</div><div id='district"+districtNum+"'></div>")
               var supeID = document.getElementById("district"+districtNum);
               var racevar = d;
               populate_race_function.populateRace(supeID,racevar,0,1);
