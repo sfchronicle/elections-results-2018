@@ -105,6 +105,7 @@ module.exports = {
 
       var width = 860;
       var height = 530;
+      console.log($("#svgID"+shortKey));
       var containerwidth = document.getElementById("svgID"+shortKey).getBoundingClientRect().width;
       var scale2 = containerwidth/width;
 

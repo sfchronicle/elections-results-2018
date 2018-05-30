@@ -48,17 +48,29 @@ state_lib.StateRaces(caURL,"superintendent-race","superintendent","State superin
 state_lib.StateRaces(caURL,"board-2-race","bofe2","Board of Equalization, District 2");
 state_lib.StateRaces(caURL,"senate-race","senate","U.S. Senate");
 
-// CA propositions
-var ca_props_lib_boxes = require("./CAprops_boxes.js");
-ca_props_lib_boxes.CAPropsBoxes(propsCAURL);
-
 // CA propositions map
 var ca_props_lib_map = require("./CAprops_map.js");
 ca_props_lib_map.CAPropsMap(propsCAURL);
 
+// CA house map
+var house_lib = require("./CAhouse.js");
+house_lib.CAHouse(houseCAURL,"house-CA-map");
+
+// CA assembly map
+var assembly_lib = require("./CAassembly.js");
+assembly_lib.CAAssembly(assemblyCAURL,"assembly-CA-map");
+
+// CA senate map
+var senate_lib = require("./CAsenate.js");
+senate_lib.CASenate(senateCAURL,"senate-CA-map");
+
 // SF mayor and races
 var sf_lib = require("./sf.js");
 sf_lib.SFRaces(localDataURL);
+
+// CA propositions
+var ca_props_lib_boxes = require("./CAprops_boxes.js");
+ca_props_lib_boxes.CAPropsBoxes(propsCAURL);
 
 // SF measures
 var sf_measures_lib_boxes = require("./SFmeasures_boxes.js");
@@ -68,21 +80,11 @@ sf_measures_lib_boxes.SFmeasuresBoxes(localDataURL);
 var regional_lib = require("./bayarea.js");
 regional_lib.regionalSection(localDataURL);
 
-// CA house
-var house_lib = require("./CAhouse.js");
-house_lib.CAHouse(houseCAURL,"house-CA-map");
+// add sidebars to maps
 var house_info = require("./populate_house.js");
 house_info.CAmapList(houseCAURL,"scrolly-house-map");
-
-// CA assembly
-var assembly_lib = require("./CAassembly.js");
-assembly_lib.CAAssembly(assemblyCAURL,"assembly-CA-map");
-house_info.CAmapList(assemblyCAURL,"scrolly-assembly-map");
-
-// CA senate
-var senate_lib = require("./CAsenate.js");
-senate_lib.CASenate(senateCAURL,"senate-CA-map");
 house_info.CAmapList(senateCAURL,"scrolly-statesenate-map");
+house_info.CAmapList(assemblyCAURL,"scrolly-assembly-map");
 
 // -----------------------------------------------------------------------------
 // filling in regional RR Prop
