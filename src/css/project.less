@@ -404,6 +404,7 @@ body {
   background: lighten(@light-gray,20%);
   border: 1px @dark-gray solid;
   min-width: 140px;
+  position: absolute;
   .fa-check-circle-o {
     color: green;
     margin-right: 5px;
@@ -433,6 +434,9 @@ body {
   }
   @media @mobile {
     line-height: 20px;
+  }
+  &.hidden {
+    visibility: hidden;
   }
 }
 

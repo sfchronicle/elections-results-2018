@@ -36,6 +36,11 @@ module.exports = {
 
     d3.json(propsCAURL, function(propsCA){
 
+      var inner_tooltip = d3.select("#camap-props-inner-tooltip");
+      var tooltip = document.getElementById("camap-props-tooltip");
+      var d3tooltip = d3.select("#camap-props-tooltip");
+      var map_body = document.getElementById("map-container-state-props");
+
       var select_race = document.getElementById("select-race");
       select_race.addEventListener("change",function(){
         d3.selectAll(".camap").classed("active",false);
@@ -101,10 +106,13 @@ module.exports = {
           .attr("d", path)
           .on('mouseover', function(d,index) {
             var html_str = tooltip_function.tooltipGenerator(d.id,active_data,d.properties);
-            prop_tooltip.html(html_str);
-            if (!iOS){
-              prop_tooltip.style("visibility", "visible");
-            }
+            inner_tooltip.html(html_str);
+            tooltip.classList.remove("hidden");
+          })
+          .on('click', function(d,index) {
+            var html_str = tooltip_function.tooltipGenerator(d.id,active_data,d.properties);
+            inner_tooltip.html(html_str);
+            tooltip.classList.remove("hidden");
           })
           .on("mousemove", function() {
             // this is me being very clever
@@ -114,28 +122,31 @@ module.exports = {
             var offsetLeft = d3.event.pageX - (document.getElementById("map-container-state-props").getBoundingClientRect().left + document.body.scrollLeft);
             var containerSize = document.getElementById("map-container-state-props").offsetWidth
             if (offsetLeft/containerSize > 0.5){
-              return prop_tooltip
+              return d3tooltip
                 .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
-                .style("left",((d3.event.pageX)-120)+"px");
+                .style("left",((d3.event.pageX)-140)+"px");
             } else {
-              return prop_tooltip
+              return d3tooltip
                 .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
-                .style("left",((d3.event.pageX)+10)+"px");
+                .style("left",((d3.event.pageX)-10)+"px");
             }
           })
           .on("mouseout", function(){
-            return prop_tooltip.style("visibility", "hidden");
+            // only mouseout on desktop
+            if (screen.width >= 480){
+              map_body.classList.remove("noclick");
+              tooltip.classList.add("hidden");
+            };
           });
         });
 
-        // show tooltip
-        var prop_tooltip = d3.select("#map-container-state-props")
-        .append("div")
-        .attr("class","tooltip")
-        .style("position", "absolute")
-        .style("z-index", "10")
-        .style("visibility", "hidden")
       };
+
+      // close tooltip for mobile
+      document.getElementById("camap-props-close-tooltip").addEventListener("click",function(){
+        tooltip.classList.add("hidden");
+        map_body.classList.remove("noclick");
+      });
 
       // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
       var active_data = propsCA[68];
