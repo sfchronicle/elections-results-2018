@@ -89,13 +89,22 @@ module.exports = {
       } else {
         if (secondaryflag){
           var width = document.getElementById("top-races-container").getBoundingClientRect().width-80;
-          width = width/2;
-          text_len = 170;
+          if (screen.width <= 480){
+            text_len = 170;
+          } else {
+            width = width/2;
+            text_len = 170;
+          }
         } else {
           var width = document.getElementById("bayarea").getBoundingClientRect().width-80;
         }
         var percent = Math.round(racevar["c"+count2]/sum*100);
         var pixels = (width-text_len)*(percent/100);
+        console.log(percent);
+        console.log(pixels);
+        console.log(width-text_len);
+        pixels = Math.max(pixels,0);
+        console.log(pixels);
         document.getElementById(String(namekey)).style.width = String(pixels)+"px";
       }
       count2++;
