@@ -7,10 +7,17 @@
   text-transform: uppercase;
   .justify-content(center);
   .highlight {
-    .flex(0 0 25%);
+    .flex(0 0 42%);
     border: 1px solid @light-gray;
-    padding: 10px 20px 15px 20px;
+    padding: 10px 20px 0 20px;
     margin: 1%;
+    .inner-highlight-flex {
+      margin: auto;
+      .display-flex();
+      .flex-wrap(wrap);
+      align-items: center;
+      justify-content: space-between;
+    }
     @media @mobile {
       .flex(0 0 80%);
       border: none;
@@ -18,6 +25,17 @@
       padding: 0px 10px 15px 10px;
       &:last-child {
         border-bottom: none;
+      }
+    }
+    .highlight-text {
+      margin-left: 2%;
+      .flex(0 0 78%);
+    }
+    .highlight-icon {
+      .flex(0 0 20%);
+      max-width: 70px;
+      img {
+        width: 100%;
       }
     }
     .highlight-deck {
