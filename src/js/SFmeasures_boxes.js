@@ -25,6 +25,10 @@ module.exports = {
           var htmlresult = "<span class='propyes'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
         }
         var htmlresult = htmlresult+ "<div class='prop-precincts'>"+formatthousands(propResult.p)+" / "+formatthousands(propResult.pt)+" precincts reporting</div>"
+        if (propResult.a != "50% + 1"){
+          htmlresult = htmlresult + "<div class='prop-precincts'>Vote requirement: "+propResult.a+"</div>";
+        }
+
         propID.innerHTML = htmlresult;
       }
     });
