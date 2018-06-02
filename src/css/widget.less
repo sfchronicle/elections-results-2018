@@ -1,0 +1,53 @@
+@import (css) url('https://projects.sfchronicle.com/shared/fonts/font_lora.min.css');
+@import (css) url('https://projects.sfchronicle.com/shared/fonts/font_pathway_gothic_one.min.css');
+@import (css) url('https://projects.sfchronicle.com/shared/fonts/font_source_sans_pro.min.css');
+@import "values";
+@import "flexbox";
+@import "sfchronicle";
+
+@body: Georgia, serif;
+@body-bold: "Pierpont-bold", Georgia, serif;
+
+
+#widget{
+	img{width: 100%}
+	max-width: 600px;
+}
+
+.w-banner{
+	max-width:300px;
+}
+
+
+#countdown {
+	font-size: 16px;
+	letter-spacing: 1px;
+	display: none;
+
+	@media @tablet{
+		text-align: center;
+    .flex(0 0 100%);
+	}
+}
+
+.time{
+	display: inline-block;
+	padding-right: 10px;
+}
+
+.days,
+.hours,
+.minutes,
+.seconds {
+  font-size: 25px;
+  color: red;
+  line-height: 1;
+  text-align: center;
+}
+
+.text {
+  font-size: 0.7em;
+  color: #333;
+  clear: left;
+  text-align: left;
+}

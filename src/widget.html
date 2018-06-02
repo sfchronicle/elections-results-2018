@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title><%= json.project.seo_title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="widget.css">
+    <%= t.include("partials/_embedframe.html") %>
+  </head>
+
+  <body is='responsive-body'>
+
+
+    <div id="widget">
+
+      <div class="w-banner">
+        <img src="./assets/graphics/Election2018banner.png">
+      </div>
+
+      <div id="w-countdown">
+        <div id="countdown" class="link">
+        Polls close in:
+        <div id="countdown-header"></div>    
+      </div>
+      </div>
+
+      <div id="w-races">
+        Races to watch:
+      </div>
+
+      <div id="w-livechat">
+        Chronicle Live Chat
+      </div>
+
+      <div id="w-voterguide">
+        Voter Guide
+      </div>
+
+
+    </div>
+
+
+    <script src="widget.js" async></script>
+
+  </body>
+</html>
