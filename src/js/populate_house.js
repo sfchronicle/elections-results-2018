@@ -4,6 +4,7 @@
 
 var d3 = require('d3');
 var formatthousands = d3.format("0,000");
+var timer5minutes = 300000;
 
 // populate race information
 var populate_race_function = require("./populate_race.js");
@@ -96,8 +97,6 @@ module.exports = {
 
     }
 
-    // THIS NEEDS TO BE WRITTEN BETTER, TIMEOUT IS NOT NECESSARILY THE WAY TO GO ==============
-    // setTimeout(function(){
     var sidebarEvents = function(){
       var cname = "map-entry-"+scrollKey;
       var mapEntries = document.getElementsByClassName(cname);
@@ -143,10 +142,14 @@ module.exports = {
            zoom = 1;
         })
       }
+
+      sidebartimer = setInterval(function() {
+        sidebarEvents()
+        console.log("refresh sidebar"+scrollKey);
+      }, timer5minutes);
+
     }
     loadSidebar().then(()=>sidebarEvents());
-    // }, 400);
-    // FIX ==================================================================================
 
   }
 }

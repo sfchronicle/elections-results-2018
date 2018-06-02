@@ -161,10 +161,10 @@ module.exports = {
           };
 
           camap_insets_function("./assets/maps/ca_statesenate_insets.json",senateCA,0);
-          catimer_races = setInterval(function() {
-            camap_insets_function("./assets/maps/ca_statesenate_insets.json",senateCA,0);
-            console.log("refresh ca insets map");
-          }, timer5minutes);
+          // catimer_races = setInterval(function() {
+          //   camap_insets_function("./assets/maps/ca_statesenate_insets.json",senateCA,0);
+          //   console.log("refresh ca insets map");
+          // }, timer5minutes);
 
       });
 

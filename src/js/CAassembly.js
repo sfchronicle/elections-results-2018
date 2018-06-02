@@ -156,10 +156,10 @@ module.exports = {
           };
 
           camap_insets_function("./assets/maps/ca_assembly.json",assemblyCA,0);
-          catimer_races = setInterval(function() {
-            camap_insets_function("./assets/maps/ca_assembly.json",assemblyCA,0);
-            console.log("refresh ca insets map");
-          }, timer5minutes);
+          // catimer_races = setInterval(function() {
+          //   camap_insets_function("./assets/maps/ca_assembly.json",assemblyCA,0);
+          //   console.log("refresh ca insets map");
+          // }, timer5minutes);
 
       });
 
