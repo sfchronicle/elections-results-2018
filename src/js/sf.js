@@ -25,8 +25,13 @@ module.exports = {
 
             localData["San Francisco"][SFCatList[idx]].forEach(function(d,idx) {
               var name = d.name;
+              console.log(name);
               var districtNum = name.substr(name.indexOf("District ") + 9);
-              sectionID.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+d.name+"</h4><div class='instructions left'>The candidate who gets a majority of votes wins.</div><div id='district"+districtNum+"'></div>")
+              if (name == "Mayor"){
+                sectionID.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+d.name+"</h4><div class='instructions left'>Winner to be determined by ranked-choice voting.</div><div id='district"+districtNum+"'></div>");
+              } else {
+                sectionID.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+d.name+"</h4><div class='instructions left'>The candidate who gets a majority of votes wins.</div><div id='district"+districtNum+"'></div>");
+              }
               var supeID = document.getElementById("district"+districtNum);
               var racevar = d;
               populate_race_function.populateRace(supeID,racevar,0,1);
@@ -47,7 +52,7 @@ module.exports = {
       var sectionIDelem = document.getElementById(sectionID);
       var cat = localData["San Francisco"]["Cities"][0];
       console.log(sectionID);
-      sectionIDelem.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+raceName+"</h4><div class='instructions left'>Top two candidates advance to general election in November.</div><div id='"+sectionID+"0'></div>")
+      sectionIDelem.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+raceName+"</h4><div class='instructions left'>Winner to be determined by ranked-choice voting.</div><div id='"+sectionID+"0'></div>")
       var supeID = document.getElementById(sectionID+"0");
       populate_race_function.populateRace(supeID,cat,0,1,1);
 

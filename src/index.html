@@ -16,7 +16,7 @@
 
   <%= t.include("partials/_social-links.html") %>
 
-  <div class="intro">Follow the June 5 primary election live with up-to-the-minute results for local, San Francisco, Bay Area and California races.</div>
+  <div class="intro">Follow the June 5 primary election live with up-to-the-minute results for San Francisco, Bay Area and California races.</div>
 
 </div>
 
@@ -80,13 +80,19 @@
 
 <div class="page-hed">National</div>
 <div id="federal">
+  <div class="races-hed">
+    <div class="key">Key:
+      <span class="symbol"><i class='fa fa-check-circle-o' aria-hidden='true'></i>Winners</span> |
+      <span class="symbol"><i class='fa fa-star' aria-hidden='true'></i>Incumbent</span>
+    </div>
+  </div>
   <div class="races-container">
     <div id="senate-race"></div>
   </div>
   <div class="map-header">
     <h2 class="house-hed">U.S. House of Representatives</h2>
     <div class="instructions top">Top two candidates advance to general election in November.</div>
-    <%=t.include("partials/_maplegend.html") %>
+    <%=t.include("partials/_maplegend_house.html") %>
     <div class="instructions"><i class="fa fa-hand-o-right"></i>Click on the map or the list to explore results.</div>
   </div>
   <div class="ca-house-container big-map-container">

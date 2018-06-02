@@ -38,12 +38,12 @@ var senateURL = "https://extras.sfgate.com/editorial/election2018primary/live/em
 // state races
 var state_lib = require("./staterace.js");
 state_lib.StateRaces(caURL,"governor-race","governor","Governor");
-state_lib.StateRaces(caURL,"lt-governor-race","ltgovernor","Lt. Governor");
-state_lib.StateRaces(caURL,"sec-state-race","secstate","Secretary of State");
+state_lib.StateRaces(caURL,"lt-governor-race","ltgovernor","Lieutenant governor");
+state_lib.StateRaces(caURL,"sec-state-race","secstate","Secretary of state");
 state_lib.StateRaces(caURL,"controller-race","controller","Controller");
 state_lib.StateRaces(caURL,"treasurer-race","treasurer","Treasurer");
-state_lib.StateRaces(caURL,"attorney-general-race","attygeneral","Attorney General");
-state_lib.StateRaces(caURL,"insurance-commissioner-race","inscommisioner","Insurance Commissioner");
+state_lib.StateRaces(caURL,"attorney-general-race","attygeneral","Attorney general");
+state_lib.StateRaces(caURL,"insurance-commissioner-race","inscommisioner","Insurance commissioner");
 state_lib.StateRaces(caURL,"superintendent-race","superintendent","State superintendent of public instruction");
 state_lib.StateRaces(caURL,"board-2-race","bofe2","Board of Equalization, District 2");
 state_lib.StateRaces(caURL,"senate-race","senate","U.S. Senate");
@@ -87,9 +87,9 @@ house_info.CAmapList(senateCAURL,"scrolly-statesenate-map");
 house_info.CAmapList(assemblyCAURL,"scrolly-assembly-map");
 
 // filling out top races sections
-state_lib.StateRaces(caURL,"governor-race-topraces","governor","CA Governor",1);
+state_lib.StateRaces(caURL,"governor-race-topraces","governor","CA governor",1);
 // state_lib.StateRaces(caURL,"senate-race-topraces","senate","US Senate",1);
-sf_lib.SFMayorRace(localDataURL,"sfmayor-race-topraces","Cities","SF Mayor");
+sf_lib.SFMayorRace(localDataURL,"sfmayor-race-topraces","Cities","SF mayor");
 
 // -----------------------------------------------------------------------------
 // filling in regional RR Prop
