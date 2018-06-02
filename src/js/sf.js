@@ -15,6 +15,7 @@ module.exports = {
     d3.json(localDataURL, function(localData){
 
         var sectionID = document.getElementById("sf-section");
+        sectionID.innerHTML = "";
 
         var SFCatList = Object.keys(localData["San Francisco"]);
 
@@ -25,7 +26,6 @@ module.exports = {
 
             localData["San Francisco"][SFCatList[idx]].forEach(function(d,idx) {
               var name = d.name;
-              console.log(name);
               var districtNum = name.substr(name.indexOf("District ") + 9);
               if (name == "Mayor"){
                 sectionID.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+d.name+"</h4><div class='instructions left'>Winner to be determined by ranked-choice voting.</div><div id='district"+districtNum+"'></div>");

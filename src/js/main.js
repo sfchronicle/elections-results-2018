@@ -20,6 +20,8 @@ var lightest_gray = "#D8D8D8";
 // helpful functions:
 var formatthousands = d3.format("0,000");
 
+var timer5minutes = 300000;
+
 // loading data sources
 var propsCAURL = "https://extras.sfgate.com/editorial/election2018primary/live/props_county_ca.json";
 var localDataURL = "https://extras.sfgate.com/editorial/election2018primary/live/localresults.json";
@@ -48,6 +50,21 @@ state_lib.StateRaces(caURL,"superintendent-race","superintendent","State superin
 state_lib.StateRaces(caURL,"board-2-race","bofe2","Board of Equalization, District 2");
 state_lib.StateRaces(caURL,"senate-race","senate","U.S. Senate");
 
+// refreshing state races
+stateraces_timer = setInterval(function() {
+  state_lib.StateRaces(caURL,"governor-race","governor","Governor");
+  state_lib.StateRaces(caURL,"lt-governor-race","ltgovernor","Lieutenant governor");
+  state_lib.StateRaces(caURL,"sec-state-race","secstate","Secretary of state");
+  state_lib.StateRaces(caURL,"controller-race","controller","Controller");
+  state_lib.StateRaces(caURL,"treasurer-race","treasurer","Treasurer");
+  state_lib.StateRaces(caURL,"attorney-general-race","attygeneral","Attorney general");
+  state_lib.StateRaces(caURL,"insurance-commissioner-race","inscommisioner","Insurance commissioner");
+  state_lib.StateRaces(caURL,"superintendent-race","superintendent","State superintendent of public instruction");
+  state_lib.StateRaces(caURL,"board-2-race","bofe2","Board of Equalization, District 2");
+  state_lib.StateRaces(caURL,"senate-race","senate","U.S. Senate");
+  console.log("refresh state data");
+}, timer5minutes);
+
 // CA propositions map
 var ca_props_lib_map = require("./CAprops_map.js");
 ca_props_lib_map.CAPropsMap(propsCAURL);
@@ -67,6 +84,12 @@ senate_lib.CASenate(senateCAURL,"senate-CA-map");
 // SF mayor and races
 var sf_lib = require("./sf.js");
 sf_lib.SFRaces(localDataURL);
+
+// refresh SF section
+sfsection_timer = setInterval(function() {
+  sf_lib.SFRaces(localDataURL);
+  console.log("refreshing sf data");
+},timer5minutes);
 
 // CA propositions
 var ca_props_lib_boxes = require("./CAprops_boxes.js");
@@ -88,62 +111,73 @@ house_info.CAmapList(assemblyCAURL,"scrolly-assembly-map");
 
 // filling out top races sections
 state_lib.StateRaces(caURL,"governor-race-topraces","governor","CA governor",1);
-// state_lib.StateRaces(caURL,"senate-race-topraces","senate","US Senate",1);
 sf_lib.SFMayorRace(localDataURL,"sfmayor-race-topraces","Cities","SF mayor");
 
-// -----------------------------------------------------------------------------
-// filling in regional RR Prop
-// -----------------------------------------------------------------------------
-d3.json(localDataURL, function(localData){
-  var RRPropData = localData["Special Districts"]["Measures"][0];
-  var RRPropYes = localData["Special Districts"]["Measures"][0]['Yes'];
-  var RRPropNo = localData["Special Districts"]["Measures"][0]['No'];
+// refresh top races
+var topraces_timer = setInterval(function(){
+  state_lib.StateRaces(caURL,"governor-race-topraces","governor","CA governor",1);
+  sf_lib.SFMayorRace(localDataURL,"sfmayor-race-topraces","Cities","SF mayor");
+  console.log("refresh top races section");
+},timer5minutes)
 
-  var propID = document.getElementById('regionalpropR3');
-  var propID2 = document.getElementById('regionalpropR3-topraces');
-  var total = +RRPropYes + +RRPropNo;
-  var propResult = RRPropData;
+function fillRegionalHighlights(){
+  d3.json(localDataURL, function(localData){
 
-  if (total == 0) { total = 0.1;}
-  if (propResult.d == "Yes") {
-    var htmlresult = "<span class='propyes small'><i class='fa fa-check-circle-o' aria-hidden='true'></i>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
-  } else if (propResult.d == "No") {
-    var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'><i class='fa fa-check-circle-o' aria-hidden='true'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</i></span>"
-  } else {
-    var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
-  }
-  var htmlresult = htmlresult+ "<div class='prop-precincts'>"+formatthousands(propResult.p)+" / "+formatthousands(propResult.pt)+" precincts reporting</div>"
-  propID.innerHTML = htmlresult;
-  propID2.innerHTML = htmlresult;
-});
+    // -----------------------------------------------------------------------------
+    // filling in regional RR Prop
+    // -----------------------------------------------------------------------------
+    var RRPropData = localData["Special Districts"]["Measures"][0];
+    var RRPropYes = localData["Special Districts"]["Measures"][0]['Yes'];
+    var RRPropNo = localData["Special Districts"]["Measures"][0]['No'];
 
-// -----------------------------------------------------------------------------
-// filling in Persky Recall
-// -----------------------------------------------------------------------------
+    var propID = document.getElementById('regionalpropR3');
+    var propID2 = document.getElementById('regionalpropR3-topraces');
+    var total = +RRPropYes + +RRPropNo;
+    var propResult = RRPropData;
 
-d3.json(localDataURL, function(localData){
-  var PerskyRecallData = localData["Santa Clara"]["County"][5];
-  var PerskyRecallYes = localData["Santa Clara"]["County"][5]["Yes"];
-  var PerskyRecallNo = localData["Santa Clara"]["County"][5]["No"];
+    if (total == 0) { total = 0.1;}
+    if (propResult.d == "Yes") {
+      var htmlresult = "<span class='propyes small'><i class='fa fa-check-circle-o' aria-hidden='true'></i>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
+    } else if (propResult.d == "No") {
+      var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'><i class='fa fa-check-circle-o' aria-hidden='true'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</i></span>"
+    } else {
+      var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
+    }
+    var htmlresult = htmlresult+ "<div class='prop-precincts'>"+formatthousands(propResult.p)+" / "+formatthousands(propResult.pt)+" precincts reporting</div>"
+    propID.innerHTML = htmlresult;
+    propID2.innerHTML = htmlresult;
 
-  var propID = document.getElementById('perskyrecall');
-  var propID2 = document.getElementById('perskyrecall-topraces');
-  var total = +PerskyRecallYes + +PerskyRecallNo;
-  var propResult = PerskyRecallData;
+    // -----------------------------------------------------------------------------
+    // filling in Persky Recall
+    // -----------------------------------------------------------------------------
+    var PerskyRecallData = localData["Santa Clara"]["County"][5];
+    var PerskyRecallYes = localData["Santa Clara"]["County"][5]["Yes"];
+    var PerskyRecallNo = localData["Santa Clara"]["County"][5]["No"];
 
-  if (total == 0) { total = 0.1;}
-  if (propResult.d == "Yes") {
-    var htmlresult = "<span class='propyes small'><i class='fa fa-check-circle-o' aria-hidden='true'></i>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
-  } else if (propResult.d == "No") {
-    var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'><i class='fa fa-check-circle-o' aria-hidden='true'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</i></span>"
-  } else {
-    var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
-  }
-  var htmlresult = htmlresult+ "<div class='prop-precincts'>"+formatthousands(propResult.p)+" / "+formatthousands(propResult.pt)+" precincts reporting</div>"
-  propID.innerHTML = htmlresult;
-  propID2.innerHTML = htmlresult;
-});
+    var propID = document.getElementById('perskyrecall');
+    var propID2 = document.getElementById('perskyrecall-topraces');
+    var total = +PerskyRecallYes + +PerskyRecallNo;
+    var propResult = PerskyRecallData;
 
+    if (total == 0) { total = 0.1;}
+    if (propResult.d == "Yes") {
+      var htmlresult = "<span class='propyes small'><i class='fa fa-check-circle-o' aria-hidden='true'></i>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
+    } else if (propResult.d == "No") {
+      var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'><i class='fa fa-check-circle-o' aria-hidden='true'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</i></span>"
+    } else {
+      var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
+    }
+    var htmlresult = htmlresult+ "<div class='prop-precincts'>"+formatthousands(propResult.p)+" / "+formatthousands(propResult.pt)+" precincts reporting</div>"
+    propID.innerHTML = htmlresult;
+    propID2.innerHTML = htmlresult;
+  });
+}
+
+fillRegionalHighlights();
+var regionalhighlights_timer = setInterval(function(){
+  fillRegionalHighlights();
+  console.log("refreshing regional highlights");
+},timer5minutes);
 
 // -----------------------------------------------------------------------------
 // sticky nav
