@@ -148,9 +148,7 @@ module.exports = {
         map_body.classList.remove("noclick");
       });
 
-      // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
       var active_data = propsCA[68];
-      // ERROR: CHANGE THIS WHEN THE DATA IS REAL----------------------------------
       camap_function("./assets/maps/ca_county_new.json",active_data.counties);
       catimer_props = setInterval(function() {
         camap_function("./assets/maps/ca_county_new.json",active_data.counties);
