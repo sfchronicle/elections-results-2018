@@ -11,6 +11,10 @@
     border: 1px solid @light-gray;
     padding: 10px 20px 10px 20px;
     margin: 1%;
+    @media @tablet {
+      .flex(0 0 40%);
+      margin: 0 4px;
+    }
     .inner-highlight-flex {
       margin: auto;
       .display-flex();
@@ -18,7 +22,7 @@
       align-items: center;
       justify-content: space-between;
     }
-    @media @mobile {
+    @media @shortlogobreak {
       .flex(0 0 80%);
       border: none;
       border-bottom: 1px solid @light-gray;

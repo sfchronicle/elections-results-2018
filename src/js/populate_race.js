@@ -39,7 +39,8 @@ module.exports = {
       }
       if (racevar["c"+count+"_party"]){
         if (racevar["d"] || racevar["d1"]) {
-          if ((racevar["c"+count+"_name"] == racevar["d"]) && (racevar["c"+count+"_i"] == 1)) {
+          console.log(racevar);
+          if (((racevar["c"+count+"_name"] == racevar["d"]) || (racevar["c"+count+"_name"] == racevar["d1"])) && (racevar["c"+count+"_i"] == 1)) {
             html = html+"<div class='entry'><h3 class='name'><i class='fa fa-check-circle-o' aria-hidden='true'></i>"+racevar["c"+count+"_name"]+" <span class='"+racevar["c"+count+"_party"]+"party party'>" + racevar["c"+count+"_party"] + "</span><i class='fa fa-star' aria-hidden='true'></i></h3><div class='bar' id='"+namekey+"'></div><div class='bar-label'>"+Math.round(racevar["c"+count]/sum*100)+"%</div></div>";
           } else if ((racevar["c"+count+"_name"] == racevar["d1"]) && (racevar["c"+count+"_i"] == 1)) {
             html = html+"<div class='entry'><h3 class='name'><i class='fa fa-check-circle-o' aria-hidden='true'></i>"+racevar["c"+count+"_name"]+" <span class='"+racevar["c"+count+"_party"]+"party party'>" + racevar["c"+count+"_party"] + "</span><i class='fa fa-star' aria-hidden='true'></i></h3><div class='bar' id='"+namekey+"'></div><div class='bar-label'>"+Math.round(racevar["c"+count]/sum*100)+"%</div></div>";
@@ -91,7 +92,7 @@ module.exports = {
       } else {
         if (secondaryflag){
           var width = document.getElementById("top-races-container").getBoundingClientRect().width-80;
-          text_len = 170;
+          // text_len = 180;
           if (screen.width > 480){
             width = width/2;
           }
