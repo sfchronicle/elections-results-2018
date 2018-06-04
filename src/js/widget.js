@@ -1,4 +1,5 @@
 var d3 = require('d3');
+var formatthousands = d3.format("0,000");
 
 // var pollsTimer = setInterval(function () {
 
@@ -55,6 +56,7 @@ var topraces_timer = setInterval(function(){
 
 function fillRegionalHighlights(){
   d3.json(localDataURL, function(localData){
+    console.log('hie!');
 
     // -----------------------------------------------------------------------------
     // filling in regional RR Prop
@@ -83,3 +85,5 @@ function fillRegionalHighlights(){
     
   });
 }
+
+fillRegionalHighlights()
