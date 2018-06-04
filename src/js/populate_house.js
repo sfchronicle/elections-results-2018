@@ -4,7 +4,7 @@
 
 var d3 = require('d3');
 var formatthousands = d3.format("0,000");
-var timer5minutes = 300000;
+var timer5minutes = 100000;
 
 // populate race information
 var populate_race_function = require("./populate_race.js");
@@ -33,6 +33,7 @@ module.exports = {
         d3.json(DataURL, function(Data){
 
           var section = document.getElementById(sectionID);
+          var newmanRecall, newmantotal, newmanYes, newmanNo;
 
           if (sectionID.includes("house")){
             var codeData = houseCodes;
@@ -67,7 +68,24 @@ module.exports = {
                   sum += +tempvar["o"];
                 }
                 if (sum == 0) { sum = 0.1; } // this is a hack for when there are no reported results yet
-                var count = 1; var html_str = "<div class='map-entry map-entry-"+scrollKey+"' id='scrolly"+scrollKey+key+"'><div class='state-name'>"+properties.name+"</div><div class='cand-container'>";
+                var count = 1;
+                if ((key == "6029") && (sectionID.includes("senate"))) {
+                  console.log("WE ARE HERE");
+                  var html_str = "<div class='map-entry map-entry-"+scrollKey+"' id='scrolly"+scrollKey+key+"'><div class='state-name'>"+properties.name+"</div>";
+                  html_str = html_str + "<div>Voters are deciding a recall vote of Sen. Josh Newman. If the recall is successful, the top vote-getter is elected.</div>";
+                  d3.json("https://extras.sfgate.com/editorial/election2018primary/live/ca_summary.json",function(stateData){
+                    newmanRecall = stateData["newmanrecall"]["state"];
+                    newmantotal = +newmanRecall["c1"]+ +newmanRecall["c2"];
+                    newmanYes = +newmanRecall["c2"];
+                    newmanNo = +newmanRecall["c1"];
+                    if (newmantotal == 0){ newmantotal = 0.1;}
+                  });
+                  newmantotal = 0.1, newmanYes = 0, newmanNo = 0;
+                  html_str = html_str + "<div class='result-map'>Yes: "+Math.round(newmanYes/newmantotal*1000)/10+"% <span class='no-class'> No: "+Math.round(newmanNo/newmantotal*1000)/10+"%</span></div>"
+                  html_str = html_str + "<div class='cand-container'>";
+                } else {
+                  var html_str = "<div class='map-entry map-entry-"+scrollKey+"' id='scrolly"+scrollKey+key+"'><div class='state-name'>"+properties.name+"</div><div class='cand-container'>";
+                }
                 while (tempvar["c"+count]) {
                   var party = tempvar["c"+count+"_party"];
                   var key = tempvar["c"+count+"_name"].toLowerCase().replace(/ /g,'').replace("'","");
@@ -143,10 +161,10 @@ module.exports = {
         })
       }
 
-      sidebartimer = setInterval(function() {
-        sidebarEvents()
-        console.log("refresh sidebar"+scrollKey);
-      }, timer5minutes);
+      // sidebartimer = setInterval(function() {
+      //   sidebarEvents()
+      //   console.log("refresh sidebar"+scrollKey);
+      // }, timer5minutes);
 
     }
     loadSidebar().then(()=>sidebarEvents());

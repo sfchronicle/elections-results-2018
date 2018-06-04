@@ -22,7 +22,7 @@ module.exports = {
           sectionIDelem.innerHTML = "<div class='race-block'><h4 class='race sup'>"+raceName+"</h4><div class='instructions left'>Top two candidates advance to general election in November.</div><div id='"+sectionID+"0'></div>";
         }
         var raceID = document.getElementById(sectionID+"0");
-        populate_race_function.populateRace(raceID,cat,10000,1,secondaryflag);
+        populate_race_function.populateRace(raceID,cat,21486,1,secondaryflag);
 
     });
 

@@ -9,7 +9,7 @@ var topojson = require('topojson');
 var maxZoom = 7;
 
 var formatthousands = d3.format("0,000");
-var timer5minutes = 300000;
+var timer5minutes = 100000;
 
 // initialize color
 var lightest_gray = "#D8D8D8";
@@ -68,7 +68,7 @@ module.exports = {
               svgCACounties.selectAll(".states")
                 .data(topojson.feature(us, us.objects.features).features).enter()
                 .append("path")
-                .attr("class", "states unzoomed")
+                .attr("class", "states housestates")
                 .attr("d",path)
                 .attr("id",function(d) {
                   return "house_id"+d.id;
@@ -116,7 +116,7 @@ module.exports = {
                       document.getElementById("svgIDhouse").style.webkitTransform = "translate("+translate[0]+"px,"+translate[1]+"px) scale("+scale+")";
                    }
 
-                  $(".states").removeClass("active");
+                  $(".housestates").removeClass("active");
                   $(".map-entry").removeClass("active");
                   this.classList.add("active");
                   document.getElementById(sidebarinfo).classList.add("active");
@@ -128,7 +128,7 @@ module.exports = {
 
             });
 
-            function unZoomMap(){
+            function unZoomMapH(){
               console.log("unzoom function");
               console.log(zoom);
               console.log(dont_unzoom);
@@ -150,12 +150,12 @@ module.exports = {
             }
 
             document.getElementById("svgIDhouse").addEventListener("click",function(){
-              unZoomMap();
+              unZoomMapH();
             });
             document.getElementById("resethousemap").addEventListener("click",function(){
               zoom = 1;
               dont_unzoom = 0;
-              unZoomMap();
+              unZoomMapH();
             });
 
           };
