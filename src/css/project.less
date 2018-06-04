@@ -14,6 +14,13 @@
   margin: auto;
 }
 
+#slink::after {
+  content: "California";
+  @media @mobile {
+    content: "CA";
+  }
+}
+
 .party-abbrev-container {
   .display-flex;
   .flex-wrap(wrap);
@@ -40,6 +47,11 @@
   @media @mobile {
     padding-bottom: 40px;
   }
+}
+
+.extra-explanation{
+  line-height: 1.2;
+  padding: 5px 0;
 }
 
 .email-us {
@@ -248,13 +260,13 @@ body {
     vertical-align: middle;
     padding-left: 3px;
     .desk-logo {
-      @media @mobile {
+      @media @shortlogobreak {
         display: none;
       }
     }
     .mobile-logo {
       display: none;
-      @media @mobile {
+      @media @shortlogobreak {
         display: inline-block;
       }
     }

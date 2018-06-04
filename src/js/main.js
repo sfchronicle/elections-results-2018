@@ -258,7 +258,3 @@ $(document).on('click', 'a[href^="#"]', function(e) {
     // animated top scrolling
     $('body, html').animate({scrollTop: pos},1000);
 });
-
-if (screen.width <= 480){
-  document.getElementById("slink").innerHTML = "CA";
-}
