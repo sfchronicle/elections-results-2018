@@ -319,6 +319,11 @@ for (var idx=0; idx<storyLinks.length; idx++){
       document.getElementById("measures-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
     } else if(storyLinks[idx].SLUG == "SENATE0606"){
       document.getElementById("senate-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+    } else if(storyLinks[idx].SLUG == "HOUSE0606"){
+      document.getElementById("house-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+    } else if(storyLinks[idx].SLUG == "LEGI0606"){
+      document.getElementById("assembly-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+      document.getElementById("statesenate-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
     }
   }
 }
