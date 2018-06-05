@@ -18,6 +18,12 @@ module.exports = {
         var sectionIDelem = document.getElementById(sectionID);
         if (raceName == "State superintendent of public instruction"){
           sectionIDelem.innerHTML = "<div class='race-block'><h4 class='race sup'>"+raceName+"</h4><div class='instructions left'>Any candidate who gets a majority wins. Otherwise, the top two candidates advance to the general election in November.</div><div id='"+sectionID+"0'></div>";
+        } else if (raceName == "U.S. Senate"){
+          sectionIDelem.innerHTML = "<div class='race-block'><h4 class='race sup'>"+raceName+"<span id='senate-link' class='related-story-link'></span></h4><div class='instructions left'>Top two candidates advance to general election in November.</div><div id='"+sectionID+"0'></div>";
+        } else if (raceName == "Governor" && !secondaryflag){
+          sectionIDelem.innerHTML = "<div class='race-block'><h4 class='race sup'>"+raceName+"<span id='governor-link' class='related-story-link'></span></h4><div class='instructions left'>Top two candidates advance to general election in November.</div><div id='"+sectionID+"0'></div>";
+        } else if (raceName == "Governor" && secondaryflag){
+          sectionIDelem.innerHTML = "<div class='race-block'><h4 class='race sup'>"+raceName+"<span id='governor-link0' class='related-story-link'></span></h4><div class='instructions left'>Top two candidates advance to general election in November.</div><div id='"+sectionID+"0'></div>";
         } else {
           sectionIDelem.innerHTML = "<div class='race-block'><h4 class='race sup'>"+raceName+"</h4><div class='instructions left'>Top two candidates advance to general election in November.</div><div id='"+sectionID+"0'></div>";
         }

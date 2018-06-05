@@ -296,3 +296,30 @@ $(window).focus(function(){
 //   clearInterval(regionalhighlights_timer);
 //   clearInterval(regional_timer);
 // });
+
+setTimeout(function(){
+// adding links to related stories --------------------------------------------------
+for (var idx=0; idx<storyLinks.length; idx++){
+  if (storyLinks[idx].URLs != ""){
+    if (storyLinks[idx].SLUG == "MAYOR0606"){
+      document.getElementById("mayor-link0").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+      document.getElementById("mayor-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+    } else if (storyLinks[idx].SLUG == "GOVERNOR0606"){
+      document.getElementById("governor-link0").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>"
+      document.getElementById("governor-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+    } else if (storyLinks[idx].SLUG == "TOLLS0606") {
+      document.getElementById("rr3-link0").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>"
+      document.getElementById("rr3-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+    } else if (storyLinks[idx].SLUG == "PERSKY0606") {
+      document.getElementById("persky-link0").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>"
+      document.getElementById("persky-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+    } else if(storyLinks[idx].SLUG == "CAPROPS0606"){
+      document.getElementById("props-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+    } else if(storyLinks[idx].SLUG == "SFMEASURES0606"){
+      document.getElementById("measures-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+    } else if(storyLinks[idx].SLUG == "SENATE0606"){
+      document.getElementById("senate-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+    }
+  }
+}
+},1000);

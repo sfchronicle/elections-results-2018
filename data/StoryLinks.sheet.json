@@ -1,0 +1,87 @@
+[
+  {
+    "SLUG": "MAYOR0606",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "SF Mayor + Top Races"
+  },
+  {
+    "SLUG": "GOVERNOR0606",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "Governor race + Top Races"
+  },
+  {
+    "SLUG": "TOLLS0606",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "Regional Measure 3 + Top Races"
+  },
+  {
+    "SLUG": "PERSKY0606",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "Persky + Top Races"
+  },
+  {
+    "SLUG": "SENATE0606",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "U.S. Senate"
+  },
+  {
+    "SLUG": "HOUSE0606",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "House map"
+  },
+  {
+    "SLUG": "CAPROPS0606",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "Propositions"
+  },
+  {
+    "SLUG": "CARACES0606",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "Below Governor or paired at top of California section with Governor"
+  },
+  {
+    "SLUG": "LEGI0606",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "State Assembly + State Senate"
+  },
+  {
+    "SLUG": "SFMEASURES0606",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "SF Measures"
+  },
+  {
+    "SLUG": "EVICT0606 ",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "Prop F"
+  },
+  {
+    "SLUG": "SUPERVISOR0606",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "Supervisor, District 8"
+  },
+  {
+    "SLUG": "TASERS0606",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "Prop H"
+  },
+  {
+    "SLUG": "TAXES0606",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "Props C and D"
+  },
+  {
+    "SLUG": "JUDGES0606 ",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "Judges 4, 7, 9, 11"
+  },
+  {
+    "SLUG": "DA0606 ",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "District Attorney under Alameda County // District Attorney under Contra Costa County"
+  },
+  {
+    "SLUG": "NAPA0606",
+    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
+    "PLACEMENT": "Measure C under Napa"
+  }
+]
