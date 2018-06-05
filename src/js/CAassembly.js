@@ -9,7 +9,6 @@ var topojson = require('topojson');
 var maxZoom = 7;
 
 var formatthousands = d3.format("0,000");
-var timer5minutes = 300000;
 
 // initialize colors
 

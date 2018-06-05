@@ -9,7 +9,6 @@ var topojson = require('topojson');
 var maxZoom = 7;
 
 var formatthousands = d3.format("0,000");
-var timer5minutes = 300000;
 
 // initialize color
 var lightest_gray = "#D8D8D8";
@@ -106,9 +105,6 @@ module.exports = {
 
                   if (!is_safari){
                       svgCACounties.transition()
-                      // .duration(0)
-                      // .attr("transform","scale(1)translate(0,0)")
-                      // .transition()
                       .duration(750)
                       .attr("transform","translate("+translate+")scale("+scale+")");
                    } else {

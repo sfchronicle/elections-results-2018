@@ -6,7 +6,6 @@ var d3 = require('d3');
 var topojson = require('topojson');
 
 var formatthousands = d3.format("0,000");
-var timer5minutes = 100000;
 var yes_map = '#61988E';
 var no_map = '#EB8F6A';
 var undecided_map = "#8C8C8C";

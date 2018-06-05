@@ -267,7 +267,7 @@ $(window).focus(function(){
     sf_lib.SFRaces(localDataURL);
     console.log("refreshing sf data");
 
-    // refresh CA props and SF measures
+    // refresh CA props and SF measures and CA props map
     ca_props_lib_boxes.CAPropsBoxes(propsCAURL);
     ca_props_lib_map.CAPropsMap(propsCAURL);
     sf_measures_lib_boxes.SFmeasuresBoxes(localDataURL);
