@@ -76,10 +76,15 @@ module.exports = {
                   if (sum == 0) { sum = 0.1; } // this is a hack for when there are no reported results yet
                   var count = 1;
                   if ((key == "6029") && (sectionID.includes("senate"))) {
-                    console.log("WE ARE HERE");
                     var html_str = "<div class='map-entry map-entry-"+scrollKey+"' id='scrolly"+scrollKey+key+"'><div class='state-name'>"+properties.name+"</div>";
                     html_str = html_str + "<div class='extra-explanation'>Voters are deciding a recall vote of Sen. Josh Newman. If the recall is successful, the top vote-getter is elected.</div>";
-                    html_str = html_str + "<div class='result-map'>Yes: "+Math.round(newmanYes/newmantotal*1000)/10+"% <span class='no-class'> No: "+Math.round(newmanNo/newmantotal*1000)/10+"%</span></div>"
+                    if (newmanRecall.d == "Yes"){
+                      html_str = html_str + "<div class='result-map'><span class='yesresult'><i class='fa fa-check-circle-o' aria-hidden='true'></i> Yes: "+Math.round(newmanYes/newmantotal*1000)/10+"%</span><span class='no-class'>No: "+Math.round(newmanNo/newmantotal*1000)/10+"%</span></div>"
+                    } else if (newmanRecall.d == "No"){
+                      html_str = html_str + "<div class='result-map'>Yes: "+Math.round(newmanYes/newmantotal*1000)/10+"%<span class='no-class noresult'><i class='fa fa-times-circle-o' aria-hidden='true'></i> No: "+Math.round(newmanNo/newmantotal*1000)/10+"%</span></div>"
+                    } else {
+                      html_str = html_str + "<div class='result-map'>Yes: "+Math.round(newmanYes/newmantotal*1000)/10+"%<span class='no-class'>No: "+Math.round(newmanNo/newmantotal*1000)/10+"%</span></div>";
+                    }
                     html_str = html_str + "<div class='cand-container'>";
                   } else {
                     var html_str = "<div class='map-entry map-entry-"+scrollKey+"' id='scrolly"+scrollKey+key+"'><div class='state-name'>"+properties.name+"</div><div class='cand-container'>";

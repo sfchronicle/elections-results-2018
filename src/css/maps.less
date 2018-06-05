@@ -145,6 +145,24 @@
   .map-entry {
     padding: 10px;
     margin: 2px;
+    .result-map {
+      font-family: @logo2;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 1px;
+      .fa {
+        padding-right: 0;
+      }
+    }
+    .no-class {
+      margin-left: 10px;
+    }
+    .yesresult {
+      border-bottom: 2px solid @green2;
+    }
+    .noresult {
+      border-bottom: 2px solid @red;
+    }
     &:hover {
       cursor: pointer;
       background: lighten(@light-gray,15%);
