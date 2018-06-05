@@ -4,7 +4,7 @@
 
 var d3 = require('d3');
 var formatthousands = d3.format("0,000");
-var timer5minutes = 100000;
+var timer5minutes = 300000;
 
 // populate race information
 var populate_race_function = require("./populate_race.js");

@@ -63,11 +63,6 @@ module.exports = {
           activeMap = 68+index;
           var active_data = propsCA[68+index];
           camap_function("./assets/maps/ca_county_new.json",active_data.counties);
-          // clearTimeout(catimer_props);
-          // catimer_props = setInterval(function() {
-          //   camap_function("./assets/maps/ca_county_new.json",active_data.counties);
-          //   console.log("refresh ca map");
-          // }, timer5minutes);
         });
       });
 
@@ -151,13 +146,8 @@ module.exports = {
         map_body.classList.remove("noclick");
       });
 
-      console.log(activeMap);
       var active_data = propsCA[activeMap];
       camap_function("./assets/maps/ca_county_new.json",active_data.counties);
-      // catimer_props = setInterval(function() {
-      //   camap_function("./assets/maps/ca_county_new.json",active_data.counties);
-      //   console.log("refresh ca map");
-      // }, timer5minutes);
 
     });
 

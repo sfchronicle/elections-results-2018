@@ -20,7 +20,7 @@ var lightest_gray = "#D8D8D8";
 // helpful functions:
 var formatthousands = d3.format("0,000");
 
-var timer5minutes = 100000/4;
+var timer5minutes = 300000;
 
 // loading data sources
 var propsCAURL = "https://extras.sfgate.com/editorial/election2018primary/live/props_county_ca.json";
