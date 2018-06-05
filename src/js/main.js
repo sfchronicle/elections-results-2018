@@ -245,14 +245,12 @@ $(document).on('click', 'a[href^="#"]', function(e) {
 $(window).focus(function(){
 
   // refresh top races
-  var topraces_timer = setInterval(function(){
+  var update_timer = setInterval(function(){
     state_lib.StateRaces(caURL,"governor-race-topraces","governor","Governor",1);
     sf_lib.SFMayorRace(localDataURL,"sfmayor-race-topraces","Cities","SF mayor");
     console.log("refresh top races section");
-  },timer5minutes);
 
-  // refreshing state races
-  var stateraces_timer = setInterval(function() {
+    // refreshing state races
     state_lib.StateRaces(caURL,"governor-race","governor","Governor");
     state_lib.StateRaces(caURL,"lt-governor-race","ltgovernor","Lieutenant governor");
     state_lib.StateRaces(caURL,"sec-state-race","secstate","Secretary of state");
@@ -264,34 +262,31 @@ $(window).focus(function(){
     state_lib.StateRaces(caURL,"board-2-race","bofe2","Board of Equalization, District 2");
     state_lib.StateRaces(caURL,"senate-race","senate","U.S. Senate");
     console.log("refresh state data");
-  }, timer5minutes);
 
-  // refresh SF section
-  var sfsection_timer = setInterval(function() {
+    // refresh SF section
     sf_lib.SFRaces(localDataURL);
     console.log("refreshing sf data");
-  },timer5minutes);
 
-  // refresh CA props and SF measures
-  var props_and_measures_timer = setInterval(function() {
+    // refresh CA props and SF measures
     ca_props_lib_boxes.CAPropsBoxes(propsCAURL);
     ca_props_lib_map.CAPropsMap(propsCAURL);
     sf_measures_lib_boxes.SFmeasuresBoxes(localDataURL);
     console.log("refreshing props and measures and props map");
-  },timer5minutes);
 
-  // refreshing regional highlights
-  var regionalhighlights_timer = setInterval(function(){
+    // refreshing regional highlights
     fillRegionalHighlights();
     console.log("refreshing regional highlights");
-  },timer5minutes);
 
-  // refresh regional section
-  var regional_timer = setInterval(function(){
+    // refresh regional section
     var sectionID = document.getElementById("regional-results-wrapper");
     sectionID.innerHTML = "<div id='regional-results'></div>";
     regional_lib.regionalSection(localDataURL);
     console.log("refreshing regional section");
+
+    // refresh links
+    setTimeout(function(){ fillLinks(); },1000);
+    console.log("refresh links");
+
   },timer5minutes);
 
 });
@@ -307,34 +302,36 @@ $(window).focus(function(){
 //   clearInterval(regional_timer);
 // });
 
-setTimeout(function(){
 // adding links to related stories --------------------------------------------------
-for (var idx=0; idx<storyLinks.length; idx++){
-  if (storyLinks[idx].URLs != ""){
-    if (storyLinks[idx].SLUG == "MAYOR0606"){
-      document.getElementById("mayor-link0").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
-      document.getElementById("mayor-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
-    } else if (storyLinks[idx].SLUG == "GOVERNOR0606"){
-      document.getElementById("governor-link0").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>"
-      document.getElementById("governor-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
-    } else if (storyLinks[idx].SLUG == "TOLLS0606") {
-      document.getElementById("rr3-link0").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>"
-      document.getElementById("rr3-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
-    } else if (storyLinks[idx].SLUG == "PERSKY0606") {
-      document.getElementById("persky-link0").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>"
-      document.getElementById("persky-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
-    } else if(storyLinks[idx].SLUG == "CAPROPS0606"){
-      document.getElementById("props-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
-    } else if(storyLinks[idx].SLUG == "SFMEASURES0606"){
-      document.getElementById("measures-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
-    } else if(storyLinks[idx].SLUG == "SENATE0606"){
-      document.getElementById("senate-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
-    } else if(storyLinks[idx].SLUG == "HOUSE0606"){
-      document.getElementById("house-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
-    } else if(storyLinks[idx].SLUG == "LEGI0606"){
-      document.getElementById("assembly-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
-      document.getElementById("statesenate-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+setTimeout(function(){ fillLinks(); },1000);
+
+function fillLinks(){
+  for (var idx=0; idx<storyLinks.length; idx++){
+    if (storyLinks[idx].URLs != ""){
+      if (storyLinks[idx].SLUG == "MAYOR0606"){
+        document.getElementById("mayor-link0").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("mayor-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+      } else if (storyLinks[idx].SLUG == "GOVERNOR0606"){
+        document.getElementById("governor-link0").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>"
+        document.getElementById("governor-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+      } else if (storyLinks[idx].SLUG == "TOLLS0606") {
+        document.getElementById("rr3-link0").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>"
+        document.getElementById("rr3-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+      } else if (storyLinks[idx].SLUG == "PERSKY0606") {
+        document.getElementById("persky-link0").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>"
+        document.getElementById("persky-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+      } else if(storyLinks[idx].SLUG == "CAPROPS0606"){
+        document.getElementById("props-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+      } else if(storyLinks[idx].SLUG == "SFMEASURES0606"){
+        document.getElementById("measures-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+      } else if(storyLinks[idx].SLUG == "SENATE0606"){
+        document.getElementById("senate-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+      } else if(storyLinks[idx].SLUG == "HOUSE0606"){
+        document.getElementById("house-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+      } else if(storyLinks[idx].SLUG == "LEGI0606"){
+        document.getElementById("assembly-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("statesenate-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+      }
     }
   }
 }
-},1000);
