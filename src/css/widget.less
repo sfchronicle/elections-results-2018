@@ -132,6 +132,17 @@
 
 .link{
   font-size: 16px;
+
+  a{
+    color:#333;
+    &:hover{
+      border-bottom: 2px solid @redlinks;
+    }
+  }
+}
+
+.name {
+  width: 170px !important;
 }
 
 
@@ -145,12 +156,81 @@
 .instructions, 
 .expand-button,
 .regional-county-info,
-.prop-subname,
-.candidate-precincts,
-.prop-precincts{
+.sup{
   display: none !important;
 }
+.race-block{
+  padding-top: 0;
+  text-align: left;
+}
 
-.liveresults{
+.w-race{
+  font-family: 'Lora', Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 600;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  text-align: left;
+  font-size: 16px;
+
+  @media @mobile{
+    border-bottom:none;
+  }
+}
+
+.prop-name{
+  font-size: 16px;
+}
+
+.races-container{
+  margin-bottom: 1em; 
+  .name {
+    font-size: 14px;
+  }
+}
+
+#liveresults{
   display: none;
+}
+
+.Demparty, .GOPparty, .party {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-family: "Hackman-extrabold", Helvetica Neue, Helvetica, sans-serif;
+  padding: 1px 3px 2px;
+}
+
+.regional-callout-flexy .regional-callout {
+  .flex(0 0 100%);
+  text-align: left;
+  padding:0;
+}
+
+.top-flex-container, .regional-callout-flexy{
+  .justify-content(normal);
+}
+
+#top-races-container {
+
+  @media @mobile{
+    padding: 0 10px;
+  }
+}
+
+.top-flex-container .inner-flex{
+
+  @media @mobile{
+    .flex(1 0 48%);
+    &:first-child{
+      border-right: 1px solid #ccc;
+      margin-right: 10px;
+    }
+  }
+}
+
+.races-container .candidate-precincts {
+
+  @media @mobile{
+    font-size: 10px; 
+  }
+
 }

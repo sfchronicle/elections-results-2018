@@ -1,10 +1,10 @@
 var d3 = require('d3');
 var formatthousands = d3.format("0,000");
 
-// var pollsTimer = setInterval(function () {
+var pollsTimer = setInterval(function () {
 
   var today = new Date(), //gets the browser's current time
-  	electionDay = new Date("Jun 05 2018 20:00:00 GMT-0700"), //sets the countdown at 5pm
+  	electionDay = new Date("Jun 05 2018 17:29:00 GMT-0700"), //sets the countdown at 5pm
   	timeLeft = (electionDay.getTime() - today.getTime()),
   	hrsLeft = Math.floor((timeLeft / (1000 * 60 * 60)) % 24),
   	minsLeft = Math.floor((timeLeft / 1000 / 60) % 60),
@@ -12,19 +12,13 @@ var formatthousands = d3.format("0,000");
 
   if (Math.floor(electionDay.getTime()/1000) <= Math.floor(today.getTime()/1000)){
     clearInterval(pollsTimer);
-    if(document.getElementById("links")){
-      document.getElementById("links").innerHTML = (
-        '<div class="link"><a href="https://projects.sfchronicle.com/2018/election-results" target="_blank" title="">Live Results</a></div>' +
-        '<div class="link"><a href="https://www.sfchronicle.com/elections" target="_blank" title="">Live Chat</a></div>' +
-        '<div class="link"><a href="https://www.sfchronicle.com/elections" target="_blank" title="">Election Coverage</a></div>'
-      );
-    }
-    if(document.getElementById("page-links")){
-      document.getElementById("page-links").innerHTML = (
-        '<div class="link"><a href="https://projects.sfchronicle.com/2018/election-results" target="_blank" title="">Live Results</a></div>' +
-        '<div class="link"><a href="https://www.sfchronicle.com/elections" target="_blank" title="">Live Chat</a></div>'
-      );
-    }
+  
+    document.getElementById("w-voterguide").innerHTML = (
+      '<img src="./assets/graphics/rankedchoice_GR.png"><a href="https://projects.sfchronicle.com/2018/voter-guide/" target="_blank"> Live Results</a>'
+    );
+  
+    document.getElementById("liveresults").style.display="block";
+    document.getElementById("w-races").style.display="none";
 
   }else{
     document.getElementById('countdown').style.display = "block";
@@ -35,7 +29,7 @@ var formatthousands = d3.format("0,000");
     );
   }
 
-// }, 1000);
+}, 1000);
 
 var timer5minutes = 300000;
 var state_lib = require("./staterace.js");
@@ -51,12 +45,10 @@ sf_lib.SFMayorRace(localDataURL,"sfmayor-race-topraces","Cities","SF mayor");
 var topraces_timer = setInterval(function(){
   state_lib.StateRaces(caURL,"governor-race-topraces","governor","CA governor",1);
   sf_lib.SFMayorRace(localDataURL,"sfmayor-race-topraces","Cities","SF mayor");
-  console.log("refresh top races section");
 },timer5minutes)
 
 function fillRegionalHighlights(){
   d3.json(localDataURL, function(localData){
-    console.log('hie!');
 
     // -----------------------------------------------------------------------------
     // filling in regional RR Prop
