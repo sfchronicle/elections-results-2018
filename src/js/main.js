@@ -307,7 +307,7 @@ setTimeout(function(){ fillLinks(); },1000);
 
 function fillLinks(){
   for (var idx=0; idx<storyLinks.length; idx++){
-    if (storyLinks[idx].URLs != ""){
+    if (storyLinks[idx].URLs != undefined){
       if (storyLinks[idx].SLUG == "MAYOR0606"){
         document.getElementById("mayor-link0").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
         document.getElementById("mayor-link").innerHTML = "<a href='"+storyLinks[idx].URLs+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";

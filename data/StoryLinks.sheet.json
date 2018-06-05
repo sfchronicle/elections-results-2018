@@ -1,96 +1,84 @@
 [
   {
     "SLUG": "MAYOR0606",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
     "PLACEMENT": "SF Mayor + Top Races",
     "Emma done?": "X"
   },
   {
     "SLUG": "GOVERNOR0606",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
     "PLACEMENT": "Governor race + Top Races",
     "Emma done?": "X"
   },
   {
     "SLUG": "TOLLS0606",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
     "PLACEMENT": "Regional Measure 3 + Top Races",
     "Emma done?": "X"
   },
   {
     "SLUG": "PERSKY0606",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
     "PLACEMENT": "Persky + Top Races",
     "Emma done?": "X"
   },
   {
     "SLUG": "SENATE0606",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
     "PLACEMENT": "U.S. Senate",
     "Emma done?": "X"
   },
   {
     "SLUG": "HOUSE0606",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
     "PLACEMENT": "House map",
     "Emma done?": "X"
   },
   {
     "SLUG": "CAPROPS0606",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
     "PLACEMENT": "Propositions",
     "Emma done?": "X"
   },
   {
     "SLUG": "CARACES0606",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
-    "PLACEMENT": "Below Governor or paired at top of California section with Governor"
+    "PLACEMENT": "Below Governor or paired at top of California section with Governor",
+    "Emma done?": "X"
   },
   {
     "SLUG": "LEGI0606",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
     "PLACEMENT": "State Assembly + State Senate",
     "Emma done?": "X"
   },
   {
     "SLUG": "SFMEASURES0606",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
     "PLACEMENT": "SF Measures",
     "Emma done?": "X"
   },
   {
     "SLUG": "EVICT0606",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
-    "PLACEMENT": "Prop F"
+    "PLACEMENT": "Prop F",
+    "Emma done?": "X"
   },
   {
     "SLUG": "SUPERVISOR0606",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
-    "PLACEMENT": "Supervisor, District 8"
+    "PLACEMENT": "Supervisor, District 8",
+    "Emma done?": "X"
   },
   {
     "SLUG": "TASERS0606",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
-    "PLACEMENT": "Prop H"
+    "PLACEMENT": "Prop H",
+    "Emma done?": "X"
   },
   {
     "SLUG": "TAXES0606",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
-    "PLACEMENT": "Props C and D"
+    "PLACEMENT": "Props C and D",
+    "Emma done?": "X"
   },
   {
     "SLUG": "JUDGES0606 ",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
     "PLACEMENT": "Judges 4, 7, 9, 11"
   },
   {
     "SLUG": "DA0606 ",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
     "PLACEMENT": "District Attorney under Alameda County // District Attorney under Contra Costa County"
   },
   {
     "SLUG": "NAPA0606",
-    "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
     "PLACEMENT": "Measure C under Napa"
   }
 ]
