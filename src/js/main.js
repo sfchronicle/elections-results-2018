@@ -20,7 +20,7 @@ var lightest_gray = "#D8D8D8";
 // helpful functions:
 var formatthousands = d3.format("0,000");
 
-var timer5minutes = 100000;
+var timer5minutes = 1000000000/4;
 
 // loading data sources
 var propsCAURL = "https://extras.sfgate.com/editorial/election2018primary/live/props_county_ca.json";
@@ -123,9 +123,9 @@ function fillRegionalHighlights(){
 
     if (total == 0) { total = 0.1;}
     if (propResult.d == "Yes") {
-      var htmlresult = "<span class='propyes small'><i class='fa fa-check-circle-o' aria-hidden='true'></i>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
+      var htmlresult = "<span class='propyes small yesresult'><i class='fa fa-check-circle-o' aria-hidden='true'></i>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
     } else if (propResult.d == "No") {
-      var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'><i class='fa fa-check-circle-o' aria-hidden='true'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</i></span>"
+      var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small noresult'><i class='fa fa-times-circle-o' aria-hidden='true'></i>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
     } else {
       var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
     }
@@ -147,9 +147,9 @@ function fillRegionalHighlights(){
 
     if (total == 0) { total = 0.1;}
     if (propResult.d == "Yes") {
-      var htmlresult = "<span class='propyes small'><i class='fa fa-check-circle-o' aria-hidden='true'></i>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
+      var htmlresult = "<span class='propyes small yesresult'><i class='fa fa-check-circle-o' aria-hidden='true'></i>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
     } else if (propResult.d == "No") {
-      var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'><i class='fa fa-check-circle-o' aria-hidden='true'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</i></span>"
+      var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small noresult'><i class='fa fa-times-circle-o' aria-hidden='true'></i>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
     } else {
       var htmlresult = "<span class='propyes small'>Yes: "+Math.round(propResult["Yes"]/total*1000)/10+"%</span><span class='propno small'>No: "+Math.round(propResult["No"]/total*1000)/10+"%</span>"
     }
@@ -272,6 +272,13 @@ $(window).focus(function(){
     console.log("refreshing sf data");
   },timer5minutes);
 
+  // refresh CA props and SF measures
+  var props_and_measures_timer = setInterval(function() {
+    ca_props_lib_boxes.CAPropsBoxes(propsCAURL);
+    sf_measures_lib_boxes.SFmeasuresBoxes(localDataURL);
+    console.log("refreshing props and measures");
+  },timer5minutes);
+
   // refreshing regional highlights
   var regionalhighlights_timer = setInterval(function(){
     fillRegionalHighlights();
@@ -280,6 +287,8 @@ $(window).focus(function(){
 
   // refresh regional section
   var regional_timer = setInterval(function(){
+    var sectionID = document.getElementById("regional-results-wrapper");
+    sectionID.innerHTML = "<div id='regional-results'></div>";
     regional_lib.regionalSection(localDataURL);
     console.log("refreshing regional section");
   },timer5minutes);

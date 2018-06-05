@@ -13,7 +13,8 @@ module.exports = {
 
     d3.json(localDataURL, function(localData){
 
-      var localareas = Object.keys(localData);
+      // var localareas = Object.keys(localData);
+      var localareas = ["Sonoma","Solano","Santa Clara","San Mateo","Napa","Marin","Contra Costa","Alameda"];
 
       localareas.forEach(function(locality,lidx){
 
