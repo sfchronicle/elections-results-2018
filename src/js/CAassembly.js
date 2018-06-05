@@ -43,7 +43,7 @@ module.exports = {
 
             var zoom = 0;
             var dont_unzoom = 0;
-            var width = 860;
+            var width = 600;
             var height = 530;
 
             // CA map by county
@@ -55,7 +55,7 @@ module.exports = {
                 .attr("id","svgIDassembly")
               //responsive SVG needs these 2 attributes and no width and height attr
               .attr("preserveAspectRatio", "xMinYMin slice")
-              .attr("viewBox", "50 0 860 530")
+              .attr("viewBox", "0 0 600 530")
               //class to make it responsive
               .classed("svg-content-responsive", true);
 
@@ -96,7 +96,7 @@ module.exports = {
                      x = centroid[0],
                      y = centroid[1];
 
-                var translate = [scale2*(width/2 - x + 50)*scale, scale2*(height/2 - y)*scale];
+                var translate = [scale2*(width/2 - x)*scale, scale2*(height/2 - y)*scale];
 
                 if (!is_safari){
                     svgCACounties.transition()
@@ -152,7 +152,7 @@ module.exports = {
 
           };
 
-          camap_insets_function("./assets/maps/ca_assembly.json",assemblyCA,0);
+          camap_insets_function("./assets/newmaps/ca_assembly.json",assemblyCA,0);
 
       });
 

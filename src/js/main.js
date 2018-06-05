@@ -75,17 +75,12 @@ function loadMaps(){
 };
 
 function loadMapsSidebars(){
-  // return new Promise(function(ok,fail){
 
-    // add sidebars to maps
-    var house_info = require("./populate_house.js");
-    house_info.CAmapList(houseCAURL,"scrolly-house-map");
-    house_info.CAmapList(senateCAURL,"scrolly-statesenate-map");
-    house_info.CAmapList(assemblyCAURL,"scrolly-assembly-map");
-
-    // ok();
-
-  // })
+  // add sidebars to maps
+  var house_info = require("./populate_house.js");
+  house_info.CAmapList(houseCAURL,"scrolly-house-map");
+  house_info.CAmapList(senateCAURL,"scrolly-statesenate-map");
+  house_info.CAmapList(assemblyCAURL,"scrolly-assembly-map");
 
 };
 
@@ -108,7 +103,7 @@ var regional_lib = require("./bayarea.js");
 regional_lib.regionalSection(localDataURL);
 
 // filling out top races sections
-state_lib.StateRaces(caURL,"governor-race-topraces","governor","CA governor",1);
+state_lib.StateRaces(caURL,"governor-race-topraces","governor","Governor",1);
 sf_lib.SFMayorRace(localDataURL,"sfmayor-race-topraces","Cities","SF mayor");
 
 function fillRegionalHighlights(){
@@ -251,7 +246,7 @@ $(window).focus(function(){
 
   // refresh top races
   var topraces_timer = setInterval(function(){
-    state_lib.StateRaces(caURL,"governor-race-topraces","governor","CA governor",1);
+    state_lib.StateRaces(caURL,"governor-race-topraces","governor","Governor",1);
     sf_lib.SFMayorRace(localDataURL,"sfmayor-race-topraces","Cities","SF mayor");
     console.log("refresh top races section");
   },timer5minutes);

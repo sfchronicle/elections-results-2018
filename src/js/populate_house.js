@@ -127,7 +127,7 @@ module.exports = {
       var mapEntries = document.getElementsByClassName(cname);
       console.log(mapEntries.length);
 
-      var width = 860;
+      var width = 600;
       var height = 530;
       var containerwidth = document.getElementById("svgID"+shortKey).getBoundingClientRect().width;
       if (scale2 === 0){
@@ -151,7 +151,7 @@ module.exports = {
             x = bounds.x+bounds.width/2,
             y = bounds.y+bounds.height/2;
 
-          var translate = [scale2*(width / 2 - x + 50)*scale, scale2*(height / 2 - y)*scale];
+          var translate = [scale2*(width / 2 - x)*scale, scale2*(height / 2 - y)*scale];
 
           var svgCACounties = d3.select("#svgID"+shortKey);
           if (!is_safari){
