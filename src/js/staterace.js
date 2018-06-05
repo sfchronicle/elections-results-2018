@@ -21,7 +21,7 @@ module.exports = {
         } else if (raceName == "U.S. Senate"){
           sectionIDelem.innerHTML = "<div class='race-block'><h4 class='race sup'>"+raceName+"<span id='senate-link' class='related-story-link'></span></h4><div class='instructions left'>Top two candidates advance to general election in November.</div><div id='"+sectionID+"0'></div>";
         } else if (raceName == "Governor" && !secondaryflag){
-          sectionIDelem.innerHTML = "<div class='race-block'><h4 class='race sup'>"+raceName+"<span id='governor-link' class='related-story-link'></span></h4><div class='instructions left'>Top two candidates advance to general election in November.</div><div id='"+sectionID+"0'></div>";
+          sectionIDelem.innerHTML = "<div class='race-block'><h4 class='race sup'>"+raceName+"<span id='governor-link' class='related-story-link'></span><span id='governor-link-second' class='related-story-link'></span></h4><div class='instructions left'>Top two candidates advance to general election in November.</div><div id='"+sectionID+"0'></div>";
         } else if (raceName == "Governor" && secondaryflag){
           sectionIDelem.innerHTML = "<div class='race-block'><h4 class='race sup'>"+raceName+"<span id='governor-link0' class='related-story-link'></span></h4><div class='instructions left'>Top two candidates advance to general election in November.</div><div id='"+sectionID+"0'></div>";
         } else {

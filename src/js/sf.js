@@ -29,6 +29,8 @@ module.exports = {
               var districtNum = name.substr(name.indexOf("District ") + 9);
               if (name == "Mayor"){
                 sectionID.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+d.name+"<span id='mayor-link' class='related-story-link'></span></h4><div class='instructions left'>Winner to be determined by ranked-choice voting.</div><div id='district"+districtNum+"'></div>");
+              } else if (name == "Supervisor, District 8"){
+                sectionID.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+d.name+"<span id='sup8-link' class='related-story-link'></span></h4><div class='instructions left'>Winner to be determined by ranked-choice voting.</div><div id='district"+districtNum+"'></div>");
               } else {
                 sectionID.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+d.name+"</h4><div class='instructions left'>The candidate who gets a majority of votes wins.</div><div id='district"+districtNum+"'></div>");
               }

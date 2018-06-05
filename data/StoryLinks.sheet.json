@@ -2,37 +2,44 @@
   {
     "SLUG": "MAYOR0606",
     "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
-    "PLACEMENT": "SF Mayor + Top Races"
+    "PLACEMENT": "SF Mayor + Top Races",
+    "Emma done?": "X"
   },
   {
     "SLUG": "GOVERNOR0606",
     "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
-    "PLACEMENT": "Governor race + Top Races"
+    "PLACEMENT": "Governor race + Top Races",
+    "Emma done?": "X"
   },
   {
     "SLUG": "TOLLS0606",
     "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
-    "PLACEMENT": "Regional Measure 3 + Top Races"
+    "PLACEMENT": "Regional Measure 3 + Top Races",
+    "Emma done?": "X"
   },
   {
     "SLUG": "PERSKY0606",
     "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
-    "PLACEMENT": "Persky + Top Races"
+    "PLACEMENT": "Persky + Top Races",
+    "Emma done?": "X"
   },
   {
     "SLUG": "SENATE0606",
     "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
-    "PLACEMENT": "U.S. Senate"
+    "PLACEMENT": "U.S. Senate",
+    "Emma done?": "X"
   },
   {
     "SLUG": "HOUSE0606",
     "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
-    "PLACEMENT": "House map"
+    "PLACEMENT": "House map",
+    "Emma done?": "X"
   },
   {
     "SLUG": "CAPROPS0606",
     "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
-    "PLACEMENT": "Propositions"
+    "PLACEMENT": "Propositions",
+    "Emma done?": "X"
   },
   {
     "SLUG": "CARACES0606",
@@ -42,15 +49,17 @@
   {
     "SLUG": "LEGI0606",
     "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
-    "PLACEMENT": "State Assembly + State Senate"
+    "PLACEMENT": "State Assembly + State Senate",
+    "Emma done?": "X"
   },
   {
     "SLUG": "SFMEASURES0606",
     "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
-    "PLACEMENT": "SF Measures"
+    "PLACEMENT": "SF Measures",
+    "Emma done?": "X"
   },
   {
-    "SLUG": "EVICT0606 ",
+    "SLUG": "EVICT0606",
     "URLs": "https://www.sfchronicle.com/style/article/Draymond-s-suit-designer-RichFresh-12967236.php",
     "PLACEMENT": "Prop F"
   },
