@@ -14,8 +14,12 @@
 
     @media @tablet {
       .flex(0 0 82%);
-      margin: 10px 4px 10px 4px;
+      margin: 10px 10px 10px 10px;
       
+    }
+    @media @shortlogobreak {
+      .flex(0 0 80%);
+      padding: 15px 10px 15px 10px;
     }
     .inner-voterguide {
       text-align: center;
@@ -23,6 +27,9 @@
 
       @media @mobile {
         font-size: 15px;
+      }
+      @media @shortlogobreak {
+        font-size: 18px;
       }
       a {
         border-bottom: 4px solid #ccc;
@@ -51,6 +58,8 @@
       .flex-wrap(wrap);
       align-items: center;
       justify-content: space-between;
+      vertical-align: middle;
+      height: 100%;
     }
     @media @shortlogobreak {
       .flex(0 0 80%);
@@ -67,10 +76,11 @@
     }
     .highlight-icon {
       .flex(0 0 20%);
-      max-width: 70px;
-      max-height: 70px;
+      width: 100%;
+      height: auto;
       img {
         width: 100%;
+        vertical-align: middle;
       }
     }
     .highlight-deck {
