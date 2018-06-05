@@ -48,7 +48,7 @@ module.exports = {
         this.classList.add("active");
         activeMap = select_race.value;
         var active_data = propsCA[select_race.value];
-        camap_function("./assets/maps/ca_county_new.json",active_data.counties);
+        camap_function("./assets/newmaps/ca_county.json",active_data.counties);
       });
 
       var path = d3.geo.path()
@@ -62,7 +62,7 @@ module.exports = {
           this.classList.add("active");
           activeMap = 68+index;
           var active_data = propsCA[68+index];
-          camap_function("./assets/maps/ca_county_new.json",active_data.counties);
+          camap_function("./assets/newmaps/ca_county.json",active_data.counties);
         });
       });
 
@@ -79,7 +79,7 @@ module.exports = {
           .append("svg")
           //responsive SVG needs these 2 attributes and no width and height attr
           .attr("preserveAspectRatio", "xMinYMin slice")
-          .attr("viewBox", "245 0 475 530")
+          .attr("viewBox", "35 0 530 530")
           //class to make it responsive
           .classed("svg-content-responsive", true);
           // .attr("id","states-props-svg");
@@ -147,7 +147,7 @@ module.exports = {
       });
 
       var active_data = propsCA[activeMap];
-      camap_function("./assets/maps/ca_county_new.json",active_data.counties);
+      camap_function("./assets/newmaps/ca_county.json",active_data.counties);
 
     });
 
