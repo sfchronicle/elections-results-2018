@@ -107,11 +107,11 @@ module.exports = {
                 html_str = html_str +"</div>";
                 // console.log(html_str);
                 section.insertAdjacentHTML("beforeend",html_str);
+                ok();
               }
 
             });
           });
-          ok();
 
         });
 
@@ -126,7 +126,6 @@ module.exports = {
 
       var width = 860;
       var height = 530;
-      console.log($("#svgID"+shortKey));
       var containerwidth = document.getElementById("svgID"+shortKey).getBoundingClientRect().width;
       var scale2 = containerwidth/width;
 
@@ -164,14 +163,24 @@ module.exports = {
            zoom = 1;
         })
       }
-
-      // sidebartimer = setInterval(function() {
-      //   sidebarEvents()
-      //   console.log("refresh sidebar"+scrollKey);
-      // }, timer5minutes);
-
     }
+
+    sidebartimer = setInterval(function() {
+      loadSidebar().then(()=>sidebarEvents());
+      var svgCACounties = d3.select("#svgID"+shortKey);
+      if (!is_safari){
+          svgCACounties.transition()
+           .duration(750)
+           .attr("transform","translate(0,0)scale(1)");
+       } else {
+          document.getElementById("svgID"+shortKey).classList.add("easing-class");
+          document.getElementById("svgID"+shortKey).style.webkitTransform = "translate(0px,0px) scale(1)";
+       }
+      console.log("refresh sidebar"+scrollKey);
+    }, timer5minutes);
+
     loadSidebar().then(()=>sidebarEvents());
 
   }
+
 }

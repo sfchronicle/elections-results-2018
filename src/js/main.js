@@ -50,46 +50,50 @@ state_lib.StateRaces(caURL,"superintendent-race","superintendent","State superin
 state_lib.StateRaces(caURL,"board-2-race","bofe2","Board of Equalization, District 2");
 state_lib.StateRaces(caURL,"senate-race","senate","U.S. Senate");
 
-// refreshing state races
-stateraces_timer = setInterval(function() {
-  state_lib.StateRaces(caURL,"governor-race","governor","Governor");
-  state_lib.StateRaces(caURL,"lt-governor-race","ltgovernor","Lieutenant governor");
-  state_lib.StateRaces(caURL,"sec-state-race","secstate","Secretary of state");
-  state_lib.StateRaces(caURL,"controller-race","controller","Controller");
-  state_lib.StateRaces(caURL,"treasurer-race","treasurer","Treasurer");
-  state_lib.StateRaces(caURL,"attorney-general-race","attygeneral","Attorney general");
-  state_lib.StateRaces(caURL,"insurance-commissioner-race","inscommisioner","Insurance commissioner");
-  state_lib.StateRaces(caURL,"superintendent-race","superintendent","State superintendent of public instruction");
-  state_lib.StateRaces(caURL,"board-2-race","bofe2","Board of Equalization, District 2");
-  state_lib.StateRaces(caURL,"senate-race","senate","U.S. Senate");
-  console.log("refresh state data");
-}, timer5minutes);
-
 // CA propositions map
 var ca_props_lib_map = require("./CAprops_map.js");
 ca_props_lib_map.CAPropsMap(propsCAURL);
 
-// CA house map
-var house_lib = require("./CAhouse.js");
-house_lib.CAHouse(houseCAURL,"house-CA-map");
 
-// CA assembly map
-var assembly_lib = require("./CAassembly.js");
-assembly_lib.CAAssembly(assemblyCAURL,"assembly-CA-map");
+function loadMaps(){
 
-// CA senate map
-var senate_lib = require("./CAsenate.js");
-senate_lib.CASenate(senateCAURL,"senate-CA-map");
+  return new Promise (function(ok,fail){
+    // CA house map
+    var house_lib = require("./CAhouse.js");
+    house_lib.CAHouse(houseCAURL,"house-CA-map");
+
+    // CA assembly map
+    var assembly_lib = require("./CAassembly.js");
+    assembly_lib.CAAssembly(assemblyCAURL,"assembly-CA-map");
+
+    // CA senate map
+    var senate_lib = require("./CAsenate.js");
+    senate_lib.CASenate(senateCAURL,"senate-CA-map");
+
+    ok();
+  });
+};
+
+function loadMapsSidebars(){
+  // return new Promise(function(ok,fail){
+
+    // add sidebars to maps
+    var house_info = require("./populate_house.js");
+    house_info.CAmapList(houseCAURL,"scrolly-house-map");
+    house_info.CAmapList(senateCAURL,"scrolly-statesenate-map");
+    house_info.CAmapList(assemblyCAURL,"scrolly-assembly-map");
+
+    // ok();
+
+  // })
+
+};
+
+loadMaps().then(()=>loadMapsSidebars());
 
 // SF mayor and races
 var sf_lib = require("./sf.js");
 sf_lib.SFRaces(localDataURL);
-
-// refresh SF section
-sfsection_timer = setInterval(function() {
-  sf_lib.SFRaces(localDataURL);
-  console.log("refreshing sf data");
-},timer5minutes);
 
 // CA propositions
 var ca_props_lib_boxes = require("./CAprops_boxes.js");
@@ -103,22 +107,9 @@ sf_measures_lib_boxes.SFmeasuresBoxes(localDataURL);
 var regional_lib = require("./bayarea.js");
 regional_lib.regionalSection(localDataURL);
 
-// add sidebars to maps
-var house_info = require("./populate_house.js");
-house_info.CAmapList(houseCAURL,"scrolly-house-map");
-house_info.CAmapList(senateCAURL,"scrolly-statesenate-map");
-house_info.CAmapList(assemblyCAURL,"scrolly-assembly-map");
-
 // filling out top races sections
 state_lib.StateRaces(caURL,"governor-race-topraces","governor","CA governor",1);
 sf_lib.SFMayorRace(localDataURL,"sfmayor-race-topraces","Cities","SF mayor");
-
-// refresh top races
-var topraces_timer = setInterval(function(){
-  state_lib.StateRaces(caURL,"governor-race-topraces","governor","CA governor",1);
-  sf_lib.SFMayorRace(localDataURL,"sfmayor-race-topraces","Cities","SF mayor");
-  console.log("refresh top races section");
-},timer5minutes)
 
 function fillRegionalHighlights(){
   d3.json(localDataURL, function(localData){
@@ -174,10 +165,6 @@ function fillRegionalHighlights(){
 }
 
 fillRegionalHighlights();
-var regionalhighlights_timer = setInterval(function(){
-  fillRegionalHighlights();
-  console.log("refreshing regional highlights");
-},timer5minutes);
 
 // -----------------------------------------------------------------------------
 // sticky nav
@@ -258,3 +245,59 @@ $(document).on('click', 'a[href^="#"]', function(e) {
     // animated top scrolling
     $('body, html').animate({scrollTop: pos},1000);
 });
+
+// setting intervals on focus -----------------------------------------------------
+$(window).focus(function(){
+
+  // refresh top races
+  var topraces_timer = setInterval(function(){
+    state_lib.StateRaces(caURL,"governor-race-topraces","governor","CA governor",1);
+    sf_lib.SFMayorRace(localDataURL,"sfmayor-race-topraces","Cities","SF mayor");
+    console.log("refresh top races section");
+  },timer5minutes);
+
+  // refreshing state races
+  var stateraces_timer = setInterval(function() {
+    state_lib.StateRaces(caURL,"governor-race","governor","Governor");
+    state_lib.StateRaces(caURL,"lt-governor-race","ltgovernor","Lieutenant governor");
+    state_lib.StateRaces(caURL,"sec-state-race","secstate","Secretary of state");
+    state_lib.StateRaces(caURL,"controller-race","controller","Controller");
+    state_lib.StateRaces(caURL,"treasurer-race","treasurer","Treasurer");
+    state_lib.StateRaces(caURL,"attorney-general-race","attygeneral","Attorney general");
+    state_lib.StateRaces(caURL,"insurance-commissioner-race","inscommisioner","Insurance commissioner");
+    state_lib.StateRaces(caURL,"superintendent-race","superintendent","State superintendent of public instruction");
+    state_lib.StateRaces(caURL,"board-2-race","bofe2","Board of Equalization, District 2");
+    state_lib.StateRaces(caURL,"senate-race","senate","U.S. Senate");
+    console.log("refresh state data");
+  }, timer5minutes);
+
+  // refresh SF section
+  var sfsection_timer = setInterval(function() {
+    sf_lib.SFRaces(localDataURL);
+    console.log("refreshing sf data");
+  },timer5minutes);
+
+  // refreshing regional highlights
+  var regionalhighlights_timer = setInterval(function(){
+    fillRegionalHighlights();
+    console.log("refreshing regional highlights");
+  },timer5minutes);
+
+  // refresh regional section
+  var regional_timer = setInterval(function(){
+    regional_lib.regionalSection(localDataURL);
+    console.log("refreshing regional section");
+  },timer5minutes);
+
+});
+
+// clearing intervals on blur-------------------------------------------------------
+
+// $(window).blur(function(){
+//   console.log("clearing intervals on blur");
+//   clearInterval(stateraces_timer);
+//   clearInterval(sfsection_timer);
+//   clearInterval(topraces_timer);
+//   clearInterval(regionalhighlights_timer);
+//   clearInterval(regional_timer);
+// });
