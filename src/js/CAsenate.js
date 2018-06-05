@@ -66,7 +66,7 @@ module.exports = {
               svgCACounties.selectAll(".states")
               .data(topojson.feature(us, us.objects.features).features).enter()
               .append("path")
-              .attr("class", "states statessenate")
+              .attr("class", "states statesss")
               .attr("d",path)
               .attr("id",function(d) {
                 return "statesenate_id"+d.id;
@@ -111,8 +111,8 @@ module.exports = {
                       document.getElementById("svgIDss").style.webkitTransform = "scale(1) translate(0px,0px) translate("+translate[0]+"px,"+translate[1]+"px) scale("+scale+")";
                    }
 
-                  $(".statessenate").removeClass("active");
-                  $(".map-entry").removeClass("active");
+                  $(".statesss").removeClass("active");
+                  $(".map-entry-statesenate").removeClass("active");
                   this.classList.add("active");
                   document.getElementById(sidebarinfo).classList.add("active");
                   document.getElementById("scrolly-statesenate-map").scrollTop = document.getElementById(sidebarinfo).offsetTop-document.getElementById("scrolly-statesenate-map").offsetTop;
@@ -124,12 +124,9 @@ module.exports = {
             });
 
             function unZoomMapSS(){
-              console.log("unzoom function");
-              console.log(zoom);
-              console.log(dont_unzoom);
               if (zoom === 1 && dont_unzoom === 0){
                 $(".statessenate").removeClass("active");
-                $(".map-entry").removeClass("active");
+                $(".map-entry-statesenate").removeClass("active");
                 if (!is_safari) {
                   svgCACounties.transition()
                    .duration(750)

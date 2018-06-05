@@ -69,7 +69,7 @@ module.exports = {
               svgCACounties.selectAll(".states")
               .data(topojson.feature(us, us.objects.features).features).enter()
               .append("path")
-              .attr("class", "states assemblystates")
+              .attr("class", "states statesassembly")
               .attr("d",path)
               .attr("id",function(d) {
                 return "assembly_id"+d.id;
@@ -110,8 +110,8 @@ module.exports = {
                     document.getElementById("svgIDassembly").style.webkitTransform = "translate("+translate[0]+"px,"+translate[1]+"px) scale("+scale+")";
                  }
 
-                $(".assemblystates").removeClass("active");
-                $(".map-entry").removeClass("active");
+                $(".statesassembly").removeClass("active");
+                $(".map-entry-assembly").removeClass("active");
                 this.classList.add("active");
                 var sidebarinfo = "scrollyassembly"+this.id.split("id0")[1];
                 document.getElementById(sidebarinfo).classList.add("active");
@@ -123,12 +123,9 @@ module.exports = {
             });
 
             function unZoomMapAS(){
-              console.log("unzoom function");
-              console.log(zoom);
-              console.log(dont_unzoom);
               if (zoom === 1 && dont_unzoom === 0){
-                $(".states").removeClass("active");
-                $(".map-entry").removeClass("active");
+                $(".statesassembly").removeClass("active");
+                $(".map-entry-assembly").removeClass("active");
                 if (!is_safari) {
                   svgCACounties.transition()
                     .duration(750)

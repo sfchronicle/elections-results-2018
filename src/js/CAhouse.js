@@ -68,7 +68,7 @@ module.exports = {
               svgCACounties.selectAll(".states")
                 .data(topojson.feature(us, us.objects.features).features).enter()
                 .append("path")
-                .attr("class", "states housestates")
+                .attr("class", "states stateshouse")
                 .attr("d",path)
                 .attr("id",function(d) {
                   return "house_id"+d.id;
@@ -116,8 +116,8 @@ module.exports = {
                       document.getElementById("svgIDhouse").style.webkitTransform = "translate("+translate[0]+"px,"+translate[1]+"px) scale("+scale+")";
                    }
 
-                  $(".housestates").removeClass("active");
-                  $(".map-entry").removeClass("active");
+                  $(".stateshouse").removeClass("active");
+                  $(".map-entry-house").removeClass("active");
                   this.classList.add("active");
                   document.getElementById(sidebarinfo).classList.add("active");
                   document.getElementById("scrolly-house-map").scrollTop = document.getElementById(sidebarinfo).offsetTop-document.getElementById("scrolly-house-map").offsetTop;
@@ -134,7 +134,7 @@ module.exports = {
               console.log(dont_unzoom);
               if (zoom === 1 && dont_unzoom === 0){
                 $(".states").removeClass("active");
-                $(".map-entry").removeClass("active");
+                $(".map-entry-house").removeClass("active");
                 if (!is_safari) {
                   svgCACounties.transition()
                   .duration(750)

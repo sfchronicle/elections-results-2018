@@ -35,6 +35,7 @@ module.exports = {
           d3.json("https://extras.sfgate.com/editorial/election2018primary/live/ca_summary.json",function(stateData){
 
             var section = document.getElementById(sectionID);
+            section.innerHTML = "";
 
             if (sectionID.includes("house")){
               var codeData = houseCodes;
@@ -119,6 +120,8 @@ module.exports = {
 
     }
 
+    var scale2 = 0;
+
     var sidebarEvents = function(){
       var cname = "map-entry-"+scrollKey;
       var mapEntries = document.getElementsByClassName(cname);
@@ -127,15 +130,17 @@ module.exports = {
       var width = 860;
       var height = 530;
       var containerwidth = document.getElementById("svgID"+shortKey).getBoundingClientRect().width;
-      var scale2 = containerwidth/width;
+      if (scale2 === 0){
+        scale2 = containerwidth/width;
+      }
 
       for (var idx=0; idx<mapEntries.length; idx++){
         var tempEntry = mapEntries[idx];
         mapEntries[idx].addEventListener("click",function(d){
-          $(".map-entry").removeClass("active");
+          $(".map-entry-"+scrollKey).removeClass("active");
           this.classList.add("active");
-          $(".states").removeClass("active");
-          $(".states").addClass("faded");
+          $(".states"+shortKey).removeClass("active");
+          $(".states"+shortKey).addClass("faded");
           mapID = document.getElementById(scrollKey+"_id0"+this.id.split(scrollKey)[1]);
           mapID.classList.add("active");
 
@@ -166,7 +171,7 @@ module.exports = {
     }
 
     sidebartimer = setInterval(function() {
-      loadSidebar().then(()=>sidebarEvents());
+
       var svgCACounties = d3.select("#svgID"+shortKey);
       if (!is_safari){
           svgCACounties.transition()
@@ -176,6 +181,9 @@ module.exports = {
           document.getElementById("svgID"+shortKey).classList.add("easing-class");
           document.getElementById("svgID"+shortKey).style.webkitTransform = "translate(0px,0px) scale(1)";
        }
+       $(".states").removeClass("active");
+       $(".map-entry").removeClass("active");
+       loadSidebar().then(()=>sidebarEvents());
       console.log("refresh sidebar"+scrollKey);
     }, timer5minutes);
 
