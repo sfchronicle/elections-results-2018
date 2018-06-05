@@ -76,9 +76,6 @@ module.exports = {
                   if (sum == 0) { sum = 0.1; } // this is a hack for when there are no reported results yet
                   var count = 1;
                   if ((key == "6029") && (sectionID.includes("senate"))) {
-                    console.log("WE ARE HERE");
-                    console.log(newmanRecall);
-                    // newmanRecall.d = "Yes";
                     var html_str = "<div class='map-entry map-entry-"+scrollKey+"' id='scrolly"+scrollKey+key+"'><div class='state-name'>"+properties.name+"</div>";
                     html_str = html_str + "<div class='extra-explanation'>Voters are deciding a recall vote of Sen. Josh Newman. If the recall is successful, the top vote-getter is elected.</div>";
                     if (newmanRecall.d == "Yes"){
