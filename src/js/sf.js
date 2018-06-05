@@ -51,7 +51,6 @@ module.exports = {
     d3.json(localDataURL, function(localData){
       var sectionIDelem = document.getElementById(sectionID);
       var cat = localData["San Francisco"]["Cities"][0];
-      console.log("here?");
       sectionIDelem.innerHTML = "<div class='race-block'><h4 class='race sup'>"+raceName+"<span id='mayor-link0' class='related-story-link'></span></h4><div class='instructions left'>Winner to be determined by ranked-choice voting.</div><div id='"+sectionID+"0'></div>";
       var supeID = document.getElementById(sectionID+"0");
       populate_race_function.populateRace(supeID,cat,0,1,1);

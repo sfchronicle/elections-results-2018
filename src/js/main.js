@@ -275,8 +275,9 @@ $(window).focus(function(){
   // refresh CA props and SF measures
   var props_and_measures_timer = setInterval(function() {
     ca_props_lib_boxes.CAPropsBoxes(propsCAURL);
+    ca_props_lib_map.CAPropsMap(propsCAURL);
     sf_measures_lib_boxes.SFmeasuresBoxes(localDataURL);
-    console.log("refreshing props and measures");
+    console.log("refreshing props and measures and props map");
   },timer5minutes);
 
   // refreshing regional highlights

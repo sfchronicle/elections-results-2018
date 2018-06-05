@@ -29,6 +29,7 @@ function code_map_variable(tempvar,properties){
 
 // tooltip
 var tooltip_function = require("./tooltip.js");
+var activeMap = 68;
 
 module.exports = {
 
@@ -45,6 +46,7 @@ module.exports = {
       select_race.addEventListener("change",function(){
         d3.selectAll(".camap").classed("active",false);
         this.classList.add("active");
+        activeMap = select_race.value;
         var active_data = propsCA[select_race.value];
         camap_function("./assets/maps/ca_county_new.json",active_data.counties);
       });
@@ -58,13 +60,14 @@ module.exports = {
         group.addEventListener("click", function(e) {
           d3.selectAll(".camap").classed("active",false);
           this.classList.add("active");
+          activeMap = 68+index;
           var active_data = propsCA[68+index];
           camap_function("./assets/maps/ca_county_new.json",active_data.counties);
-          clearTimeout(catimer_props);
-          catimer_props = setInterval(function() {
-            camap_function("./assets/maps/ca_county_new.json",active_data.counties);
-            console.log("refresh ca map");
-          }, timer5minutes);
+          // clearTimeout(catimer_props);
+          // catimer_props = setInterval(function() {
+          //   camap_function("./assets/maps/ca_county_new.json",active_data.counties);
+          //   console.log("refresh ca map");
+          // }, timer5minutes);
         });
       });
 
@@ -148,12 +151,13 @@ module.exports = {
         map_body.classList.remove("noclick");
       });
 
-      var active_data = propsCA[68];
+      console.log(activeMap);
+      var active_data = propsCA[activeMap];
       camap_function("./assets/maps/ca_county_new.json",active_data.counties);
-      catimer_props = setInterval(function() {
-        camap_function("./assets/maps/ca_county_new.json",active_data.counties);
-        console.log("refresh ca map");
-      }, timer5minutes);
+      // catimer_props = setInterval(function() {
+      //   camap_function("./assets/maps/ca_county_new.json",active_data.counties);
+      //   console.log("refresh ca map");
+      // }, timer5minutes);
 
     });
 
