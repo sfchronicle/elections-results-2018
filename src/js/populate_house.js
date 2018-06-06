@@ -45,8 +45,8 @@ module.exports = {
               var codeData = statesenateCodes;
               newmanRecall = stateData["newmanrecall"]["state"];
               newmantotal = +newmanRecall["c1"]+ +newmanRecall["c2"];
-              newmanYes = +newmanRecall["c2"];
-              newmanNo = +newmanRecall["c1"];
+              newmanNo = +newmanRecall["c2"];
+              newmanYes = +newmanRecall["c1"];
               if (newmantotal == 0){ newmantotal = 0.1;}
             }
 
