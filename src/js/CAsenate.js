@@ -153,7 +153,7 @@ module.exports = {
 
           };
 
-          camap_insets_function("./assets/newmaps/ca_statesenate.json",senateCA,0);
+          camap_insets_function("./assets/newnewmaps/ca_statesenate.json",senateCA,0);
 
       });
 

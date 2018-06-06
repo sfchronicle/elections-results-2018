@@ -164,11 +164,11 @@
   // map look-up tables
   var stateCodes = <%= JSON.stringify(csv.stateCodes) %>;
   var countyCodes = <%= JSON.stringify(json.countyCodesLookup) %>;
-  var houseCodes = <%= JSON.stringify(csv.house2) %>;
-  var assemblyCodes = <%= JSON.stringify(csv.assembly) %>;
-  var statesenateCodes = <%= JSON.stringify(csv.state_senate) %>;
+  var houseCodes = <%= JSON.stringify(csv.locales_house) %>;
+  var assemblyCodes = <%= JSON.stringify(csv.locales_assembly) %>;
+  var statesenateCodes = <%= JSON.stringify(csv.locales_statesenate) %>;
   // story links
   var storyLinks = <%=JSON.stringify(json.StoryLinks) %>;
 </script>
 
-<script src="app.js?3" async></script>
+<script src="app.js?4" async></script>

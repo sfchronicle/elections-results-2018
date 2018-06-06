@@ -158,9 +158,6 @@ module.exports = {
           var svgCACounties = d3.select("#svgID"+shortKey);
           if (!is_safari){
               svgCACounties.transition()
-               // .duration(0)
-               // .attr("transform","translate(0,0)scale(1)")
-               // .transition()
                .duration(750)
                .attr("transform","translate("+translate+")scale("+scale+")");
            } else {

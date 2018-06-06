@@ -153,7 +153,7 @@ module.exports = {
 
           };
 
-          camap_insets_function("./assets/newmaps/ca_house.json",houseCA,0);
+          camap_insets_function("./assets/newnewmaps/ca_house.json",houseCA,0);
 
       });
 

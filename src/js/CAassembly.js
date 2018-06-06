@@ -148,7 +148,7 @@ module.exports = {
 
           };
 
-          camap_insets_function("./assets/newmaps/ca_assembly.json",assemblyCA,0);
+          camap_insets_function("./assets/newnewmaps/ca_assembly.json",assemblyCA,0);
 
       });
 

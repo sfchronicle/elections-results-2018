@@ -47,7 +47,7 @@ module.exports = {
         this.classList.add("active");
         activeMap = select_race.value;
         var active_data = propsCA[select_race.value];
-        camap_function("./assets/newmaps/ca_county.json",active_data.counties);
+        camap_function("./assets/newnewmaps/ca_county.json",active_data.counties);
       });
 
       var path = d3.geo.path()
@@ -61,7 +61,7 @@ module.exports = {
           this.classList.add("active");
           activeMap = 68+index;
           var active_data = propsCA[68+index];
-          camap_function("./assets/newmaps/ca_county.json",active_data.counties);
+          camap_function("./assets/newnewmaps/ca_county.json",active_data.counties);
         });
       });
 
@@ -146,7 +146,7 @@ module.exports = {
       });
 
       var active_data = propsCA[activeMap];
-      camap_function("./assets/newmaps/ca_county.json",active_data.counties);
+      camap_function("./assets/newnewmaps/ca_county.json",active_data.counties);
 
     });
 
