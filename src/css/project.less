@@ -10,14 +10,12 @@
 
 .related-story-link {
   font-size: 16px;
-  // padding: 0 10px;
   font-family: @logo2;
   font-weight: 600;
   margin-left: 15px;
   text-transform: uppercase;
   @media @mobile {
     padding-bottom: 10px;
-    // margin-left: 5px;
   }
   .fa {
     padding-right: 5px;
@@ -493,7 +491,7 @@ body {
   .display-flex();
   .align-items(center);
   &.props-map-flexbox {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: auto;
   }
   @media @phone-horiz {
@@ -504,14 +502,21 @@ body {
 
 #map-container-state-props {
   .flex(0 0 45%);
+  @media @tablet-horiz {
+    .flex(0 0 50%);
+    margin-right: 5%;
+  }
   @media @phone-horiz {
     .flex(0 0 100%);
-    max-width: 300px;
+    max-width: 350px;
     margin: auto;
     margin-bottom: 17%;
   }
   @media @mobile {
     margin-bottom: 15%;
+  }
+  @media @mini-mobile {
+    max-width: 300px;
   }
 }
 
@@ -521,8 +526,8 @@ body {
   margin-bottom: 10px;
   &.vertical {
     .flex(0 0 45%);
-    @media @tablet {
-      .flex(0 0 45%);
+    @media @tablet-horiz {
+      .flex(0 0 40%);
     }
     @media @phone-horiz {
       display: none;
@@ -657,6 +662,9 @@ body {
   letter-spacing: 0;
   &:hover {
     background: lighten(@light-gray,10%);
+  }
+  @media @mobile {
+    padding-top: 3px;
   }
 }
 

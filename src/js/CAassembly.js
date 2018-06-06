@@ -99,9 +99,6 @@ module.exports = {
 
                 if (!is_safari){
                     svgCACounties.transition()
-                     // .duration(0)
-                     // .attr("transform","scale(1)translate(0,0)")
-                     // .transition()
                      .duration(750)
                      .attr("transform","translate("+translate+")scale("+scale+")");
                  } else {

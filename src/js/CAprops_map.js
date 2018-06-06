@@ -78,7 +78,7 @@ module.exports = {
           .append("svg")
           //responsive SVG needs these 2 attributes and no width and height attr
           .attr("preserveAspectRatio", "xMinYMin slice")
-          .attr("viewBox", "35 0 530 530")
+          .attr("viewBox", "35 0 460 530")
           //class to make it responsive
           .classed("svg-content-responsive", true);
           // .attr("id","states-props-svg");
