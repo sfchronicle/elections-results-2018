@@ -62,6 +62,8 @@ module.exports = {
           html = html+"<div class='entry'><h3 class='name'><i class='fa fa-check-circle-o' aria-hidden='true'></i>"+racevar["c"+count+"_name"]+ "</span></h3><div class='bar' id='"+namekey+"'></div><div class='bar-label' id='barlabel-"+namekey+"'>"+Math.round(racevar["c"+count]/sum*100)+"%</div></div>";
         } else if (racevar["c"+count+"_i"] == 1){
           html = html+"<div class='entry'><h3 class='name'>"+racevar["c"+count+"_name"]+ "<i class='fa fa-star' aria-hidden='true'></i></span></h3><div class='bar' id='"+namekey+"'></div><div class='bar-label' id='barlabel-"+namekey+"'>"+Math.round(racevar["c"+count]/sum*100)+"%</div></div>";
+        } else if (racevar['name']=='Mayor'){
+          html = html+"<div class='entry'><h3 class='name'>"+racevar["c"+count+"_name"]+ "</span></h3><div class='bar' id='"+namekey+"'></div><div class='bar-label' id='barlabel-"+namekey+"'>"+(racevar["c"+count]/sum*100).toFixed(2)+"%</div></div>";
         } else {
           html = html+"<div class='entry'><h3 class='name'>"+racevar["c"+count+"_name"]+ "</span></h3><div class='bar' id='"+namekey+"'></div><div class='bar-label' id='barlabel-"+namekey+"'>"+Math.round(racevar["c"+count]/sum*100)+"%</div></div>";
         }
@@ -98,7 +100,7 @@ module.exports = {
         } else {
           var width = document.getElementById("bayarea").getBoundingClientRect().width-80;
         }
-        var percent = Math.round(racevar["c"+count2]/sum*100);
+        var percent = racevar["c"+count2]/sum*100;
         var pixels = (width-text_len)*(percent/100);
         pixels = Math.max(pixels,0);
         document.getElementById(String(namekey)).style.width = String(pixels)+"px";
