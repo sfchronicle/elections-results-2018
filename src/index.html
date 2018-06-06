@@ -76,7 +76,7 @@
 <div class="page-hed">Top Races</div>
 <div class="races-hed top-races-hed">
   <div class="key">Key:
-    <span class="symbol"><i class='fa fa-check-circle-o' aria-hidden='true'></i>Winners</span>
+    <span class="symbol"><i class='fa fa-check-circle-o' aria-hidden='true'></i>Winners</span> | <span class="symbol"><i class='fa fa-star' aria-hidden='true'></i>Incumbent</span>
   </div>
 </div>
 <div id="topraces" class="topraces-section">
@@ -87,7 +87,7 @@
 <div id="federal">
   <div class="races-hed">
     <div class="key">Key:
-      <span class="symbol"><i class='fa fa-check-circle-o' aria-hidden='true'></i>Winners</span>
+      <span class="symbol"><i class='fa fa-check-circle-o' aria-hidden='true'></i>Winners</span> | <span class="symbol"><i class='fa fa-star' aria-hidden='true'></i>Incumbent</span>
     </div>
   </div>
   <div class="races-container">
@@ -109,7 +109,7 @@
 <div id="state">
   <div class="races-hed">
     <div class="key">Key:
-      <span class="symbol"><i class='fa fa-check-circle-o' aria-hidden='true'></i>Winner</span>
+      <span class="symbol"><i class='fa fa-check-circle-o' aria-hidden='true'></i>Winners</span> | <span class="symbol"><i class='fa fa-star' aria-hidden='true'></i>Incumbent</span>
     </div>
   </div>
   <div class="races-container">
@@ -134,7 +134,7 @@
 <div id="sf">
   <div class="races-hed">
     <div class="key">Key:
-      <span class="symbol"><i class='fa fa-check-circle-o' aria-hidden='true'></i>Winner</span>
+      <span class="symbol"><i class='fa fa-check-circle-o' aria-hidden='true'></i>Winner</span> | <span class="symbol"><i class='fa fa-star' aria-hidden='true'></i>Incumbent</span>
     </div>
   </div>
   <div class="races-container">
@@ -154,8 +154,6 @@
 <%= t.include("partials/_credits.html") %>
 <%= t.include("partials/_about_the_data.html") %>
 
-<%= t.include("partials/_footer.html") %>
-
 <script>
   // map look-up tables
   var stateCodes = <%= JSON.stringify(csv.stateCodes) %>;
@@ -169,5 +167,4 @@
 
 <script src="app.js?11" async></script>
 
-<!-- hotfix -->
-<style>.fa-star{display: none;}</style>
+<%= t.include("partials/_footer.html") %>
