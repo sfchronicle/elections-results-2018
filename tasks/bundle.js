@@ -18,7 +18,8 @@ module.exports = function(grunt) {
     var seeds = {
       "./src/js/main.js": "build/app.js",
       "./src/js/widget.js": "build/widget.js",
-      "./src/js/xcp.js": "build/xcp.js"
+      "./src/js/xcp.js": "build/xcp.js",
+      "./src/js/sfmayor-widget.js": "build/sfmayor-widget.js"
     };
 
     async.forEachOf(seeds, function(dest, src, c) {

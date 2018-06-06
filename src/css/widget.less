@@ -30,41 +30,7 @@
   src: url("//www.sfchronicle.com/css/hdn/fonts/hackman/hackman-medium-webfont.eot");
   src: url("//www.sfchronicle.com/css/hdn/fonts/hackman/hackman-medium-webfont.eot?") format("embedded-opentype"), url("//www.sfchronicle.com/css/hdn/fonts/hackman/hackman-medium-webfont.woff") format("woff"), url("//www.sfchronicle.com/css/hdn/fonts/hackman/hackman-medium-webfont.ttf") format("truetype");
 }
-@font-face {
-  font-family: "Sanchez-black";
-  font-weight: normal;
-  font-style: normal;
-  src: url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-black/Sanchez-Black.eot");
-  src: url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-black/Sanchez-Black.eot?#iefix") format("embedded-opentype"), url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-black/Sanchez-Black.woff") format("woff"), url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-black/Sanchez-Black.ttf") format("truetype"), url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-black/Sanchez-Black.svg#Sanchez-Black") format("svg");
-}
-@font-face {
-  font-family: "Sanchez-bold";
-  font-weight: normal;
-  font-style: normal;
-  src: url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-bold/Sanchez-Bold.eot");
-  src: url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-bold/Sanchez-Bold.eot?#iefix") format("embedded-opentype"), url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-bold/Sanchez-Bold.woff") format("woff"), url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-bold/Sanchez-Bold.ttf") format("truetype"), url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-bold/Sanchez-Bold.svg#Sanchez-Bold") format("svg");
-}
-@font-face {
-  font-family: "Sanchez Italic";
-  font-weight: normal;
-  font-style: normal;
-  src: url("/css/hdn/fonts/sanchez/sanchez-italic/Sanchez-Italic.eot");
-  src: url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-italic/Sanchez-Italic.eot?#iefix") format("embedded-opentype"), url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-italic/Sanchez-Italic.woff") format("woff"), url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-italic/Sanchez-Italic.ttf") format("truetype"), url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-italic/Sanchez-Italic.svg#Sanchez-Italic") format("svg");
-}
-@font-face {
-  font-family: "Sanchez";
-  font-weight: normal;
-  font-style: normal;
-  src: url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-regular/Sanchez-Regular.eot");
-  src: url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-regular/Sanchez-Regular.eot?#iefix") format("embedded-opentype"), url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-regular/Sanchez-Regular.woff") format("woff"), url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-regular/Sanchez-Regular.ttf") format("truetype"), url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-regular/Sanchez-Regular.svg#Sanchez-Regular") format("svg");
-}
-@font-face {
-  font-family: "Sanchez Semibold";
-  font-weight: normal;
-  font-style: normal;
-  src: url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-semibold/Sanchez-Semibold.eot");
-  src: url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-semibold/Sanchez-Semibold.eot?#iefix") format("embedded-opentype"), url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-semibold/Sanchez-Semibold.woff") format("woff"), url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-semibold/Sanchez-Semibold.ttf") format("truetype"), url("//www.sfchronicle.com/css/hdn/fonts/sanchez/sanchez-semibold/Sanchez-Semibold.svg#Sanchez-Semibold") format("svg");
-}
+@import 'values';
 /*
 Shims for Flexbox - should work on Safari and IE10+
 */
@@ -73,7 +39,7 @@ Shims for Flexbox - should work on Safari and IE10+
   display: -ms-flexbox;
   display: flex;
 }
-@graphics * {
+* {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -2007,6 +1973,10 @@ h3 {
 #liveresults {
   display: none;
 }
+
+#liveresults.sfmayor{
+  display: block;
+}
 .Demparty,
 .GOPparty,
 .party {
@@ -2076,5 +2046,37 @@ h3 {
 @media (max-width: 480px) {
   .races-container .candidate-precincts {
     font-size: 10px;
+  }
+}
+
+.w-banner{
+
+  &.sfmayor{
+    max-width: 300px;
+  }
+}
+
+
+#liveresults{
+
+  &.sfmayor{
+    margin-top: -15px;
+
+    .bar {
+      display: block;
+    }
+
+    h3{
+      margin:0 auto 10px;
+      font-family: Lora;
+      line-height: 1;
+      font-size: 1.5em;
+      span{
+        font-family:"Hackman-extrabold", Helvetica Neue, Helvetica, sans-serif;
+        text-transform: uppercase;
+        font-size: 12px;
+        color:@redlinks;
+      }
+    }
   }
 }
