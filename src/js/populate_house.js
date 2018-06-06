@@ -79,7 +79,7 @@ module.exports = {
                   if ((key == "6029") && (sectionID.includes("senate"))) {
                     var html_str = "<div class='map-entry map-entry-"+scrollKey+"' id='scrolly"+scrollKey+key+"'><div class='state-name'>"+properties.name+"</div>";
                     html_str = html_str + "<div class='extra-explanation'>Voters are deciding a recall vote of Sen. Josh Newman. If the recall is successful, the top vote-getter is elected.</div>";
-                    if (newmanRecall.d == "Yes"){
+                    if (newmanRecall.d == " Yes"){
                       html_str = html_str + "<div class='result-map'><span class='yesresult'><i class='fa fa-check-circle-o' aria-hidden='true'></i> Yes: "+Math.round(newmanYes/newmantotal*1000)/10+"%</span><span class='no-class'>No: "+Math.round(newmanNo/newmantotal*1000)/10+"%</span></div>"
                     } else if (newmanRecall.d == "No"){
                       html_str = html_str + "<div class='result-map'>Yes: "+Math.round(newmanYes/newmantotal*1000)/10+"%<span class='no-class noresult'><i class='fa fa-times-circle-o' aria-hidden='true'></i> No: "+Math.round(newmanNo/newmantotal*1000)/10+"%</span></div>"
@@ -93,10 +93,12 @@ module.exports = {
                   while (tempvar["c"+count]) {
                     var party = tempvar["c"+count+"_party"];
                     var key = tempvar["c"+count+"_name"].toLowerCase().replace(/ /g,'').replace("'","");
-                    if (tempvar["c"+count+"_name"] == tempvar.d) {
-                      html_str = html_str + "<div class='cand-line'><i class='fa fa-check-circle-o' aria-hidden='true'></i>"+tempvar["c"+count+"_name"]+" <span class='party "+key+" "+party+"party'>"+tempvar["c"+count+"_party"]+"</span> "+Math.round(tempvar["c"+count]/sum*1000)/10+"%</div>";
-                    } else if (tempvar["c"+count+"_name"] == tempvar["d1"]) {
-                      html_str = html_str + "<div class='cand-line'><i class='fa fa-check-circle-o' aria-hidden='true'></i>"+tempvar["c"+count+"_name"]+" <span class='party "+key+" "+party+"party'>"+tempvar["c"+count+"_party"]+"</span> "+Math.round(tempvar["c"+count]/sum*1000)/10+"%</div>";
+                    if (((tempvar["c"+count+"_name"] == tempvar["d"]) || (tempvar["c"+count+"_name"] == tempvar["d1"])) && (tempvar["c"+count+"_i"] == 1)) {
+                      html_str = html_str + "<div class='cand-line'><i class='fa fa-check-circle-o' aria-hidden='true'></i>"+tempvar["c"+count+"_name"]+" <span class='party "+key+" "+party+"party'>"+tempvar["c"+count+"_party"]+"</span><i class='fa fa-star' aria-hidden='true'></i> "+Math.round(tempvar["c"+count]/sum*1000)/10+"%</div>";
+                    } else if ((tempvar["c"+count+"_name"] == tempvar["d"]) || (tempvar["c"+count+"_name"] == tempvar["d1"])) {
+                        html_str = html_str + "<div class='cand-line'><i class='fa fa-check-circle-o' aria-hidden='true'></i>"+tempvar["c"+count+"_name"]+" <span class='party "+key+" "+party+"party'>"+tempvar["c"+count+"_party"]+"</span> "+Math.round(tempvar["c"+count]/sum*1000)/10+"%</div>";
+                    } else if (tempvar["c"+count+"_i"] == 1) {
+                      html_str = html_str + "<div class='cand-line'><i class='fa fa-check-circle-o' aria-hidden='true'></i>"+tempvar["c"+count+"_name"]+" <span class='party "+key+" "+party+"party'>"+tempvar["c"+count+"_party"]+"</span><i class='fa fa-star' aria-hidden='true'></i> "+Math.round(tempvar["c"+count]/sum*1000)/10+"%</div>";
                     } else {
                       html_str = html_str + "<div class='cand-line'>"+tempvar["c"+count+"_name"]+" <span class='party "+key+" "+party+"party'>"+tempvar["c"+count+"_party"]+"</span> "+Math.round(tempvar["c"+count]/sum*1000)/10+"%</div>";
                     }
@@ -108,7 +110,6 @@ module.exports = {
                   html_str = html_str+"</div><div class='precincts-info'>"+formatthousands(tempvar.p)+"/"+formatthousands(properties.precincts)+" precincts reporting</div>";
                 }
                 html_str = html_str +"</div>";
-                // console.log(html_str);
                 section.insertAdjacentHTML("beforeend",html_str);
                 ok();
               }
