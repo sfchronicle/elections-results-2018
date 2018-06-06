@@ -28,7 +28,7 @@ module.exports = {
               var name = d.name;
               var districtNum = name.substr(name.indexOf("District ") + 9);
               if (name == "Mayor"){
-                sectionID.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+d.name+"<span id='mayor-link' class='related-story-link'></span></h4><div class='instructions left'>Results reflect first-choice vote only; winner to be determined via ranked-choice tabulations.</div><div id='district"+districtNum+"'></div>");
+                sectionID.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+d.name+"<span id='mayor-link' class='related-story-link'></span></h4><div class='instructions left'>Winner to be determined by ranked-choice voting.</div><div id='district"+districtNum+"'></div>");
               } else if (name == "Supervisor, District 8"){
                 sectionID.insertAdjacentHTML("beforeend","<div class='race-block'><h4 class='race sup'>"+d.name+"<span id='sup8-link' class='related-story-link'></span></h4><div class='instructions left'>Winner to be determined by ranked-choice voting.</div><div id='district"+districtNum+"'></div>");
               } else {
@@ -53,7 +53,7 @@ module.exports = {
     d3.json(localDataURL, function(localData){
       var sectionIDelem = document.getElementById(sectionID);
       var cat = localData["San Francisco"]["Cities"][0];
-      sectionIDelem.innerHTML = "<div class='race-block'><h4 class='race sup'>"+raceName+"<span id='mayor-link0' class='related-story-link'></span></h4><div class='instructions left'>Results reflect first-choice vote only; winner to be determined via ranked-choice tabulations.</div><div id='"+sectionID+"0'></div>";
+      sectionIDelem.innerHTML = "<div class='race-block'><h4 class='race sup'>"+raceName+"<span id='mayor-link0' class='related-story-link'></span></h4><div class='instructions left'>Winner to be determined by ranked-choice voting.</div><div id='"+sectionID+"0'></div>";
       var supeID = document.getElementById(sectionID+"0");
       populate_race_function.populateRace(supeID,cat,0,1,1);
 
