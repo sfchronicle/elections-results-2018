@@ -242,7 +242,7 @@ $(document).on('click', 'a[href^="#"]', function(e) {
 });
 
 // setting intervals on focus -----------------------------------------------------
-$(window).focus(function(){
+// $(window).focus(function(){
 
   // refresh top races
   var update_timer = setInterval(function(){
@@ -289,7 +289,7 @@ $(window).focus(function(){
 
   },timer5minutes);
 
-});
+// });
 
 // clearing intervals on blur-------------------------------------------------------
 
