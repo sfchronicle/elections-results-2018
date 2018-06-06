@@ -1,7 +1,7 @@
 var pollsTimer = setInterval(function () {
 
   var today = new Date(), //gets the browser's current time
-  	electionDay = new Date("Jun 05 2018 17:29:00 GMT-0700"), //sets the countdown at 5pm
+  	electionDay = new Date("Jun 05 2018 17:00:00 GMT-0700"), //sets the countdown at 5pm
   	timeLeft = (electionDay.getTime() - today.getTime()),
   	hrsLeft = Math.floor((timeLeft / (1000 * 60 * 60)) % 24),
   	minsLeft = Math.floor((timeLeft / 1000 / 60) % 60),
