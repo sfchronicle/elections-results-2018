@@ -309,39 +309,44 @@ function fillLinks(){
   for (var idx=0; idx<storyLinks.length; idx++){
     if (storyLinks[idx].URL != undefined){
       if (storyLinks[idx].SLUG == "MAYOR0606"){
-        document.getElementById("mayor-link0").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
-        document.getElementById("mayor-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("mayor-link0").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
+        document.getElementById("mayor-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
       } else if (storyLinks[idx].SLUG == "GOVERNOR0606"){
-        document.getElementById("governor-link0").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>"
-        document.getElementById("governor-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("governor-link0").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>"
+        document.getElementById("governor-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
       } else if (storyLinks[idx].SLUG == "TOLLS0606") {
-        document.getElementById("rr3-link0").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>"
-        document.getElementById("rr3-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("rr3-link0").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>"
+        document.getElementById("rr3-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
       } else if (storyLinks[idx].SLUG == "PERSKY0606") {
-        document.getElementById("persky-link0").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>"
-        document.getElementById("persky-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("persky-link0").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>"
+        document.getElementById("persky-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
       } else if(storyLinks[idx].SLUG == "CAPROPS0606"){
-        document.getElementById("props-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("props-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
       } else if(storyLinks[idx].SLUG == "SFMEASURES0606"){
-        document.getElementById("measures-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("measures-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
       } else if(storyLinks[idx].SLUG == "SENATE0606"){
-        document.getElementById("senate-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("senate-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
       } else if(storyLinks[idx].SLUG == "HOUSE0606"){
-        document.getElementById("house-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("house-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
       } else if(storyLinks[idx].SLUG == "LEGI0606"){
-        document.getElementById("assembly-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
-        document.getElementById("statesenate-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("assembly-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
+        document.getElementById("statesenate-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
       } else if (storyLinks[idx].SLUG == "EVICT0606"){
-        document.getElementById("measure-link-measF").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("measure-link-measF").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
       } else if (storyLinks[idx].SLUG == "TASERS0606"){
-        document.getElementById("measure-link-measH").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("measure-link-measH").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
       } else if (storyLinks[idx].SLUG == "TAXES0606") {
-        document.getElementById("measure-link-measC").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
-        document.getElementById("measure-link-measD").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("measure-link-measC").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
+        document.getElementById("measure-link-measD").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
       } else if (storyLinks[idx].SLUG == "SUPERVISOR0606") {
-        document.getElementById("sup8-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("sup8-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
       } else if (storyLinks[idx].SLUG == "CARACES0606"){
-        document.getElementById("governor-link-second").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>Read the story</a>";
+        document.getElementById("governor-link-second").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
+      } else if (storyLinks[idx].SLUG == "JUDGES0606"){
+        document.getElementById("superiorcourtjudgeoffice4-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
+        document.getElementById("superiorcourtjudgeoffice7-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
+        document.getElementById("superiorcourtjudgeoffice9-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
+        document.getElementById("superiorcourtjudgeoffice11-link").innerHTML = "<a href='"+storyLinks[idx].URL+"' target='_blank'><i class='fa fa-external-link'></i>"+storyLinks[idx].URLlink+"</a>";
       }
     }
   }

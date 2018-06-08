@@ -92,10 +92,11 @@ module.exports = {
       } else {
         if (secondaryflag){
           var width = document.getElementById("top-races-container").getBoundingClientRect().width-80;
-          // text_len = 180;
-          if (screen.width > 480){
-            width = width/2;
-          }
+          // PUT THIS BACK LATER-------------------------------------------
+          // if (screen.width > 480){
+          //   width = width/2;
+          // }
+          // PUT THIS BACK LATER-------------------------------------------
         } else {
           var width = document.getElementById("bayarea").getBoundingClientRect().width-80;
         }

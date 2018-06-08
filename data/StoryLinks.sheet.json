@@ -2,100 +2,117 @@
   {
     "SLUG": "MAYOR0606",
     "URL": "https://www.sfchronicle.com/politics/article/Breed-takes-lead-over-Leno-Kim-in-earliest-12970895.php",
+    "URLlink": "Leno, Breed ranked-choice vote",
     "PLACEMENT": "SF Mayor + Top Races",
     "Emma done?": "X"
   },
   {
     "SLUG": "GOVERNOR0606",
     "URL": "https://www.sfchronicle.com/politics/article/Gavin-Newsom-grabs-early-lead-in-CA-governor-s-12970788.php",
+    "URLlink": "It's Newsom vs. Cox",
     "PLACEMENT": "Governor race + Top Races",
     "Emma done?": "X"
   },
   {
     "SLUG": "TOLLS0606",
     "URL": "https://www.sfchronicle.com/bayarea/article/Bridge-toll-hikes-to-improve-regional-12970833.php",
+    "URLlink": "$3 bridge toll increase",
     "PLACEMENT": "Regional Measure 3 + Top Races",
     "Emma done?": "X"
   },
   {
     "SLUG": "PERSKY0606",
     "URL": "https://www.sfchronicle.com/bayarea/article/Judge-Persky-losing-in-bid-to-avoid-recall-12970799.php",
+    "URLlink": "Persky is recalled",
     "PLACEMENT": "Persky + Top Races",
     "Emma done?": "X"
   },
   {
     "SLUG": "SENATE0606",
     "URL": "https://www.sfchronicle.com/politics/article/Dianne-Feinstein-leads-as-Kevin-de-Le-n-vies-for-12970829.php",
+    "URLlink": "It's Feinstein vs. de Leon",
     "PLACEMENT": "U.S. Senate",
     "Emma done?": "X"
   },
   {
     "SLUG": "HOUSE0606",
     "URL": "https://www.sfchronicle.com/politics/article/Democrats-in-California-watch-House-votes-in-hope-12970995.php",
+    "URLlink": "Democrats survive",
     "PLACEMENT": "House map",
     "Emma done?": "X"
   },
   {
     "SLUG": "CAPROPS0606",
     "URL": "https://www.sfchronicle.com/politics/article/California-s-Proposition-68-for-outdoor-funds-12970797.php",
+    "URLlink": "California proposition roundup",
     "PLACEMENT": "Propositions",
     "Emma done?": "X"
   },
   {
     "SLUG": "CARACES0606",
     "URL": "https://www.sfchronicle.com/politics/article/California-election-results-Poizner-leads-for-12970845.php",
+    "URLlink": "Poizner a step closer",
     "PLACEMENT": "Below Governor or paired at top of California section with Governor",
     "Emma done?": "X"
   },
   {
     "SLUG": "LEGI0606",
     "URL": "https://www.sfchronicle.com/politics/article/State-Legislature-Democrat-s-bid-to-reclaim-12970972.php",
+    "URLlink": "Dems' supermajority at stake",
     "PLACEMENT": "State Assembly + State Senate",
     "Emma done?": "X"
   },
   {
     "SLUG": "SFMEASURES0606",
     "URL": "https://www.sfchronicle.com/bayarea/article/San-Francisco-ban-on-flavored-tobacco-education-12970903.php",
+    "URLlink": "Flavored tobacco ban passes",
     "PLACEMENT": "SF Measures",
     "Emma done?": "X"
   },
   {
     "SLUG": "EVICT0606",
     "URL": "https://www.sfchronicle.com/politics/article/SF-Measure-F-to-give-tax-funded-legal-help-to-12970924.php",
+    "URLlink": "SF's Measure F wins",
     "PLACEMENT": "Prop F",
     "Emma done?": "X"
   },
   {
     "SLUG": "SUPERVISOR0606",
     "URL": "https://www.sfchronicle.com/politics/article/Mandelman-leading-incumbent-Sheehy-in-SF-s-12970893.php",
+    "URLlink": "Mandelman ousts Sheehy",
     "PLACEMENT": "Supervisor, District 8",
     "Emma done?": "X"
   },
   {
     "SLUG": "TASERS0606",
     "URL": "https://www.sfchronicle.com/crime/article/Election-results-San-Francisco-Taser-measure-12970941.php",
+    "URLlink": "Taser measure defeated",
     "PLACEMENT": "Prop H",
     "Emma done?": "X"
   },
   {
     "SLUG": "TAXES0606",
     "URL": "https://www.sfchronicle.com/politics/article/San-Francisco-voters-rejecting-Props-C-and-D-12970911.php",
+    "URLlink": "SF split decision",
     "PLACEMENT": "Props C and D",
     "Emma done?": "X"
   },
   {
-    "SLUG": "JUDGES0606 ",
+    "SLUG": "JUDGES0606",
     "URL": "https://www.sfchronicle.com/bayarea/article/Public-defenders-challenges-to-12970921.php",
+    "URLlink": "Incumbent judges win",
     "PLACEMENT": "Judges 4, 7, 9, 11"
   },
   {
     "SLUG": "DA0606 ",
     "URL": "https://www.sfchronicle.com/politics/article/Alameda-County-District-Attorney-Nancy-O-Malley-12970811.php",
+    "URLlink": "O'Malley prevails",
     "PLACEMENT": "District Attorney under Alameda County // District Attorney under Contra Costa County"
   },
   {
     "SLUG": "NAPA0606",
     "URL": "https://www.sfchronicle.com/news/article/Measure-to-restrict-Napa-County-vineyards-neck-12970781.php",
+    "URLlink": "Too close to call in Napa",
     "PLACEMENT": "Measure C under Napa"
   }
 ]
